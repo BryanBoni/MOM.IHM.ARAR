@@ -7,3 +7,16 @@ body{
 #basic-addon1 b{
     color: #af4805;
 }
+
+#header{
+}
+
+#corps{
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    background-color: #f3f3f2;
+}
+
+#footer{
+}
