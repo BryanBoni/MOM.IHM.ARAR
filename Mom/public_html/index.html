@@ -5,10 +5,34 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="Ressources/favicon.ico" type="image/gif">
-        <title>Hello </title>
-        <link rel="stylesheet" type="text/css" href="Vue/main.css">
-    </head>
+        <title>Laboratoire ArAr</title>
+        
+        <!--Bootstrap & Jquery call -->
+        <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script></head>
+        <link rel="stylesheet" type="text/css" href="Vue/style/main.css">
     <body>
-        <a href="Controlleur/home.php">Link</a>
+            <center>
+                <h1>Base de données du laboratoire ArAr</h1>
+                <br /><br />
+                <img src="Ressources/poterie.png" style="width: 150px;"/>
+                <br /><br />
+                <div id="titleIndex" class="col-sm-offset-3 col-sm-6">
+                    <form action="Controlleur/home.php" method="get">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1"><b>Recherche :</b></span>
+                            <input type="text" name="search" aria-describedby="basic-addon1" class = "form-control" id="searchTxt" placeholder="Je recherche..."/>
+                            <span class="input-group-btn">
+                                <button  id = "searchBtn" class="btn btn-danger " name = "searchBtn" type="submit"><span class="glyphicon glyphicon-search"/></button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </center>
     </body>
 </html>
