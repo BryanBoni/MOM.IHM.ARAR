@@ -5,18 +5,78 @@ body{
 }
 
 #basic-addon1 b{
-    color: #af4805;
+    color: #9f540d;
 }
 
 #header{
+    margin: 0px;
+    width: 100%;
+    background-color: #8e3c06;
 }
 
-#corps{
+#corps{  
     font-size: 16px;
     color: black;
+    text-align: justify;
+}
+
+#corps h2{
+    color: #8e3c06;
+}
+
+#filter{
+    margin-top: 0px;
+    background-color: #8e3c06;
+    color: white;
+    border-top-left-radius: 5px;
+    width: 100%;
+}
+#cadre{
+    padding: 0px;
+}
+
+
+
+#corps img{
+    float: right;
+}
+
+#filterList{
+    font-size: 100%;
+    padding: 10px;
+    text-align: justify;
+}
+
+#filterList b{
+    color: #8e3c06;
+}
+
+#cadre:first-child{
+    border-right: 1px solid #af4805;
+    border-bottom: 1px solid #af4805;
+}
+#cadre:last-child{
+    padding: 5px;
+    text-align: justify;
+}
+
+#advSearch{
+    background-color: white;
+    border-radius: 3px;
+    padding: 0px;
     text-align: center;
-    background-color: #f3f3f2;
+    -webkit-box-shadow: inset 0 1px 0 rgba( 255, 255, 255, .15 ), 0 0 1.25em rgba( 0, 0, 0, .5 ); /* 20 */
+    -moz-box-shadow: inset 0 1px 0 rgba( 255, 255, 255, .15 ), 0 0 1.25em rgba( 0, 0, 0, .5 ); /* 20 */
+    box-shadow: inset 0 1px 0 rgba( 255, 255, 255, .15 ), 0 0 1.25em rgba( 0, 0, 0, .5 ); /* 20 */
 }
 
 #footer{
+    background-color: #8e3c06;
+    color: white;
+    padding: 10px;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    width:100%;
+
 }

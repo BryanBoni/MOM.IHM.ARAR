@@ -9,7 +9,7 @@
         <link rel="shortcut icon" href="../Ressources/favicon.ico" type="image/gif">
         <title><?php echo $title ?></title>
         <!--Bootstrap & Jquery call -->
-        <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+        <script src="../Model/javascript/jquery-1.12.3.min.js"></script>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
         <!-- Optional theme -->
@@ -19,8 +19,13 @@
         <link rel="stylesheet" type="text/css" href="../Vue/style/main.css">
 </head>
 <body>
-    <div id = "header"></div>
-    <div id = "corps"><?php echo $content ?></div>
+    <div id = "header">
+        hs
+    </div>
+    <div id = "corps" class = "col-sm-10 col-sm-offset-1">
+        
+        <?php echo $content ?>
+    </div>
     <div id = "footer"></div>
 </body>
 </html>
