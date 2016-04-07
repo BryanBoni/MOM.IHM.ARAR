@@ -41,21 +41,24 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <form class="navbar-form navbar-left" role="search">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Ajouter à la recherche">
-                            </div>
-                            <button type="submit" class="btn btn-default"><b class = "glyphicon glyphicon-search"></b></button>
+                            <div class="form-group" >
+                                <input type="text" class="form-control" placeholder="Ajouter à la recherche" name ="search"/>
+                            </div>                    
+                                <button type="submit" class="btn btn-default " ><b class = "glyphicon glyphicon-search"></b></button>
                         </form>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
     </div>
-    <div class = "container">
+    <div class = "container-fluid">
         <div id = "corps" class = "col-sm-10 col-sm-offset-1">
             <?php echo $content ?>
         </div>
     </div>
-    <div id = "footer"></div>
+    <br /><br /><br /><br />
+    <div id = "footer">
+        2016 <b>Laboratoire ArAr. Archéologie et Archéométrie</b> - Tout droit réservé. Créer par <b>Bryan Boni</b> & <b>Gabriel Coutu</b>
+    </div>
 </body>
 </html>

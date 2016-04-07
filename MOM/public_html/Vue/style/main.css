@@ -2,6 +2,10 @@ body{
     color: #af4805;
     background-color: #f3f3f2;
     font-family: HelveticaNeueLTCom-ThCn;
+
+}
+html{
+    min-width: 300px;
 }
 
 #basic-addon1 b{
@@ -12,12 +16,18 @@ body{
     margin: 0px;
     text-align: center;
     background-color: #8e3c06;
+    padding-top: 10px;
+}
+
+#header nav{
+    background-color: #f3f3f2;
+    margin-top: 10px;
 }
 
 #corps{  
     font-size: 16px;
     color: black;
-    text-align: justify;
+    text-align: left;
 }
 
 #corps h2{
@@ -45,11 +55,15 @@ body{
 #filterList{
     font-size: 100%;
     padding: 10px;
-    text-align: justify;
+    text-align: left;
 }
 
 #filterList b{
     color: #8e3c06;
+}
+
+#filterList ul{
+    list-style-type: none;
 }
 
 #cadre:first-child{
@@ -79,5 +93,5 @@ body{
     left:0px;
     bottom:0px;
     width:100%;
-
 }
+
