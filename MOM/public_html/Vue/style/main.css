@@ -10,7 +10,7 @@ body{
 
 #header{
     margin: 0px;
-    width: 100%;
+    text-align: center;
     background-color: #8e3c06;
 }
 
@@ -39,6 +39,7 @@ body{
 
 #corps img{
     float: right;
+    padding: 10px;
 }
 
 #filterList{
