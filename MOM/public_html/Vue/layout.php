@@ -15,12 +15,15 @@
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
         <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script></head>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="http://maps.googleapis.com/maps/api/js"></script>
+        <script src = "../Model/javascript/detailObj.js"></script>
+    </head>
     <link rel="stylesheet" type="text/css" href="../Vue/style/main.css">
 </head>
 <body>
     <div id = "header">
-        <img src = "../Ressources/bandeau.png" style = "width: 300px; height: 100px;"/><!-- Need to create  a custom one -->
+        <a href = "http://www.arar.mom.fr/"><img src = "../Ressources/bandeau.png" style = "width: 300px; height: 100px;"/></a><!-- Need to create  a custom one -->
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -37,7 +40,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">Recherche Avancée</a></li>
+                        <li><a href="rechAvc.php">Recherche Avancée</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <form class="navbar-form navbar-left" role="search">

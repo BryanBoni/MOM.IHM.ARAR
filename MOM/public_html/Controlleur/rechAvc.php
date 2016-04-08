@@ -56,7 +56,7 @@ $content = $content.
 $content = $content . "" 
             . "<div class = \"col-sm-9\" id = \"cadre\">"
                 . "<b>votre recherche : </b><font color = \"red\">" . htmlspecialchars($_GET["search"])."</font>"
-                . ""
+                . "<br /><a href = \"details.php\">LINK</a>"
             . "</div>"
         . "</div>";
 
