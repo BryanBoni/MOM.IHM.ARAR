@@ -93,12 +93,13 @@ $content = $content . ""
                     . "</ul>"
                 . "</nav>"
                 . "<br /><a href = \"details.php\">LINK</a><br /><br />"
-                ;
+                . "<div class = \"row\" id = \"ooo\">";
 for($i = 0; $i < 15; $i++){
     $content = $content . "<div id =\"imageObj".$i."\">$minObject</div>";
 }
 
 $content = $content . ""
+                    . "</div>"
                 . "</div>"
             . "</div>"
         . "</div>";

@@ -34,8 +34,6 @@ html{
     color: #8e3c06;
 }
 
-
-
 #descGene{
     //border: 1px solid gray;
     text-align: left;
@@ -75,8 +73,10 @@ html{
 }
 
 #ooo{
-    
-    display: inline-block;
+}
+
+.thumbnail img{
+    text-align: center;
 }
 
 #short{

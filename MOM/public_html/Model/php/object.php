@@ -22,8 +22,8 @@ class object {
         $content = "";
         
         $content = $content . ""
-                . "<div class = \"row\" id = \"ooo\">"
-                .   "<div class = \"col-xs-offset-1 col-xs-3 col-md-4\" >"
+                
+                .   "<div class = \" col-xs-6 col-sm-6 col-md-4 col-lg-3\" >"
                 .       "<div class = \"thumbnail\">"
                 .           "<img src = " . $this -> _image . "></img>"
                 .           "<div class = \"caption\">"
@@ -32,7 +32,7 @@ class object {
                 .           "</div>"
                 .       "</div>"
                 .   "</div>"
-                . "</div>";
+                ;
         return $content;
     }
 }
