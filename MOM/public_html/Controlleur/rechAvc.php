@@ -1,13 +1,16 @@
 <?php
 //import
 include_once (dirname(dirname(__FILE__)) . "/Model/php/search.php");
+include_once (dirname(dirname(__FILE__)) . "/Model/php/object.php");
 
 //Variables
 $title = "Home | Laboratoire ArAr";
 $search = new search();
+$objet = new object("../Ressources/objectBeta/fry.png", "Fry", "he is a dumb but he is funny.");
 $content = "";
-
-
+$sizeList = 100;
+$i = 0;
+$ResultPerPage = 15;
 //here is the filter
 $content = $content . "<div class=\"row\">"
             . "<div class = \"col-sm-7\">"
@@ -28,6 +31,7 @@ $content = $content . "<div class=\"row\">"
 
 $filterList = $search -> getFilterList(); //get the filter research list in search().
 $text = $search -> getFilterText(); //get the filter sub-research list in search().
+$minObject = $objet -> minDisplay(); //get the object display.
 
 foreach($filterList as $value){
     $content = $content
@@ -53,14 +57,50 @@ $content = $content.
                 "</div>"
             . "</div>";
 //here is the result list.
+
+
 $content = $content . "" 
             . "<div class = \"col-sm-9\" id = \"cadre\">"
-                . "<b>votre recherche : </b><font color = \"red\">" . htmlspecialchars($_GET["search"])."</font>"
-                . "<br /><a href = \"details.php\">LINK</a>"
+                . "<div id = \"short\">"
+                    . "<div class=\"imgNb imgNb-active\"> 15 </div><div class=\"imgNb\"> 30 </div><div class=\"imgNb\"> 45 </div> Résultat par page <div class=\"imgNb glyphicon glyphicon-picture\" aria-hidden=\"true\"></div> Image seulement <div class = \"imgNb imgNb-active glyphicon glyphicon-th\" aria-hidden=\"true\"></div> Image et Texte <div class =\"imgNb glyphicon glyphicon-list\" aria-hidden=\"true\"></div> affichage en Liste";
+
+$content = $content . "</div>"
+                . "<p style=\"float: left;\"><b>votre recherche : </b><font color = \"red\">" . htmlspecialchars($_GET["search"])."</font></p><p style=\"float: right;\"> $sizeList résultats</p>"
+                . "<br />"
+                . ""
+            
+                . "<nav style =\"text-align: center; color: red; border-top: 1px solid #8e3c06;border-bottom: 1px solid #8e3c06; margin: 0px;\" >"
+                    
+                    . "<ul class = \"pagination\" style=\" margin: 0px; margin-top: 8px;\">"
+                        . "<li>"
+                            . "<a href = \"#\" aria-label = \"Previous\"><span aria-hidden = \"true\">&laquo;</span></a>"
+                        . "</li>";
+while($i <= ($sizeList / $ResultPerPage)){
+        if($i == 0){
+            $content = $content . "<li role = \"presentation\"  ><a href=\"#\">". $i ."</a></li>";
+        }else{
+            $content = $content . "<li role = \"presentation\"><a href=\"#\">". $i ."</a></li>";
+        }
+        $i += 1;   
+}
+
+$content = $content . ""
+                        . "<li>"
+                            . "<a href=\"#\" aria-label=\"Next\">"
+                                . "<span aria-hidden=\"true\">&raquo;</span>"
+                            . "</a>"
+                        . "</li>"
+                    . "</ul>"
+                . "</nav>"
+                . "<br /><a href = \"details.php\">LINK</a><br /><br />"
+                ;
+for($i = 0; $i < 15; $i++){
+    $content = $content . "<div id =\"imageObj".$i."\">$minObject</div>";
+}
+
+$content = $content . ""
+                . "</div>"
             . "</div>"
         . "</div>";
 
 require_once (dirname(dirname(__FILE__)) . "/Vue/layout.php");
-
-
-?>

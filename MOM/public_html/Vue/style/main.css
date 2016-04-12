@@ -53,6 +53,39 @@ html{
     height:380px;
 }
 
+.imgNb{
+    border: 1px solid black;
+    display: inline-block;
+    margin: 3px;
+    padding: 4px;
+}
+
+.imgNb-active{
+    border-color: #8e3c06;
+    color: #8e3c06;
+}
+
+.imgNb:hover{
+    background-color: #8e3c06;
+    color: white;
+} 
+
+#men{
+    margin: 10px;
+}
+
+#ooo{
+    
+    display: inline-block;
+}
+
+#short{
+    text-align: center;
+    margin: 5px; 
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea; 
+}
+
 #obj3d{
     border: 1px solid #cccccc;
     height: 300px;
