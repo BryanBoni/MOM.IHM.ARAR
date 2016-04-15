@@ -4,6 +4,13 @@ body{
     font-family: HelveticaNeueLTCom-ThCn;
 
 }
+#gg{
+    margin: 0px;
+    padding: 2px;
+    border: 1px #eaeaea solid;
+    border-radius: 5px;
+}
+
 html{
     min-width: 300px;
 }
@@ -73,6 +80,8 @@ html{
 }
 
 #ooo{
+    padding: 5px;
+    text-align: left;
 }
 
 .thumbnail img{
@@ -135,6 +144,8 @@ html{
     padding: 5px;
     text-align: justify;
 }
+
+
 
 #advSearch{
     background-color: white;

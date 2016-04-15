@@ -18,6 +18,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="http://maps.googleapis.com/maps/api/js"></script>
         <script src = "../Model/javascript/detailObj.js"></script>
+
     </head>
     <link rel="stylesheet" type="text/css" href="../Vue/style/main.css">
 </head>
@@ -47,7 +48,7 @@
                             <div class="form-group" >
                                 <input type="text" class="form-control" placeholder="Ajouter à la recherche" name ="search"/>
                             </div>                    
-                                <button type="submit" class="btn btn-default " ><b class = "glyphicon glyphicon-search"></b></button>
+                            <button type="submit" class="btn btn-default " ><b class = "glyphicon glyphicon-search"></b></button>
                         </form>
                     </ul>
                 </div><!-- /.navbar-collapse -->
@@ -63,5 +64,6 @@
     <div id = "footer">
         2016 <b>Laboratoire ArAr. Archéologie et Archéométrie</b> - Tout droit réservé. Créer par <b>Bryan Boni</b> & <b>Gabriel Coutu</b>
     </div>
+    <script src = "../Model/javascript/filterMenu.js"></script>
 </body>
 </html>
