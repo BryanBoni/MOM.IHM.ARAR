@@ -39,7 +39,7 @@
         renderer.domElement.setAttribute("id","charlyTroisD");
         container.appendChild( renderer.domElement );
 
-        renderer.domElement.addEventListener( 'mousedown', onDocumentMouseDown, false );
+        //renderer.domElement.addEventListener( 'mousedown', onDocumentMouseDown, false );
         //renderer.domElement.addEventListener( 'mouseup', onDocumentMouseUp, false );
         window.addEventListener( 'resize', onWindowResize, false );
 
@@ -107,7 +107,7 @@
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
     }
-    function onDocumentMouseDown( event ) {
+    /*function onDocumentMouseDown( event ) {
         event.preventDefault();
         raycaster.setFromCamera( mouse, camera );
     }

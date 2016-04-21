@@ -5,7 +5,7 @@
 var fileInput = document.querySelector('#file');
 var preview = document.getElementById("fileList");
 var folder = document.getElementById("createFolder");
-var progress = document.querySelector("#progress");
+//var progress = document.querySelector("#progress");
 
 fileSelect();
 

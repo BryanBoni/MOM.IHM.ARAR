@@ -20,6 +20,7 @@ Ici se trouve le layout (template) créé pour servire de structure au autres pa
         <script src = "../Model/javascript/detailObj.js"></script>
     </head>
     <link rel="stylesheet" type="text/css" href="../Vue/style/main.css">
+    <link rel="stylesheet" type="text/css" href="../Vue/style/css3D.css">
 </head>
 <body>
     <div id = "header">
