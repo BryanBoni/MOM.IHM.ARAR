@@ -20,7 +20,7 @@ $content = $content . ""
         . "<br />"
         . "<div class = \"row\" id = \"advSearch\">"
             . "<input id=\"file\" type=\"file\" multiple /><br />"//to select 0 - N file(s).
-            . "<div id = \"fileList\"></div>". $file ->createFile()
+            . "<div id = \"fileList\"></div>"/*. $file ->createFile()*/
             . "<progress id = \"progress\"></progress>"
             . "<div id = \"createFolder\"></div>"
         . "</div>";

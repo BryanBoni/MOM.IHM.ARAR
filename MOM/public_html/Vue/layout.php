@@ -55,7 +55,7 @@ Ici se trouve le layout (template) créé pour servire de structure au autres pa
                             </form>
                         </li>
 
-                                                      <li style="text-align: left;"><!-- <a href="../Controlleur/connexion.php"><p class="glyphicon glyphicon-user" style="margin: 0px;"> Utilisateur</p></a> --></li>
+                        <li style="text-align: left;"><a href="../Controlleur/connexion.php"><p class="glyphicon glyphicon-user" style="margin: 0px;"> </p></a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -67,8 +67,8 @@ Ici se trouve le layout (template) créé pour servire de structure au autres pa
         </div>
     </div>
     <br /><br /><br /><br />
-    
-        
+
+
     <div id = "footer">
         2016 <b>Laboratoire ArAr. Archéologie et Archéométrie</b> - Tout droit réservé. Créer par <b>Bryan Boni</b> & <b>Gabriel Coutu</b>
     </div>
