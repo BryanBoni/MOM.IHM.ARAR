@@ -2,11 +2,15 @@
 //import
 include_once (dirname(dirname(__FILE__)) . "/Model/php/search.php");
 include_once (dirname(dirname(__FILE__)) . "/Model/php/object.php");
+include_once (dirname(dirname(__FILE__)) . "/Model/php/db_connect.php");
+//include_once (dirname(dirname(__FILE__)) . "/Model/php/listes_opts.php");
 
 //Variables
 $title = "Home | Laboratoire ArAr";
 $search = new search();
 $objet = new object("../Ressources/objectBeta/fry.png", "Fry", "he is a dumb but he is funny.", 1001);
+$accesDb = new db_connect();
+
 $content = "";
 $sizeList = 100;
 $i = 0;
@@ -61,11 +65,18 @@ $content = $content.
             . "</div>";
 //here is the result list.
 
-
+//here is the display option
 $content = $content . "" 
             . "<div class = \"col-sm-9\" id = \"cadre\" ><div id=\"gg\">"
                 . "<div id = \"short\">"
-                    . "<div class=\"imgNb imgNb-active\"> 15 </div><div class=\"imgNb\"> 30 </div><div class=\"imgNb\"> 45 </div> Résultat par page <div class=\"imgNb glyphicon glyphicon-picture\" aria-hidden=\"true\"></div> Image seulement <div class = \"imgNb imgNb-active glyphicon glyphicon-th\" aria-hidden=\"true\"></div> Image et Texte <div class =\"imgNb glyphicon glyphicon-list\" aria-hidden=\"true\"></div> affichage en Liste";
+                    . "<div style = \"float: left;\">"
+                        . "Résultats par pages : <div class=\"imgNb imgNb-active\"> 15 </div><div class=\"imgNb\"> 30 </div><div class=\"imgNb\"> 45 </div>"
+                    . "</div>"
+                    . "<div style = \"float: right;\">"
+                        . "<div class = \"imgNb glyphicon glyphicon-picture\" aria-hidden = \"true\" title = \"Image seulement\"></div>"
+                        . "<div class = \"imgNb imgNb-active glyphicon glyphicon-th\" aria-hidden = \"true\" title = \"Image et Texte\"></div>"
+                        . "<div class =\"imgNb glyphicon glyphicon-list\" aria-hidden=\"true\" title = \"affichage en Liste\"></div>"
+                    . "</div><br /><br />";
 
 $content = $content . "</div>"
                 . "<p style=\"float: left;\"><b>votre recherche : </b><font color = \"red\">" . htmlspecialchars($_GET["search"])."</font></p><p style=\"float: right;\"> $sizeList résultats</p>"
@@ -81,7 +92,7 @@ $content = $content . "</div>"
 
 while($i <= ($sizeList / $ResultPerPage)){
         if($i == 0){
-            $content = $content . "<li role = \"presentation\"  ><a href=\"#\">". $i ."</a></li>";
+            $content = $content . "<li role = \"presentation\"  class = \"active\"><a href=\"#\">". $i ."</a></li>";
         }else{
             $content = $content . "<li role = \"presentation\"><a href=\"#\">". $i ."</a></li>";
         }
@@ -102,6 +113,8 @@ for($i = 0; $i < 15; $i++){
     $content = $content . "<div id =\"imageObj".$i."\">$minObject</div>";
 }
 
+//$content = $content . $accesDb -> selection();
+
 $content = $content . ""
                     . "</div>"
                 . "<nav style =\"text-align: center;\" >"    
@@ -112,7 +125,7 @@ $content = $content . ""
 $i -= $i;
 while($i <= ($sizeList / $ResultPerPage)){
         if($i == 0){
-            $content = $content . "<li role = \"presentation\"  ><a href=\"#\">". $i ."</a></li>";
+            $content = $content . "<li role = \"presentation\" class = \"active\" ><a href=\"#\">". $i ."</a></li>";
         }else{
             $content = $content . "<li role = \"presentation\"><a href=\"#\">". $i ."</a></li>";
         }

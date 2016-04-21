@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            file
+        </title>
+    </head>
+    <body>
+
+        S&eacute;lectionnez plusieurs images<br>
+        <input id="file" type="file" accept="image/*" multiple onchange="filesProcess(this.files)"
+               name="selection"/><br>
+        <button onclick="envoyer()">envoyer</button><br>
+        <span id="result"></span>
+        <script>
+            var fichiers = new Object();
+            var j = 0;
+
+
+            function suppr(i)
+            {
+                alert('valeur de i : ' + i);
+                document.getElementById("result").innerHTML = '';
+                alert('on a tout efface');
+                var nfichiers = new Object();
+                for (nb = 0; nb < i; nb++)
+                    nfichiers[nb] = fichiers[nb];
+                for (nb2 = i; nb2 < j - 1; nb2++)
+                    nfichiers[nb2] = fichiers[nb2 + 1];
+                alert('valeur nb2 ' + nb2);
+                for (k = 0; k < j - 1; k++) {
+                    alert('valeurs k :' + k);
+                    selection += "<button onclick=\"suppr(" + k + ")\">Supprimer></button><img src=\"" + window.URL.createObjectURL(nfichiers[k]) + "\"><br>";
+                    window.URL.revokeObjectURL(nfichiers[k]);
+                }
+                document.getElementById("result").innerHTML = selection;
+
+
+
+            }
+            function filesProcess(files) {
+                for (i = 0; i < files.length; i++) {
+                    fichiers[j] = files[i];//alert('valeur j : '+j);
+                    selection = "<button onclick=\"suppr(" + j + ")\">Supprimer</button><img src=\"" + window.URL.createObjectURL(files[i]) + "\"><br>";
+                    window.URL.revokeObjectURL(files[i]);
+                    j++;
+                }
+                //			     selection += document.getElementById("result").innerHTML += selection;
+                document.getElementById("result").innerHTML += selection;
+
+            }
+
+            function envoyer()
+            {
+                var formData = new FormData();
+                var fileInputElement = document.querySelector('#file');
+                for (i = 0; i < j; i++)
+                {
+                    alert('etape' + i);
+                    formData.append("userfile" + i, fichiers[i]);
+                }
+
+
+                var req = new XMLHttpRequest();
+                req.open("POST", "http://ceramom.mom.fr/~charly/brouillon/cible2.php");
+                req.send(formData);
+            }
+
+        </script>
+</html>

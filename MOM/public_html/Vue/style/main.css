@@ -15,6 +15,10 @@ html{
     min-width: 300px;
 }
 
+#menuBar{
+    font-size: 24px;
+}
+
 #basic-addon1 b{
     color: #9f540d;
 }
@@ -41,10 +45,18 @@ html{
     color: #8e3c06;
 }
 
-#descGene{
-    //border: 1px solid gray;
-    text-align: left;
+#short{
     
+    padding-top: 5px;
+}
+
+#descGene{
+    
+    text-align: left;
+}
+
+#navBar{
+    padding-top: 5px;
 }
 
 #galMap{
@@ -82,6 +94,12 @@ html{
 #ooo{
     padding: 5px;
     text-align: left;
+}
+
+#fileList{
+    border: 2px #eaeaea solid;
+    text-align: left;
+    float: left;
 }
 
 .thumbnail img{
@@ -145,8 +163,6 @@ html{
     text-align: justify;
 }
 
-
-
 #advSearch{
     background-color: white;
     border-radius: 3px;
@@ -161,9 +177,9 @@ html{
     background-color: #8e3c06;
     color: white;
     padding: 10px;
-    position:fixed;
-    left:0px;
-    bottom:0px;
-    width:100%;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
 }
 
