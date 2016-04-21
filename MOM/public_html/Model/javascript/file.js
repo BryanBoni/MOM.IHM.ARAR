@@ -28,9 +28,10 @@ function fileSelect() {
 
         xhr.addEventListener('load', function () {
 
-            console.log('Upload terminé !');
+            console.log('Uplo11111ad terminé !');
 
         });
+        
 
         //for a loading bar
         /*xhr.upload.addEventListener('progress', function (e) {
