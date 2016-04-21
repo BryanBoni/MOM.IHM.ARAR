@@ -6,12 +6,16 @@ var fileInput = document.querySelector('#file');
 var preview = document.getElementById("fileList");
 var folder = document.getElementById("createFolder");
 var progress = document.querySelector("#progress");
-//select the input with id file and add a listener for his change.
+
 fileSelect();
 
 
 function fileSelect() {
-
+    /*
+     select the input with id file and add a listener for his change.
+     also send the file(s) selected to a temporary repository
+     
+     */
     var allowedTypes = ["png", "jpg", "jpeg", "gif", "ico"];
 
     fileInput.addEventListener('change', function () {
@@ -27,11 +31,13 @@ function fileSelect() {
             console.log('Upload terminé !');
 
         });
-        xhr.upload.addEventListener('progress', function (e) {
-            progress.value = e.loaded;
-            progress.max = e.total;
 
-        });
+        //for a loading bar
+        /*xhr.upload.addEventListener('progress', function (e) {
+         progress.value = e.loaded;
+         progress.max = e.total;
+         
+         });*/
 
 
 
