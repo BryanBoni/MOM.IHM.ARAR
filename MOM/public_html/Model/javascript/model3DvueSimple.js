@@ -55,6 +55,7 @@
             if ( xhr.lengthComputable ) {
                 var percentComplete = xhr.loaded / xhr.total * 100;
                 console.log( Math.round(percentComplete, 2) + '% downloaded' );
+                document.getElementById('pourcent').innerHTML = Math.round(percentComplete, 2) + '% downloaded';
             }
         };
         var onError = function ( xhr ) {};

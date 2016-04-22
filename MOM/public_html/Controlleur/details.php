@@ -12,7 +12,8 @@ $objGDesc ="Description TXT";
 $obj3D = "<div id=\"loadingContainer\" class = \"loading-container\">
             <center class=\"onepix-imgloader\">
                 <div id=\"loading\" class=\"onepix-imgloader\" style=\"padding: 25%;\">
-                    <span>Chargement</span>
+                    <span>Chargement</span></br>
+                    <span id=\"pourcent\"></span>
                 </div>
             </center>
             <div id=\"container\"></div>
