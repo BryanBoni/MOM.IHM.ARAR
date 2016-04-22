@@ -1,0 +1,21 @@
+Array
+(
+    [userfile0] => Array
+        (
+            [name] => ...............................................png
+            [type] => image/png
+            [tmp_name] => C:\Users\cloud\AppData\Local\Temp\php1721.tmp
+            [error] => 0
+            [size] => 48447
+        )
+
+)
+
+
+
+dans la branche array, la cle : userfile0
+name => ...............................................png
+type => image/png
+tmp_name => C:\Users\cloud\AppData\Local\Temp\php1721.tmp
+error => 0
+size => 48447
