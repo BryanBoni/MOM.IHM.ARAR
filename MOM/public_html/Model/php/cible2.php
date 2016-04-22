@@ -5,7 +5,9 @@
 
 $sortie = print_r($_FILES, TRUE);
 
-$fp = fopen('../espion2.txt', 'w');
+//$fp = fopen('http://ceramom.mom.fr/~bryan/temp/espion2.txt', 'w');
+$fp = fopen('/²home/bryan/public_html/temp/espion2.txt', 'w');
+//$fp = fopen('../../temp/espion2.txt', 'w');
 fwrite($fp, "$sortie\n\n\n");
 foreach ($_FILES as $key => $value) {
     if (is_array($value)) {
@@ -24,9 +26,10 @@ fclose($fp);
 foreach ($_FILES as $key => $value) {
     $nom = $_FILES[$key]['name'];
     if (is_uploaded_file($_FILES[$key]['tmp_name'])) {
-        move_uploaded_file($_FILES[$key]['tmp_name'], 'lesimages/' . $nom);
+        move_uploaded_file($_FILES[$key]['tmp_name'], '/home/bryan/public_html/temp/' . $nom);
     } else {
-        $fp = fopen('../espion2.txt', 'w');
+        $fp = fopen('/home/bryan/public_html/temp/espion2.txt', 'w');
+        //$fp = fopen('../../temp/espion2.txt', 'w');
         fwrite($fp, "ça n'a pas marché");
         fclose($fp);
     }
