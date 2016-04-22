@@ -8,7 +8,6 @@
     var file = '../Ressources/obj3D/MA5.obj';
     var textureFile = '../Ressources/obj3D/MA5_0.jpg';
 
-    var controls;
     var raycaster = new THREE.Raycaster();
     var mouse = new THREE.Vector2(), offset = new THREE.Vector3(), INTERSECTED, SELECTED;
 
@@ -38,20 +37,9 @@
         renderer.setPixelRatio( window.devicePixelRatio );
         renderer.domElement.setAttribute("id","charlyTroisD");
         container.appendChild( renderer.domElement );
-
-        //renderer.domElement.addEventListener( 'mousedown', onDocumentMouseDown, false );
-        //renderer.domElement.addEventListener( 'mouseup', onDocumentMouseUp, false );
         window.addEventListener( 'resize', onWindowResize, false );
 
         timerTask();
-
-        // controls
-        controls = new THREE.TrackballControls( camera );
-        controls.rotateSpeed = 2.0;
-        controls.noZoom = true;
-        controls.noPan = true;
-        controls.staticMoving = false;
-        controls.dynamicDampingFactor = 0.3;
 
         scene = new THREE.Scene();
         var ambient = new THREE.AmbientLight( 0x404040 );
@@ -107,25 +95,11 @@
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
     }
-    /*function onDocumentMouseDown( event ) {
-        event.preventDefault();
-        raycaster.setFromCamera( mouse, camera );
-    }
-    /*function onDocumentMouseUp( event ) {
-        event.preventDefault();
-        controls.enabled = true;
-        if ( INTERSECTED ) {
-            plane.position.copy( INTERSECTED.position );
-            SELECTED = null;
-        }
-        container.style.cursor = 'auto';
-    }*/
     function animate() {
         requestAnimationFrame( animate );
         render();
     }
     function render() {
-        controls.update();
         renderer.render( scene, camera );
     }
     function allItemsLoaded() {
