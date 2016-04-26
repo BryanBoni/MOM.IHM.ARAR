@@ -113,10 +113,10 @@ for($i = 0; $i < 15; $i++){
     $content = $content . "<div id =\"imageObj".$i."\">$minObject</div>";
 }
 
-$content = $content . $accesDb -> selection(htmlspecialchars($_GET["search"]));
 
-$content = $content . ""
-                    . "</div>"
+$content = $content . "</div>";
+$content = $content . $accesDb -> selection(htmlspecialchars($_GET["search"]))
+                    . ""
                 . "<nav style =\"text-align: center;\" >"    
                     . "<ul class = \"pagination\" style=\" margin: 0px; margin-top: 8px;\">"
                         . "<li>"

@@ -4,17 +4,17 @@ class object {
     private $_image;
     private $_title;
     private $_description;
-    private $objId;
+    private $_objId;
     
     
     function __construct($_image, $_title, $_description, $objId) {
         $this->_image = $_image;
         $this->_title = $_title;
         $this->_description = $_description;
-        $this->objId = $objId;
+        $this->_objId = $objId;
     }
 
-    
+        
     function setObject($image, $title, $description){
         $this-> _image = $image;
         $this-> _title = $title;
@@ -38,6 +38,20 @@ class object {
                 .       "</div>"
                 .   "</div>"
                 ;
+        return $content;
+    }
+    
+    public function listDisplay(){
+        $content = "";
+        
+        $content = $content . ""
+                . "<div id = \"listDisplay\"><div class = \"row\">"
+                .   "<div class = \"col-sm-2\"><img src = " . $this -> _image . "></img></div>"
+                .   "<div class = \"col-sm-10\">"
+                .       "<h4>" . $this -> _title . "</h4><br />"
+                .       "<p>" . $this -> _description . "</p>"
+                .   "</div>"
+                . "</div></div>";
         return $content;
     }
 }
