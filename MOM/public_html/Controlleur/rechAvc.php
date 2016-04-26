@@ -113,7 +113,7 @@ for($i = 0; $i < 15; $i++){
     $content = $content . "<div id =\"imageObj".$i."\">$minObject</div>";
 }
 
-//$content = $content . $accesDb -> selection();
+$content = $content . $accesDb -> selection(htmlspecialchars($_GET["search"]));
 
 $content = $content . ""
                     . "</div>"
