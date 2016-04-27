@@ -20,6 +20,21 @@ class object {
         $this-> _title = $title;
         $this-> _description = $description;
     }
+    
+    public function selectDisplay($mode){
+        $content = "";
+        switch ($mode){
+            case "List" :
+                $content = $this -> LisDisplay();
+                break;
+            case "Image&Text":
+                $content = $this -> minDisplay();
+                break;
+            case "Image":
+                break; 
+        }
+        return $content;
+    }
 
     
     public function minDisplay(){
@@ -46,8 +61,8 @@ class object {
         
         $content = $content . ""
                 . "<div id = \"listDisplay\"><div class = \"row\">"
-                .   "<div class = \"col-sm-2\"><img src = " . $this -> _image . "></img></div>"
-                .   "<div class = \"col-sm-10\">"
+                .   "<div class = \"col-md-3 col-lg-2 col-sm-4\" id = \"this\"><img src = " . $this -> _image . "></img></div>"
+                .   "<div class = \"col-md-9 col-lg-10 col-sm-8\">"
                 .       "<h4>" . $this -> _title . "</h4><br />"
                 .       "<p>" . $this -> _description . "</p>"
                 .   "</div>"

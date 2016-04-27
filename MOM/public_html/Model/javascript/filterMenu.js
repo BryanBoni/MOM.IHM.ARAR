@@ -22,11 +22,13 @@ function resPerPage() {
     for (i = 0; i < 3; i++) {
         console.log(elementList[i]);
         elementList[i].addEventListener("click", function (i) {
-            console.log("ma bite");
+            console.log("ma jjj");
             for (j = 0; j < 3; j++) {
                 elementList[j].setAttribute("class", "imgNb");
             }
             this.setAttribute("class", "imgNb imgNb-active");
+           
+
             var j;
 
         });

@@ -26,8 +26,10 @@ body{
     padding: 10px;
 }
 
-#listDisplay img{
+
+#listDisplay #this img{
     width: 100%;
+    height: 100%;
     border: 2px solid #eaeaea;
 }
 
@@ -93,6 +95,7 @@ html{
 .imgNb{
     border: 1px solid black;
     display: inline-block;
+    color: black;
     margin: 3px;
     padding: 4px;
 }
