@@ -63,7 +63,7 @@ class object {
                 . "<div id = \"listDisplay\"><div class = \"row\">"
                 .   "<div class = \"col-md-3 col-lg-2 col-sm-4\" id = \"this\"><img src = " . $this -> _image . "></img></div>"
                 .   "<div class = \"col-md-9 col-lg-10 col-sm-8\">"
-                .       "<h4>" . $this -> _title . "</h4><br />"
+                .       "<h4>" . $this -> _title . "</h4>"
                 .       "<p>" . $this -> _description . "</p>"
                 .   "</div>"
                 . "</div></div>";

@@ -15,6 +15,8 @@ $content = "";
 $sizeList = 100;
 $i = 0;
 $ResultPerPage = 15;
+
+
 //here is the filter
 $content = $content . "<div class=\"row\">"
             . "<div class = \"col-sm-7\">"

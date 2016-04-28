@@ -58,7 +58,7 @@ class db_connect {
           
          // $rep = $pdodb ->query("SELECT * FROM atelier");
         
-        $rep = $pdodb->query("SELECT s.free_description, s.nom, si.name_site, t.name_town, r.name_region, c.name_country, d.decoration 
+        $rep = $pdodb->query("SELECT s.free_description, s.nom, si.name_site, t.name_town, r.name_region, c.name_country, d.decoration, d.form, d.typology  
                 FROM sample_new s 
                 LEFT JOIN description d ON s.id_description=d.id
                 LEFT JOIN provenance p ON s.id_provenance=p.id 
@@ -71,7 +71,7 @@ class db_connect {
         $descritption = "";
         while($data = $rep -> fetch()){
             
-            $descritption = $data['name_site'] . " , " . $data['name_town'] . " , " . $data['name_region'] . " , " . $data['name_country'] . " , " . $data['decoration']. ".";
+            $descritption = "<b>Description : </b>" . $data['decoration'] . " " . $data['form'] . " " . $data['typology'] . ".<br /><b>Location : </b>" . $data['name_site'] . " , " . $data['name_town'] . " , " . $data['name_region'] . " , " . $data['name_country'] . " , ";
             $objet ->setObject("../Ressources/objectBeta/fry.png", $data['free_description'], $descritption);
             //$content = $content . $objet ->selectDisplay($mode);
             $content = $content . $objet -> listDisplay();
