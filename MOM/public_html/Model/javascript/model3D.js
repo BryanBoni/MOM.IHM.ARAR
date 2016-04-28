@@ -40,6 +40,8 @@
             renderer.setClearColor( 0xffffff, 0 ); // second param is opacity, 0 => transparent
             renderer.setPixelRatio( window.devicePixelRatio );
             renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
+            renderer.shadowMapEnabled = true;
+            renderer.shadowMapType = THREE.PCFShadowMap;
             container.appendChild( renderer.domElement );
 
             document.addEventListener( 'mousemove', onDocumentMouseMove, false );
@@ -69,7 +71,7 @@
         // scene+light
         switch (isTexture) {
             case true :
-                intensiteLight = 1;
+                intensiteLight = 1.5;
                 break;
             case false :
                 intensiteLight = 0.5;
@@ -95,6 +97,7 @@
         var onError = function ( xhr ) {};
         // application des textures
         var texture = new THREE.Texture();
+        //var texture = new THREE.ImageUtils.loadTexture(textureFile)
         if (isTexture) {
             var loader = new THREE.ImageLoader( manager );
             loader.load( textureFile, function ( image ) {

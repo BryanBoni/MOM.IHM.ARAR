@@ -31,7 +31,7 @@
             console.log('there has been an error');
         };
 
-        //renderer = new THREE.WebGLRenderer();
+        //renderer
         renderer = new THREE.WebGLRenderer( { alpha: true } ); // init like this
         renderer.setClearColor( 0xffffff, 0 ); // second param is opacity, 0 => transparent
         renderer.setPixelRatio( window.devicePixelRatio );
