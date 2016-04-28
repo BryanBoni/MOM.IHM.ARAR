@@ -10,11 +10,13 @@ $title = "Home | Laboratoire ArAr";
 $search = new search();
 $objet = new object("../Ressources/objectBeta/fry.png", "Fry", "he is a dumb but he is funny.", 1001);
 $accesDb = new db_connect();
-
+$mode = "Image&Text";
 $content = "";
 $sizeList = 100;
 $i = 0;
 $ResultPerPage = 15;
+
+
 //here is the filter
 $content = $content . "<div class=\"row\">"
             . "<div class = \"col-sm-7\">"
@@ -37,7 +39,7 @@ $content = $content . "<div class=\"row\">"
 
 $filterList = $search -> getFilterList(); //get the filter research list in search().
 $text = $search -> getFilterText(); //get the filter sub-research list in search().
-$minObject = $objet -> minDisplay(); //get the object display.
+$minObject = $objet -> selectDisplay($mode); //get the object display.
 
 
 foreach($filterList as $value){
@@ -73,7 +75,7 @@ $content = $content . ""
                         . "Résultats par pages : <div class=\"imgNb imgNb-active\"> 15 </div><div class=\"imgNb\"> 30 </div><div class=\"imgNb\"> 45 </div>"
                     . "</div>"
                     . "<div style = \"float: right;\">"
-                        . "<div class = \"imgNb glyphicon glyphicon-picture\" aria-hidden = \"true\" title = \"Image seulement\"></div>"
+                        . "<a href=\"#\"><div class = \"imgNb glyphicon glyphicon-picture\" aria-hidden = \"true\" title = \"Image seulement\"></div></a>"
                         . "<div class = \"imgNb imgNb-active glyphicon glyphicon-th\" aria-hidden = \"true\" title = \"Image et Texte\"></div>"
                         . "<div class =\"imgNb glyphicon glyphicon-list\" aria-hidden=\"true\" title = \"affichage en Liste\"></div>"
                     . "</div><br /><br />";
@@ -113,10 +115,10 @@ for($i = 0; $i < 15; $i++){
     $content = $content . "<div id =\"imageObj".$i."\">$minObject</div>";
 }
 
-//$content = $content . $accesDb -> selection();
 
-$content = $content . ""
-                    . "</div>"
+$content = $content . "</div>";
+$content = $content . $accesDb -> selection(htmlspecialchars($_GET["search"]), "List")
+                    . ""
                 . "<nav style =\"text-align: center;\" >"    
                     . "<ul class = \"pagination\" style=\" margin: 0px; margin-top: 8px;\">"
                         . "<li>"

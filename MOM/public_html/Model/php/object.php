@@ -4,21 +4,36 @@ class object {
     private $_image;
     private $_title;
     private $_description;
-    private $objId;
+    private $_objId;
     
     
     function __construct($_image, $_title, $_description, $objId) {
         $this->_image = $_image;
         $this->_title = $_title;
         $this->_description = $_description;
-        $this->objId = $objId;
+        $this->_objId = $objId;
     }
 
-    
+        
     function setObject($image, $title, $description){
         $this-> _image = $image;
         $this-> _title = $title;
         $this-> _description = $description;
+    }
+    
+    public function selectDisplay($mode){
+        $content = "";
+        switch ($mode){
+            case "List" :
+                $content = $this -> LisDisplay();
+                break;
+            case "Image&Text":
+                $content = $this -> minDisplay();
+                break;
+            case "Image":
+                break; 
+        }
+        return $content;
     }
 
     
@@ -38,6 +53,20 @@ class object {
                 .       "</div>"
                 .   "</div>"
                 ;
+        return $content;
+    }
+    
+    public function listDisplay(){
+        $content = "";
+        
+        $content = $content . ""
+                . "<div id = \"listDisplay\"><div class = \"row\">"
+                .   "<div class = \"col-md-3 col-lg-2 col-sm-4\" id = \"this\"><img src = " . $this -> _image . "></img></div>"
+                .   "<div class = \"col-md-9 col-lg-10 col-sm-8\">"
+                .       "<h4>" . $this -> _title . "</h4>"
+                .       "<p>" . $this -> _description . "</p>"
+                .   "</div>"
+                . "</div></div>";
         return $content;
     }
 }
