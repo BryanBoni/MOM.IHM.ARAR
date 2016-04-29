@@ -1,4 +1,5 @@
 <?php
+
 include_once (dirname(dirname(__FILE__)) . "/php/object.php");
 
 class db_connect {
@@ -17,47 +18,22 @@ class db_connect {
     }
 
     public function connect() {
-        /* $dbConnect = mysql_connect($this->host, $this->userName, $this->passwd);
-
-          if ($dbConnect) {
-          $db = mysql_select_db($this->dbName, $dbConnect);
-          if (!$db) {
-          die("The database " . $this->dbName . " cannot be accessed!");
-          }
-          mysql_query("set names 'utf8'", $dbConnect);
-          } else {
-          die("Connexion impossible / Connection failed!");
-          } */
-
         try {
             $pdodb = new PDO("mysql:host=$this->host;dbname=$this->dbName", $this->userName, $this->passwd);
             $pdodb->exec('SET NAMES utf8');
+            return $pdodb;
         } catch (PDOException $e) {
             $msg = 'Erreur PDO dans ' . $e->getFile() . $e->getLine() . ' :' . $e->getMessage();
             return $msg;
         }
-
-        return $pdodb;
     }
 
-    public function selection($keyword, $mode) {
-        $content = "";
-        $objet = "";
-        $objet = new object("../Ressources/objectBeta/fry.png", "", "", 1001);
+    public function selection($keyword) {
+        /*
 
-       // $pdodb = $this->connect();
-         try {
-          $pdodb = new PDO("mysql:host=$this->host;dbname=$this->dbName", $this->userName, $this->passwd);
-          $pdodb->exec('SET NAMES utf8');
+         */
+        $pdodb = $this->connect();
 
-          } catch (PDOException $e) {
-          $msg = 'Erreur PDO dans ' . $e->getFile() . $e->getLine() . ' :' . $e->getMessage();
-          return $msg;
-          } 
-
-          
-         // $rep = $pdodb ->query("SELECT * FROM atelier");
-        
         $rep = $pdodb->query("SELECT s.free_description, s.nom, si.name_site, t.name_town, r.name_region, c.name_country, d.decoration, d.form, d.typology  
                 FROM sample_new s 
                 LEFT JOIN description d ON s.id_description=d.id
@@ -68,21 +44,29 @@ class db_connect {
                 LEFT JOIN region r ON l.id_region=r.id 
                 LEFT JOIN country c ON l.id_country=c.id 
                 WHERE t.name_town like '%$keyword%' or r.name_region like '%$keyword%' or c.name_country like '%$keyword%' or si.name_site like '%$keyword%' or p.workshop  like '%$keyword%' or p.museum  like '%$keyword%' or p.private_collection like '%$keyword%' or p.atelier like '%$keyword%' or p.excavation like '%$keyword%' or p.geolocation like '%$keyword%' or p.contact like '%$keyword%' or p.free_description like '%$keyword%'");
+        return $rep;
+    }
+
+    /*private function analyse($rep, $mode) {
+        $content = "";
+        $objet = new object("../Ressources/objectBeta/fry.png", "", "", 1001);
         $descritption = "";
-        while($data = $rep -> fetch()){
-            
+        while ($data = $rep->fetch()) {
             $descritption = "<b>Description : </b>" . $data['decoration'] . " " . $data['form'] . " " . $data['typology'] . ".<br /><b>Location : </b>" . $data['name_site'] . " , " . $data['name_town'] . " , " . $data['name_region'] . " , " . $data['name_country'] . " , ";
-            $objet ->setObject("../Ressources/objectBeta/fry.png", $data['free_description'], $descritption);
-            //$content = $content . $objet ->selectDisplay($mode);
-            $content = $content . $objet -> listDisplay();
+            $objet->setObject("../Ressources/objectBeta/fry.png", $data['free_description'], $descritption);
+            $content = $content . $objet -> selectDisplay($mode);
+            //$content = $content . $objet -> minDisplay();
+           /* if ($mode == "List") {
+                $content = $objet->LisDisplay();
+            } else if ($mode == "Image&Text") {
+                $content = $objet->minDisplay();
+            } else {
+                $content = $content . "Image ici";
+            }*//*
             $content = $content . "<br />";
-            $content = $content . "<br /><br />";
-        }        
-        /*
-        foreach (array_expression as $key => $value) {
-            //commandes
-        }*/
+        }
         $rep->closeCursor();
         return $content;
-    }
+    }*/
+
 }

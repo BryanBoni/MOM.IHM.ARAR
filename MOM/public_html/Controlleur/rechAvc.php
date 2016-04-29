@@ -3,14 +3,13 @@
 include_once (dirname(dirname(__FILE__)) . "/Model/php/search.php");
 include_once (dirname(dirname(__FILE__)) . "/Model/php/object.php");
 include_once (dirname(dirname(__FILE__)) . "/Model/php/db_connect.php");
-//include_once (dirname(dirname(__FILE__)) . "/Model/php/listes_opts.php");
 
 //Variables
 $title = "Home | Laboratoire ArAr";
 $search = new search();
 $objet = new object("../Ressources/objectBeta/fry.png", "Fry", "he is a dumb but he is funny.", 1001);
 $accesDb = new db_connect();
-$mode = "Image&Text";
+$mode = "List";
 $content = "";
 $sizeList = 100;
 $i = 0;
@@ -18,7 +17,8 @@ $ResultPerPage = 15;
 
 
 //here is the filter
-$content = $content . "<div class=\"row\">"
+$content = $content . ""
+        . "<div class=\"row\">"
             . "<div class = \"col-sm-7\">"
                 . "<h2>LABORATOIRE ARAR</h2>"
                 . "<h3><b>Base de données</b></h3>"
@@ -34,14 +34,14 @@ $content = $content . "<div class=\"row\">"
         
                 . "<div id = \"filterList\">"
                     . "<b> Recherche : </b><div id = \"tag\">"
-                    . "</div>";//need to be change, it's just to test.
+                    . "</div>";
 
 
 $filterList = $search -> getFilterList(); //get the filter research list in search().
 $text = $search -> getFilterText(); //get the filter sub-research list in search().
 $minObject = $objet -> selectDisplay($mode); //get the object display.
 
-
+//filter function
 foreach($filterList as $value){
     $content = $content
             . "<b>" . $value . " :</b>"
@@ -111,14 +111,24 @@ $content = $content . ""
                 . "</nav>"
                 
                 . "<div class = \"row\" id = \"ooo\">";
-for($i = 0; $i < 15; $i++){
+/*for($i = 0; $i < 15; $i++){
     $content = $content . "<div id =\"imageObj".$i."\">$minObject</div>";
 }
-
+*/
 
 $content = $content . "</div>";
-$content = $content . $accesDb -> selection(htmlspecialchars($_GET["search"]), "List")
-                    . ""
+$rep = $accesDb->selection(htmlspecialchars($_GET["search"]), "List");
+
+$descritption = "";
+while ($data = $rep->fetch()) {
+    $descritption = "<b>Description : </b>" . $data['decoration'] . " " . $data['form'] . " " . $data['typology'] . ".<br /><b>Location : </b>" . $data['name_site'] . " , " . $data['name_town'] . " , " . $data['name_region'] . " , " . $data['name_country'] . " , ";
+    $objet->setObject("../Ressources/objectBeta/fry.png", $data['free_description'], $descritption);
+    $content = $content . $objet->selectDisplay($mode);
+    $content = $content . "<br />";
+}
+$rep->closeCursor();
+
+$content = $content . ""
                 . "<nav style =\"text-align: center;\" >"    
                     . "<ul class = \"pagination\" style=\" margin: 0px; margin-top: 8px;\">"
                         . "<li>"

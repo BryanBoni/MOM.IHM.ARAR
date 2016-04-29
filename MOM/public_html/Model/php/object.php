@@ -25,7 +25,7 @@ class object {
         $content = "";
         switch ($mode){
             case "List" :
-                $content = $this -> LisDisplay();
+                $content = $this ->listDisplay();
                 break;
             case "Image&Text":
                 $content = $this -> minDisplay();
@@ -42,7 +42,7 @@ class object {
         
         $content = $content . ""
                 
-                .   "<div class = \" col-xs-6 col-sm-6 col-md-4 col-lg-3\" >"
+                .   "<div class = \" col-xs-6 col-sm-6 col-md-4 col-lg-3\" id = \"minDisplay\">"
                 .       "<div class = \"thumbnail\">"
                 .           "<img src = " . $this -> _image . "></img>"
                 .           "<div class = \"caption\">"
@@ -61,12 +61,19 @@ class object {
         
         $content = $content . ""
                 . "<div id = \"listDisplay\"><div class = \"row\">"
-                .   "<div class = \"col-md-3 col-lg-2 col-sm-4\" id = \"this\"><img src = " . $this -> _image . "></img></div>"
+                .   "<div class = \"col-md-3 col-lg-2 col-sm-4\" id = \"this\">"
+                .       "<img src = " . $this -> _image . "></img>"
+                .   "</div>"
                 .   "<div class = \"col-md-9 col-lg-10 col-sm-8\">"
                 .       "<h4>" . $this -> _title . "</h4>"
                 .       "<p>" . $this -> _description . "</p>"
+                .   "<a style = \"float: right;\" href = \"details.php?ObjectId=\"".$this -> _objId."\"\" class = \"btn btn-primary\" role = \"button\">Voir détails...</a>"
                 .   "</div>"
-                . "</div></div>";
+                
+                . "</div>"
+                
+                . "</div>"
+                ;
         return $content;
     }
 }

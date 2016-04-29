@@ -1,4 +1,8 @@
 <?php
+/*
+This class is used for the login page
+*/
+
 $title = "Login | Laboratoire ArAr";
 
 $content = 
