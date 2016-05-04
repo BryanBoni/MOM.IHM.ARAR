@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="test.css"/>
+    </head>
+    <body>
+
+        <div id = "testMen">
+            <ul>
+                <li id = "li">MENU</li>
+                <li id = "li">MENU</li>
+                <li id = "li">MENU</li>
+            </ul>
+        </div>
+        <script>
+            men2();
+
+            function men2() {
+                var li2 = document.getElementsByTagName("li");
+                for (var i = 0; i < li2.length; i++) {
+                    add(li2[i]);
+                }
+            }
+
+            function add(li2) {
+                var isClicked = false;            
+                var subMenu = document.createElement("div");
+                li2.addEventListener("click", function () {
+                    if (!isClicked) {
+                        //this.innerHTML = "- MENU";
+                        subMenu.innerHTML += "<ul><li>lol</li> <li>mdr</li> <li>bid</li> </ul>";
+
+                    } else {
+                        //this.innerHTML = "+ MENU";
+                        subMenu.innerHTML = "";
+                    }
+                    isClicked = !isClicked;
+                    this.appendChild(subMenu);
+                });
+            }
+            /*
+             function men() {
+             var list = document.getElementById("testMen");
+             
+             var li = document.getElementById("li");
+             var subMenu = document.createElement("div");
+             var isClicked = false;
+             li.appendChild(subMenu);
+             li.addEventListener("click", function () {
+             if (!isClicked) {
+             //this.innerHTML = "- MENU";
+             subMenu.innerHTML += "<ul><li>lol</li> <li>mdr</li> <li>bid</li> </ul>";
+             
+             }else{
+             //this.innerHTML = "+ MENU";
+             subMenu.innerHTML = "";
+             }
+             isClicked = !isClicked;
+             li.appendChild(subMenu);
+             });
+             }*/
+        </script>
+    </body>
+</html>

@@ -44,7 +44,7 @@ Ici se trouve le layout (template) créé pour servire de structure au autres pa
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li style="text-align: left;"><a href="rechAvc.php">Recherche Avancée</a></li>
-                        <li style="text-align: left;"><a href="../Controlleur/Insertion.php"> Insertion </a></li>
+                        <li style="text-align: left;"><a href="../Controlleur/rechercheInterne.php"> Recherche Interne </a></li>
                     </ul>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
