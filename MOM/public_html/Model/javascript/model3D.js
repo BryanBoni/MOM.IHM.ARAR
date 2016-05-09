@@ -69,23 +69,29 @@
         controls.dynamicDampingFactor = 0.3;
 
         // scene+light
+        var direcLight = false;
         switch (isTexture) {
             case true :
-                intensiteLight = 1.5;
+                intensiteLight = 7;
+                direcLight = false;
                 break;
             case false :
                 intensiteLight = 0.5;
+                direcLight = true;
                 break;
         }
         scene = new THREE.Scene();
-        var ambient = new THREE.AmbientLight( 0x404040 );
+        var ambient = new THREE.AmbientLight( 0x404040 , intensiteLight );
         scene.add( ambient );
-        var directionalLight = new THREE.DirectionalLight( /*0xffeedd*/0xffffff , intensiteLight );
-        directionalLight.position.set( 0, 0, 1 );
-        scene.add( directionalLight );
-        var directionalLight = new THREE.DirectionalLight( 0xffffff , intensiteLight );
-        directionalLight.position.set( 0, 0, -1 );
-        scene.add( directionalLight );
+        
+        if (direcLight) {
+            var directionalLight = new THREE.DirectionalLight( 0xffffff , intensiteLight );
+            directionalLight.position.set( 0, 0, 1 );
+            scene.add( directionalLight );
+            var directionalLight = new THREE.DirectionalLight( 0xffffff , intensiteLight );
+            directionalLight.position.set( 0, 0, -1 );
+            scene.add( directionalLight );
+        }
 
         var onProgress = function ( xhr ) {
             if ( xhr.lengthComputable ) {
@@ -199,9 +205,11 @@
     }
     function allItemsLoaded() {
         $('.onepix-imgloader').hide();
+        $('container').show();
     }
     function refreshLoaded() {
         $('.onepix-imgloader').show();
+        $('container').hide();
     }
     function retour() {
         location.href = "./details.php";

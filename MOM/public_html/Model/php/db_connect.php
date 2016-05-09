@@ -67,12 +67,12 @@ class db_connect {
                 LEFT JOIN town t ON l.id_town=t.id 
                 LEFT JOIN region r ON l.id_region=r.id 
                 LEFT JOIN country c ON l.id_country=c.id 
-                WHERE t.name_town like '%$keyword%' or r.name_region like '%$keyword%' or c.name_country like '%$keyword%' or si.name_site like '%$keyword%' or p.workshop  like '%$keyword%' or p.museum  like '%$keyword%' or p.private_collection like '%$keyword%' or p.atelier like '%$keyword%' or p.excavation like '%$keyword%' or p.geolocation like '%$keyword%' or p.contact like '%$keyword%' or p.free_description like '%$keyword%'");
+                WHERE t.name_town like '%$keyword%' or r.name_region like '%$keyword%' or s.nom like '%$keyword%' or c.name_country like '%$keyword%' or si.name_site like '%$keyword%' or p.workshop  like '%$keyword%' or p.museum  like '%$keyword%' or p.private_collection like '%$keyword%' or p.atelier like '%$keyword%' or p.excavation like '%$keyword%' or p.geolocation like '%$keyword%' or p.contact like '%$keyword%' or p.free_description like '%$keyword%'");
         $descritption = "";
         while($data = $rep -> fetch()){
             
             $descritption = "<b>Description : </b>" . $data['decoration'] . " " . $data['form'] . " " . $data['typology'] . ".<br /><b>Location : </b>" . $data['name_site'] . " , " . $data['name_town'] . " , " . $data['name_region'] . " , " . $data['name_country'] . " , ";
-            $objet ->setObject("../Ressources/objectBeta/fry.png", $data['free_description'], $descritption);
+            $objet ->setObject("../Ressources/objectBeta/fry.png", $data['nom']. " " . $data['free_description'], $descritption);
             //$content = $content . $objet ->selectDisplay($mode);
             $content = $content . $objet -> listDisplay();
             $content = $content . "<br />";

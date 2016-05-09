@@ -7,28 +7,12 @@ $content = "";
 $objTitle = "Titre";
 $objGDesc ="Description TXT";
 
+if(true) { $ifobj3D = "<a href=\"obj3D.html\">Visionner l'objet 3D</a>"; }
+else { $ifobj3D = "<span>Objet 3D non disponible</span>"; }
 
-
-$obj3D = "<div id=\"loadingContainer\" class = \"loading-container\">
-            <center class=\"onepix-imgloader\">
-                <div id=\"loading\" class=\"onepix-imgloader\" style=\"padding: 25%;\">
-                    <span>Chargement</span></br>
-                    <span id=\"pourcent\"></span>
-                </div>
-            </center>
-            <div id=\"container\"></div>
-            <a href=\"obj3D.html\">Visionner l'objet 3D</a>
-        </div>
-        <script src=\"../Model/javascript/three.min.js\"></script>
-        <script src=\"../Model/javascript/Detector.js\"></script>
-        <script src=\"../Model/javascript/raf.js\"></script>
-        <script src=\"../Model/javascript/DDSLoader.js\"></script>
-        <script src=\"../Model/javascript/MTLLoader.js\"></script>
-        <script src=\"../Model/javascript/OBJLoader.js\"></script>
-        <script src=\"../Model/javascript/TrackballControls.js\"></script>
-        <script src=\"../Model/javascript/heartcode-canvasloader-min.js\"></script>
-        <script src=\"../Model/javascript/jquery-1.12.3.min.js\"></script>
-        <script src=\"../Model/javascript/model3DvueSimple.js\"></script>";
+$obj2D = "<div id=\"loadingContainer\" class = \"loading-container\">
+                <img id=\"image2d\" src=\"../Ressources/objectBeta/default.png\" class = \"loading-container\" />"
+          . $ifobj3D . "</div>";
 
 $chimi = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ornare non arcu eu gravida. Curabitur eleifend mollis orci ac lacinia. Curabitur velit leo, vehicula non sem vel, porttitor congue sem. In venenatis urna nibh, id ultricies turpis fringilla eu. Vestibulum vitae vestibulum enim. Morbi eget ligula hendrerit, lacinia odio non, ornare tellus. Sed vitae augue eget nunc dignissim cursus. Proin at risus ut libero aliquet convallis vitae sit amet ante. Donec placerat malesuada volutpat. In risus nunc, mollis in urna vitae, ullamcorper vulputate dui. Suspendisse nibh nisi, pellentesque ut orci vel, tincidunt vehicula velit. Etiam massa nibh, feugiat id massa ac, dapibus convallis ipsum. Maecenas dolor velit, molestie non ullamcorper ut, bibendum id lorem. Praesent lacinia elit dapibus fringilla accumsan. Ut sed commodo quam. Nulla convallis, nisl ultricies ullamcorper tincidunt, augue lacus sagittis velit, eu vulputate massa dui convallis quam. ";
 $petro = "Morbi dolor nibh, accumsan eu eros at, ultrices volutpat lectus. Nulla diam sapien, varius ac tempor non, ullamcorper eu lorem. In rutrum dictum felis, in laoreet arcu iaculis sed. Donec molestie dui lectus, nec luctus magna pretium at. Integer sit amet tincidunt risus, nec euismod turpis. Donec turpis ligula, eleifend nec ultricies sit amet, semper vitae elit. Ut quis mauris luctus, ultrices magna sit amet, sollicitudin eros. ";
@@ -53,7 +37,7 @@ $content = $content . "<div class=\"row\">"
                     . "$objGDesc"
                 . "</div>"
                 . "<div class = \"col-xs-offset-1 col-xs-10 col-sm-5 col-sm-offset-0\" id = \"obj3d\">"
-                    . "$obj3D"
+                    . "$obj2D"
                 . "</div>"
             . "</div>"
             . "<br />"
