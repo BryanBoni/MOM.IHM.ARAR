@@ -178,6 +178,10 @@ html{
     color: #8e3c06;
 }
 
+#minDisplay b{
+    color: #8e3c06;
+}
+
 #filterList ul{
     list-style-type: none;
 }
@@ -209,5 +213,6 @@ html{
     left: 0px;
     bottom: 0px;
     width: 100%;
+    z-index: 10;
 }
 

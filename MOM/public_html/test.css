@@ -1,0 +1,11 @@
+#testMen ul li{
+    list-style-type : none;
+}
+
+#li div{
+    /*padding-left: 20px;*/
+}
+
+#li{
+    cursor: pointer;
+}
