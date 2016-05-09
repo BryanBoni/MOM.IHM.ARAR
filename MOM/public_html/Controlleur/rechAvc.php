@@ -119,14 +119,10 @@ $content = $content . ""
 $content = $content . "</div>";
 $rep = $accesDb->selection(htmlspecialchars($_GET["search"]), "List");
 
+
 $descritption = "";
-while ($data = $rep->fetch()) {
-    $descritption = "<b>Description : </b>" . $data['decoration'] . " " . $data['form'] . " " . $data['typology'] . ".<br /><b>Location : </b>" . $data['name_site'] . " , " . $data['name_town'] . " , " . $data['name_region'] . " , " . $data['name_country'] . " , ";
-    $objet->setObject("../Ressources/objectBeta/fry.png", $data['free_description'], $descritption);
-    $content = $content . $objet->selectDisplay($mode);
-    $content = $content . "<br />";
-}
-$rep->closeCursor();
+$content = $content . $accesDb ->analyse($mode);
+
 
 $content = $content . ""
                 . "<nav style =\"text-align: center;\" >"    
