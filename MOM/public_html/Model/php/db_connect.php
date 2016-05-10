@@ -46,6 +46,7 @@ class db_connect {
         /*$rep = $pdodb->query($requete);*/
         $rep = $pdodb->prepare($requete);
         return $rep;
+
     }
 
 }
