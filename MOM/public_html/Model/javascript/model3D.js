@@ -36,6 +36,8 @@
 
         //renderer = new THREE.WebGLRenderer();
         if (isFisrtTime) {
+            $('.container').hide();
+            
             renderer = new THREE.WebGLRenderer( { alpha: true } ); // init like this
             renderer.setClearColor( 0xffffff, 0 ); // second param is opacity, 0 => transparent
             renderer.setPixelRatio( window.devicePixelRatio );
@@ -44,11 +46,7 @@
             renderer.shadowMapType = THREE.PCFShadowMap;
             container.appendChild( renderer.domElement );
 
-            document.addEventListener( 'mousemove', onDocumentMouseMove, false );
-            renderer.domElement.addEventListener( 'mousedown', onDocumentMouseDown, false );
-            renderer.domElement.addEventListener( 'mouseup', onDocumentMouseUp, false );
             window.addEventListener( 'resize', onWindowResize, false );
-
             document.getElementById('texture').disabled = true;
 
             isFisrtTime = false;
@@ -69,28 +67,32 @@
         controls.dynamicDampingFactor = 0.3;
 
         // scene+light
-        var direcLight = false;
         switch (isTexture) {
             case true :
                 intensiteLight = 7;
-                direcLight = false;
+                
+                // lumiere avec texture
+                scene = new THREE.Scene();
+                var ambient = new THREE.AmbientLight( 0x404040 , intensiteLight );
+                scene.add( ambient );
+
                 break;
             case false :
                 intensiteLight = 0.5;
-                direcLight = true;
+                
+                // lumiere sans texture
+                scene = new THREE.Scene();
+                var ambient = new THREE.AmbientLight( 0x404040 , intensiteLight );
+                scene.add( ambient );
+                
+                var directionalLight = new THREE.DirectionalLight( 0xffffff , intensiteLight );
+                directionalLight.position.set( 0, 0, 1 );
+                scene.add( directionalLight );
+                var directionalLight = new THREE.DirectionalLight( 0xffffff , intensiteLight );
+                directionalLight.position.set( 0, 0, -1 );
+                scene.add( directionalLight );
+                
                 break;
-        }
-        scene = new THREE.Scene();
-        var ambient = new THREE.AmbientLight( 0x404040 , intensiteLight );
-        scene.add( ambient );
-        
-        if (direcLight) {
-            var directionalLight = new THREE.DirectionalLight( 0xffffff , intensiteLight );
-            directionalLight.position.set( 0, 0, 1 );
-            scene.add( directionalLight );
-            var directionalLight = new THREE.DirectionalLight( 0xffffff , intensiteLight );
-            directionalLight.position.set( 0, 0, -1 );
-            scene.add( directionalLight );
         }
 
         var onProgress = function ( xhr ) {
@@ -101,33 +103,26 @@
             }
         };
         var onError = function ( xhr ) {};
-        // application des textures
+        
+        // application des textures et du obj FILE
         var texture = new THREE.Texture();
-        //var texture = new THREE.ImageUtils.loadTexture(textureFile)
-        if (isTexture) {
-            var loader = new THREE.ImageLoader( manager );
-            loader.load( textureFile, function ( image ) {
-                texture.image = image;
-                texture.needsUpdate = true;
-            });
-            var loader = new THREE.OBJLoader( manager );
-            loader.load( file, function ( object ) {
+        var loader = new THREE.OBJLoader( manager );
+        loader.load( file, function ( object ) {
+            if (isTexture) {
+                var loader = new THREE.ImageLoader( manager );
+                loader.load( textureFile, function ( image ) {
+                    texture.image = image;
+                    texture.needsUpdate = true;
+                });
                 object.traverse( function ( child ) {
                     if ( child instanceof THREE.Mesh ) {
                         child.material.map = texture;
                     }
                 });
-                object.position.y = 0;
-                scene.add( object );
-            }, onProgress, onError );
-        }
-        else {
-            var loader = new THREE.OBJLoader( manager );
-            loader.load( file, function ( object ) {
-                object.position.y = 0;
-                scene.add( object );
-            }, onProgress, onError );
-        }
+            }
+            object.position.y = 0;
+            scene.add( object );
+        }, onProgress, onError );
     }
     function timerTask(){
         $(document).ready(function () {
@@ -148,32 +143,6 @@
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize( window.innerWidth, window.innerHeight );
-    }
-    function onDocumentMouseMove( event ) {
-        event.preventDefault();
-        mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-        mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-        raycaster.setFromCamera( mouse, camera );
-        if ( SELECTED ) {
-            var intersects = raycaster.intersectObject( plane );
-            if ( intersects.length > 0 ) {
-                SELECTED.position.copy( intersects[ 0 ].point.sub( offset ) );
-            }
-            return;
-        }
-    }
-    function onDocumentMouseDown( event ) {
-        event.preventDefault();
-        raycaster.setFromCamera( mouse, camera );
-    }
-    function onDocumentMouseUp( event ) {
-        event.preventDefault();
-        controls.enabled = true;
-        if ( INTERSECTED ) {
-            plane.position.copy( INTERSECTED.position );
-            SELECTED = null;
-        }
-        container.style.cursor = 'auto';
     }
     function animate() {
         requestAnimationFrame( animate );
@@ -205,11 +174,11 @@
     }
     function allItemsLoaded() {
         $('.onepix-imgloader').hide();
-        $('container').show();
+        $('.container').show();
     }
     function refreshLoaded() {
         $('.onepix-imgloader').show();
-        $('container').hide();
+        $('.container').hide();
     }
     function retour() {
         location.href = "./details.php";
