@@ -9,7 +9,6 @@ class db_connect {
     private $host; //'localhost';
     //$port = '3316';
     private $passwd;
-    public $rep;
 
     function __construct() {
         $this->dbName = 'ceramom_3';
@@ -29,22 +28,12 @@ class db_connect {
         }
     }
 
-    public function selection($keyword) {
+    public function selection($keyword,$limit, $page) {
         /*
 
          */
-        //$pdodb = $this->connect();
-
-        try {
-            $pdodb = new PDO("mysql:host=$this->host;dbname=$this->dbName", $this->userName, $this->passwd);
-            $pdodb->exec('SET NAMES utf8');
-            return $pdodb;
-        } catch (PDOException $e) {
-            $msg = 'Erreur PDO dans ' . $e->getFile() . $e->getLine() . ' :' . $e->getMessage();
-            return $msg;
-        }
-
-        $this ->rep = $pdodb->query("SELECT s.free_description, s.nom, si.name_site, t.name_town, r.name_region, c.name_country, d.decoration, d.form, d.typology  
+        $pdodb = $this->connect();
+        $requete = "SELECT s.free_description, s.nom, si.name_site, t.name_town, r.name_region, c.name_country, d.decoration, d.form, d.typology  
                 FROM sample_new s 
                 LEFT JOIN description d ON s.id_description=d.id
                 LEFT JOIN provenance p ON s.id_provenance=p.id 
@@ -53,45 +42,11 @@ class db_connect {
                 LEFT JOIN town t ON l.id_town=t.id 
                 LEFT JOIN region r ON l.id_region=r.id 
                 LEFT JOIN country c ON l.id_country=c.id 
-                WHERE t.name_town like '%$keyword%' or r.name_region like '%$keyword%' or c.name_country like '%$keyword%' or si.name_site like '%$keyword%' or p.workshop  like '%$keyword%' or p.museum  like '%$keyword%' or p.private_collection like '%$keyword%' or p.atelier like '%$keyword%' or p.excavation like '%$keyword%' or p.geolocation like '%$keyword%' or p.contact like '%$keyword%' or p.free_description like '%$keyword%'");
-        return $this -> rep;
+                WHERE t.name_town like '%$keyword%' or r.name_region like '%$keyword%' or c.name_country like '%$keyword%' or si.name_site like '%$keyword%' or p.workshop  like '%$keyword%' or p.museum  like '%$keyword%' or p.private_collection like '%$keyword%' or p.atelier like '%$keyword%' or p.excavation like '%$keyword%' or p.geolocation like '%$keyword%' or p.contact like '%$keyword%' or p.free_description like '%$keyword%'";
+        /*$rep = $pdodb->query($requete);*/
+        $rep = $pdodb->prepare($requete);
+        return $rep;
+
     }
 
-    public function analyse($mode) {
-        $objet = new object("../Ressources/objectBeta/fry.png", "Fry", "he is a dumb but he is funny.", 1001);
-        while ($data = $this -> rep->fetch()) {
-            $descritption = "<b>Description : </b>" . $data['decoration'] . " " . $data['form'] . " " . $data['typology'] . ".<br /><b>Location : </b>" . $data['name_site'] . " , " . $data['name_town'] . " , " . $data['name_region'] . " , " . $data['name_country'] . " , ";
-
-            $objet->setObject("../Ressources/objectBeta/fry.png", $data['free_description'], $descritption);
-            $content = $content . $objet->selectDisplay($mode);
-            $content = $content . "<br />";
-        }
-        $this -> rep->closeCursor();
-
-        return "bite";
-    }
-
-    /*
-      public function analyse($rep, $mode) {
-      $content = "";
-      $objet = new object("../Ressources/objectBeta/fry.png", "", "", 1001);
-      $descritption = "";
-      while ($data = $rep->fetch()) {
-      $descritption = "<b>Description : </b>" . $data['decoration'] . " " . $data['form'] . " " . $data['typology'] . ".<br /><b>Location : </b>" . $data['name_site'] . " , " . $data['name_town'] . " , " . $data['name_region'] . " , " . $data['name_country'] . " , ";
-      $objet->setObject("../Ressources/objectBeta/fry.png", $data['free_description'], $descritption);
-      //$content = $content . $objet -> selectDisplay($mode);
-      //$content = $content . $objet -> minDisplay();
-      if ($mode == "List") {
-      $content = $objet->LisDisplay();
-      } else if ($mode == "Image&Text") {
-      $content = $objet->minDisplay();
-      } else {
-      $content = $content . "Image ici";
-      }
-      $content = $content . "<br />";
-      }
-      $rep->closeCursor();
-      return $content;
-      }
-     */
 }
