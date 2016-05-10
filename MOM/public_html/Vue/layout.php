@@ -12,7 +12,7 @@ Ici se trouve le layout (template) créé pour servire de structure au autres pa
         <script src="../Model/javascript/jquery-1.12.3.min.js"></script>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
-        
+
         <link rel="stylesheet" href="../Vue/style/css3D.css" >
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
@@ -77,5 +77,7 @@ Ici se trouve le layout (template) créé pour servire de structure au autres pa
     </div>
     <script src = "../Model/javascript/filterMenu.js"></script>
     <script src = "../Model/javascript/file.js"></script>
+    <?php echo $head ?>
+
 </body>
 </html>

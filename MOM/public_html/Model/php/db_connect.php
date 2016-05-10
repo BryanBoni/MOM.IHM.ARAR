@@ -28,7 +28,7 @@ class db_connect {
         }
     }
 
-    public function selection($keyword) {
+    public function selection($keyword,$limit, $page) {
         /*
 
          */
@@ -42,7 +42,7 @@ class db_connect {
                 LEFT JOIN town t ON l.id_town=t.id 
                 LEFT JOIN region r ON l.id_region=r.id 
                 LEFT JOIN country c ON l.id_country=c.id 
-                WHERE t.name_town like '% $keyword %' or r.name_region like '% $keyword %' or c.name_country like '% $keyword %' or si.name_site like '% $keyword %' or p.workshop  like '% $keyword %' or p.museum  like '% $keyword %' or p.private_collection like '% $keyword %' or p.atelier like '% $keyword %' or p.excavation like '% $keyword %' or p.geolocation like '% $keyword %' or p.contact like '% $keyword %' or p.free_description like '% $keyword %'";
+                WHERE t.name_town like '%$keyword%' or r.name_region like '%$keyword%' or c.name_country like '%$keyword%' or si.name_site like '%$keyword%' or p.workshop  like '%$keyword%' or p.museum  like '%$keyword%' or p.private_collection like '%$keyword%' or p.atelier like '%$keyword%' or p.excavation like '%$keyword%' or p.geolocation like '%$keyword%' or p.contact like '%$keyword%' or p.free_description like '%$keyword%'";
         /*$rep = $pdodb->query($requete);*/
         $rep = $pdodb->prepare($requete);
         return $rep;

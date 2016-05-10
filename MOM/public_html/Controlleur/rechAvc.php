@@ -7,6 +7,7 @@ include_once (dirname(dirname(__FILE__)) . "/Model/php/db_connect.php");
 
 //Variables
 $title = "Home | Laboratoire ArAr";
+$head = "<script src=\"../Model/javascript/filter.js\"></script>";
 $search = new search();
 $objet = new object("../Ressources/objectBeta/fry.png", "Fry", "he is a dumb but he is funny.", 1001);
 $accesDb = new db_connect();
@@ -49,12 +50,10 @@ foreach ($filterList as $value) {
     $text2 = $text[$value];
     foreach ($text2 as $value2) {
         $content = $content
-                . "<li>";
+                . "<li id = \"li\">". $value2 . " ()</li>";
 
-        $content = $content . "<div class = \"checkbox\" id = \"check\"><label><input type = \"checkbox\" name = \"" . $value2 . "\">" . $value2 . " ()</label></div>";
+        $content = $content . "<div class = \"list\"></div>";
 
-        $content = $content
-                . "</li>";
     }
 
     $content = $content
@@ -106,35 +105,14 @@ $content = $content . ""
         . "</ul>"
         . "</nav>"
         . "<div class = \"row\" id = \"ooo\">";
-/* for($i = 0; $i < 15; $i++){
-  $content = $content . "<div id =\"imageObj".$i."\">$minObject</div>";
-  }
- */
+
 
 $content = $content . "</div>";
-//$rep = $accesDb->selection(htmlspecialchars($_GET["search"]));
-//$pdodb = $accesDb ->connect();
+$rep = $accesDb->selection(htmlspecialchars($_GET["search"]),$limit, $page);
 
-try {
-    $pdodb = new PDO("mysql:host=$this->host;dbname=$this->dbName", $this->userName, $this->passwd);
-    $pdodb->exec('SET NAMES utf8');
-}catch(PDOException $e){
-        die('Erreur : '.$e->getMessage());
-}
-$requete = "SELECT s.free_description, s.nom, si.name_site, t.name_town, r.name_region, c.name_country, d.decoration, d.form, d.typology  
-                FROM sample_new s 
-                LEFT JOIN description d ON s.id_description=d.id
-                LEFT JOIN provenance p ON s.id_provenance=p.id 
-                LEFT JOIN location l ON p.id_location=l.id 
-                LEFT JOIN site si ON l.id_site=si.id 
-                LEFT JOIN town t ON l.id_town=t.id 
-                LEFT JOIN region r ON l.id_region=r.id 
-                LEFT JOIN country c ON l.id_country=c.id 
-                WHERE t.name_town like '% $keyword %' or r.name_region like '% $keyword %' or c.name_country like '% $keyword %' or si.name_site like '% $keyword %' or p.workshop  like '% $keyword %' or p.museum  like '% $keyword %' or p.private_collection like '% $keyword %' or p.atelier like '% $keyword %' or p.excavation like '% $keyword %' or p.geolocation like '% $keyword %' or p.contact like '% $keyword %' or p.free_description like '% $keyword %'";
+
 //$rep = $pdodb->query($requete); 
-$rep = $pdodb->prepare($requete);
 $descritption = "";
-
 $rep->execute();
 while ($data = $rep->fetch()) {
     $descritption = "<b>Description : </b>" . $data['decoration'] . " " . $data['form'] . " " . $data['typology'] . ".<br /><b>Location : </b>" . $data['name_site'] . " , " . $data['name_town'] . " , " . $data['name_region'] . " , " . $data['name_country'] . " , ";
