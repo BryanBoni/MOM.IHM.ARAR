@@ -11,7 +11,7 @@ class search {
     
     public function getFilterText(){
         $this -> filterText['Location'] = array("Provenance","Orsupp","Attrib");
-        $this -> filterText['Description'] = array("Cathégorie","Datation");
+        $this -> filterText['Description'] = array("Catégorie","Datation");
         $this -> filterText['N° Analyse'] = array("Chimie","Pétro");
         $this -> filterText['Groupe de référence'] = array("rien");
         

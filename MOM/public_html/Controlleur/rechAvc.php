@@ -7,7 +7,9 @@ include_once (dirname(dirname(__FILE__)) . "/Model/php/db_connect.php");
 
 //Variables
 $title = "Home | Laboratoire ArAr";
-$head = "<script src=\"../Model/javascript/filter.js\"></script>";
+$head = "<script src = \"../Model/javascript/filterMenu.js\"></script>"
+        . "<script src=\"../Model/javascript/filter.js\"></script>";
+$head1 = "";
 $search = new search();
 $objet = new object("../Ressources/objectBeta/fry.png", "Fry", "he is a dumb but he is funny.", 1001);
 $accesDb = new db_connect();

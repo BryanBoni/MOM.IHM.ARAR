@@ -18,13 +18,14 @@ Ici se trouve le layout (template) créé pour servire de structure au autres pa
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
         <!-- Latest compiled and minified JavaScript -->
         <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src = "http://maps.googleapis.com/maps/api/js"></script>
-        <script src = "../Model/javascript/detailObj.js"></script>
+        <?php echo $head1?>
+        
     </head>
     <link rel="stylesheet" type="text/css" href="../Vue/style/main.css">
     <link rel="stylesheet" type="text/css" href="../Vue/style/css3D.css">
 </head>
 <body>
+    <a href="#" class="back-to-top hidden-xs">Back to Top</a>
     <div id = "header">
         <a href = "http://www.arar.mom.fr/"><img src = "../Ressources/bandeau.png" style = "width: 300px; height: 100px;"/></a><!-- Need to create  a custom one -->
         <nav class="navbar navbar-inverse" id = "navBar">
@@ -43,8 +44,8 @@ Ici se trouve le layout (template) créé pour servire de structure au autres pa
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li style="text-align: left;"><a href="rechAvc.php">Recherche Avancée</a></li>
-                        <li style="text-align: left;"><a href="../Controlleur/rechercheInterne.php"> Recherche Interne </a></li>
+                        <li style="text-align: center;"><a href="rechAvc.php">Recherche Avancée</a></li>
+                        <li style="text-align: center;"><a href="../Controlleur/Interne.php">Interne </a></li>
                     </ul>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -58,10 +59,10 @@ Ici se trouve le layout (template) créé pour servire de structure au autres pa
                             </form>
                         </li>
 
-                        <li style="text-align: left;"><a href="../Controlleur/connexion.php"><p class="glyphicon glyphicon-user" style="margin: 0px;"> </p></a></li>
+                        <li style="text-align: center;"><a href="../Controlleur/connexion.php"><p class="glyphicon glyphicon-user" style="margin: 0px;"> </p><p class ="hidden-sm hidden-md hidden-lg">Utilisateur</p></a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
+                </div><!-- /.container-fluid -->
         </nav>
     </div>
     <div class = "container-fluid">
@@ -75,9 +76,10 @@ Ici se trouve le layout (template) créé pour servire de structure au autres pa
     <div id = "footer">
         2016 <b>Laboratoire ArAr. Archéologie et Archéométrie</b> - Tout droit réservé. Créer par <b>Bryan Boni</b> & <b>Gabriel Coutu</b>
     </div>
-    <script src = "../Model/javascript/filterMenu.js"></script>
-    <script src = "../Model/javascript/file.js"></script>
+    
+    <!-- IMPORTANT BUT NOT USED
+    <script src = "../Model/javascript/file.js"></script>-->
     <?php echo $head ?>
-
+    <script src="../Model/javascript/backOnTop.js"></script>
 </body>
 </html>
