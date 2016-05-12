@@ -10,9 +10,9 @@ class search {
     }
     
     public function getFilterText(){
-        $this -> filterText['Location'] = array("Provenance","Orsupp","Attrib");
+        $this -> filterText['Location'] = array("Provenance","Origine supposée","Attribution");
         $this -> filterText['Description'] = array("Catégorie","Datation");
-        $this -> filterText['N° Analyse'] = array("Chimie","Pétro");
+        $this -> filterText['N° Analyse'] = array("Chimie","Pétrographie");
         $this -> filterText['Groupe de référence'] = array("rien");
         
         return $this -> filterText;

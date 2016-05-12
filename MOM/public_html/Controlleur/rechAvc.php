@@ -19,6 +19,9 @@ $sizeList = 100;
 $i = 0;
 $ResultPerPage = 15;
 
+if (isset($_GET['display'])) {
+    $mode = htmlspecialchars($_GET["display"]);
+}
 
 //here is the filter
 $content = $content . ""
@@ -42,7 +45,6 @@ $content = $content . ""
 
 $filterList = $search->getFilterList(); //get the filter research list in search().
 $text = $search->getFilterText(); //get the filter sub-research list in search().
-$minObject = $objet->selectDisplay($mode); //get the object display.
 //filter function
 foreach ($filterList as $value) {
     $content = $content
@@ -52,10 +54,9 @@ foreach ($filterList as $value) {
     $text2 = $text[$value];
     foreach ($text2 as $value2) {
         $content = $content
-                . "<li id = \"li\">". $value2 . " ()</li>";
+                . "<li id = \"li\">" . $value2 . " ()</li>";
 
         $content = $content . "<div class = \"list\"></div>";
-
     }
 
     $content = $content
@@ -70,14 +71,15 @@ $content = $content .
 $content = $content . ""
         . "<div class = \"col-sm-9\" id = \"cadre\" ><div id=\"gg\">"
         . "<div id = \"short\">"
-        . "<div style = \"float: left;\">"
+        . "<div style = \"float: left; \">"
         . "Résultats par pages : <div class=\"imgNb imgNb-active\"> 15 </div><div class=\"imgNb\"> 30 </div><div class=\"imgNb\"> 45 </div>"
         . "</div>"
-        . "<div style = \"float: right;\">"
-        . "<a href=\"#\"><div class = \"imgNb glyphicon glyphicon-picture\" aria-hidden = \"true\" title = \"Image seulement\"></div></a>"
-        . "<div class = \"imgNb imgNb-active glyphicon glyphicon-th\" aria-hidden = \"true\" title = \"Image et Texte\"></div>"
-        . "<div class =\"imgNb glyphicon glyphicon-list\" aria-hidden=\"true\" title = \"affichage en Liste\"></div>"
+        . "<div style = \"float: right; display: inline-text;\">"
+        . "<form action = \"rechAvc.php\" method = \"get\"><button type = \"submit\" value = \"ImageText\" name = \"display\" id=\"hiddenBtn\"><div class = \"imgNb glyphicon glyphicon-picture\" aria-hidden = \"true\" title = \"Image seulement\"></div></button>"
+        . "<button type = \"submit\" value = \"ImageText\" name = \"display\" id=\"hiddenBtn\"><div class = \"imgNb imgNb-active glyphicon glyphicon-th\" aria-hidden = \"true\" title = \"Image et Texte\"></div></button>"
+        . "<button type = \"submit\" value = \"List\" name = \"display\" id=\"hiddenBtn\"><div class =\"imgNb glyphicon glyphicon-list\" aria-hidden=\"true\" title = \"affichage en Liste\"></div></button> </form>"
         . "</div><br /><br />";
+
 
 $content = $content . "</div>"
         . "<p style=\"float: left;\"><b>votre recherche : </b><font color = \"red\">" . htmlspecialchars($_GET["search"]) . "</font></p><p style=\"float: right;\"> $sizeList résultats</p>"
@@ -110,17 +112,17 @@ $content = $content . ""
 
 
 $content = $content . "</div>";
-$rep = $accesDb->selection(htmlspecialchars($_GET["search"]),$limit, $page);
+$rep = $accesDb->selection(htmlspecialchars($_GET["search"]), $limit, $page);
 
 
 //$rep = $pdodb->query($requete); 
 $descritption = "";
 $rep->execute();
 while ($data = $rep->fetch()) {
-    $descritption = "<b>Description : </b>" . $data['decoration'] . " " . $data['form'] . " " . $data['typology'] . ".<br /><b>Location : </b>" . $data['name_site'] . " , " . $data['name_town'] . " , " . $data['name_region'] . " , " . $data['name_country'] . " , ";
+    $descritption = "<b>Description : </b>" . $data['decoration'] . " " . $data['form'] . " " . $data['typology'] . ".<br /><b>Localisation : </b>" . $data['name_site'] . " , " . $data['name_town'] . " , " . $data['name_region'] . " , " . $data['name_country'] . " , ";
     $objet->setObject("../Ressources/objectBeta/fry.png", $data['free_description'], $descritption);
     $content = $content . $objet->selectDisplay($mode);
-    $content = $content . "<br />";
+    //$content = $content . "<br />";
 }
 $rep->closeCursor();
 

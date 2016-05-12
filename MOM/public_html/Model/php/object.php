@@ -27,7 +27,7 @@ class object {
             case "List" :
                 $content = $this ->listDisplay();
                 break;
-            case "Image&Text":
+            case "ImageText":
                 $content = $this -> minDisplay();
                 break;
             case "Image":
@@ -42,7 +42,7 @@ class object {
         
         $content = $content . ""
                 
-                .   "<div class = \" col-xs-6 col-sm-6 col-md-4 col-lg-3\" id = \"minDisplay\">"
+                .   "<div class = \" col-xs-12 col-sm-6 col-md-4 col-lg-3\" id = \"minDisplay\">"
                 .       "<div class = \"thumbnail\">"
                 .           "<img src = " . $this -> _image . "></img>"
                 .           "<div class = \"caption\">"
@@ -72,7 +72,7 @@ class object {
                 
                 . "</div>"
                 
-                . "</div>"
+                . "</div><br />"
                 ;
         return $content;
     }
