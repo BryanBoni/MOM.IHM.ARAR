@@ -15,9 +15,16 @@ $objet = new object("../Ressources/objectBeta/fry.png", "Fry", "he is a dumb but
 $accesDb = new db_connect();
 $mode = "List";
 $content = "";
-$sizeList = 100;
+//$sizeList = 100;
 $i = 0;
 $ResultPerPage = 15;
+
+$countRep = $accesDb-> count(htmlspecialchars($_GET["search"]));
+
+$data = $countRep->fetch();
+$sizeList = $data['c'];    
+
+$countRep->closeCursor();
 
 if (isset($_GET['display'])) {
     $mode = htmlspecialchars($_GET["display"]);
@@ -39,8 +46,7 @@ $content = $content . ""
         . "<div class = \"col-sm-3 \" id = \"cadre\">"
         . "<h4 id = \"filter\"><b>Affinez votre recherche</b></h4>"
         . "<div id = \"filterList\">"
-        . "<b> Recherche : </b><div id = \"tag\">"
-        . "</div>";
+        . "<b> Recherche : </b><div id = \"tag\"></div>";
 
 
 $filterList = $search->getFilterList(); //get the filter research list in search().
@@ -72,7 +78,10 @@ $content = $content . ""
         . "<div class = \"col-sm-9\" id = \"cadre\" ><div id=\"gg\">"
         . "<div id = \"short\">"
         . "<div style = \"float: left; \">"
-        . "Résultats par pages : <div class=\"imgNb imgNb-active\"> 15 </div><div class=\"imgNb\"> 30 </div><div class=\"imgNb\"> 45 </div>"
+        . "Résultats par pages : "
+            . "<a href=\"display=ImageText\"><div class=\"imgNb imgNb-active\"> 15 </div></a>"
+            . "<div class=\"imgNb\"> 30 </div>"
+            . "<div class=\"imgNb\"> 45 </div>"
         . "</div>"
         . "<div style = \"float: right; display: inline-text;\">"
         . "<form action = \"rechAvc.php\" method = \"get\"><button type = \"submit\" value = \"ImageText\" name = \"display\" id=\"hiddenBtn\"><div class = \"imgNb glyphicon glyphicon-picture\" aria-hidden = \"true\" title = \"Image seulement\"></div></button>"
@@ -111,7 +120,7 @@ $content = $content . ""
         . "<div class = \"row\" id = \"ooo\">";
 
 
-$content = $content . "</div>";
+$content = $content . "</div><div class = \"row\" style = \"margin-left: 1px; margin-right: 1px;\">";
 $rep = $accesDb->selection(htmlspecialchars($_GET["search"]), $limit, $page);
 
 
@@ -120,13 +129,13 @@ $descritption = "";
 $rep->execute();
 while ($data = $rep->fetch()) {
     $descritption = "<b>Description : </b>" . $data['decoration'] . " " . $data['form'] . " " . $data['typology'] . ".<br /><b>Localisation : </b>" . $data['name_site'] . " , " . $data['name_town'] . " , " . $data['name_region'] . " , " . $data['name_country'] . " , ";
-    $objet->setObject("../Ressources/objectBeta/fry.png", $data['free_description'], $descritption);
+    $objet->setObject("../Ressources/objectBeta/fry.png", $data['free_description'], $descritption, $data['id']);
     $content = $content . $objet->selectDisplay($mode);
     //$content = $content . "<br />";
 }
 $rep->closeCursor();
 
-$content = $content . ""
+$content = $content . "</div><div class =\"row col-xs-12\""
         . "<nav style =\"text-align: center;\" >"
         . "<ul class = \"pagination\" style=\" margin: 0px; margin-top: 8px;\">"
         . "<li>"
@@ -149,7 +158,7 @@ $content = $content . ""
         . "</a>"
         . "</li>"
         . "</ul>"
-        . "</nav>"
+        . "</nav></div>"
         . "</div></div>"
         . "</div>"
         . "</div>";

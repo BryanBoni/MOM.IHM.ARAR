@@ -2,8 +2,9 @@
 men2();
 
 function men2() {
-    var li2 = document.getElementsByTagName("li");
-    var subMenu = document.getElementsByClassName("list");
+    var filter = document.getElementById("filterList");
+    var li2 = filter.getElementsByTagName("li");
+    var subMenu = filter.getElementsByClassName("list");
     for (var i = 0; i < li2.length; i++) {
         add(li2[i], subMenu[i]);
     }

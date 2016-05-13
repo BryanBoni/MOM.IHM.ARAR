@@ -15,10 +15,11 @@ class object {
     }
 
         
-    function setObject($image, $title, $description){
+    function setObject($image, $title, $description, $id){
         $this-> _image = $image;
         $this-> _title = $title;
         $this-> _description = $description;
+        $this -> _objId = $id;
     }
     
     public function selectDisplay($mode){
@@ -48,7 +49,7 @@ class object {
                 .           "<div class = \"caption\">"
                 .               "<h3>" . $this -> _title . "</h3>"
                 .               "<p>" . $this -> _description ."</p>"
-                .               "<p><a href = \"details.php?ObjectId=\"".$this -> _objId."\"\" class = \"btn btn-primary\" role = \"button\">Voir détails...</a></p>"
+                .               "<p><form action = \"details.php\" method = \"post\"><button type = \"submit\" value = \"$this->_objId\" name = \"objectId\" id=\"objectIdBtn\" class = \"btn btn-primary\" role = \"button\">Voir détails...</button></form></p>"
                 .           "</div>"
                 .       "</div>"
                 .   "</div>"
@@ -61,13 +62,13 @@ class object {
         
         $content = $content . ""
                 . "<div id = \"listDisplay\"><div class = \"row\">"
-                .   "<div class = \"col-md-3 col-lg-2 col-sm-4\" id = \"this\">"
+                .   "<div class = \"col-md-4 col-lg-2 col-sm-5\" id = \"this\">"
                 .       "<img src = " . $this -> _image . "></img>"
                 .   "</div>"
-                .   "<div class = \"col-md-9 col-lg-10 col-sm-8\">"
+                .   "<div class = \"col-md-8 col-lg-10 col-sm-7\">"
                 .       "<h4>" . $this -> _title . "</h4>"
                 .       "<p>" . $this -> _description . "</p>"
-                .   "<a style = \"float: right;\" href = \"details.php?ObjectId=\"".$this -> _objId."\"\" class = \"btn btn-primary\" role = \"button\">Voir détails...</a>"
+                .   "<form action = \"details.php\" method = \"post\"><button type = \"submit\" value = \"$this->_objId\" name = \"objectId\" id=\"objectIdBtn\" style = \"float: right;\" class = \"btn btn-primary\" role = \"button\">Voir détails...</button></form>"
                 .   "</div>"
                 
                 . "</div>"
