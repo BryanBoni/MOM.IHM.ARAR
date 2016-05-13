@@ -72,9 +72,9 @@ Ici se trouve le layout (template) créé pour servire de structure au autres pa
     </div>
     <br /><br /><br /><br />
 
-
+    
     <div id = "footer">
-        2016 <b>Laboratoire ArAr. Archéologie et Archéométrie</b> - Tout droit réservé. Créer par <b>Bryan Boni</b> & <b>Gabriel Coutu</b>
+        2016 <b>Laboratoire ArAr. Archéologie et Archéométrie</b> - Tout droit réservé. Créé par <b>Bryan Boni</b> & <b>Gabriel Coutu</b>
     </div>
     
     <!-- IMPORTANT BUT NOT USED
