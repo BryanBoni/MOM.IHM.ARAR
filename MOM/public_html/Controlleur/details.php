@@ -4,19 +4,44 @@
 $title = "Details | Laboratoire ArAr";
 $content = "";
 $head1 = "<script src = \"http://maps.googleapis.com/maps/api/js\"></script>"
-        . "<script src = \"../Model/javascript/detailObj.js\"></script>";
+        . "<script src = \"../Model/javascript/detailObj.js\"></script>"
+        . "<script src = \"../Model/javascript/resizeImg.js\"></script>";
 $head = "";
 $objTitle = "cbr_TN_2016";
 
-if(true) { $ifobj3D = "<a href=\"obj3D.html\" class=\"btn btn-warning\" style = \"margin: 5px;\">Visionner l'objet 3D</a>"; }
+$isObjFile = true;
+$ifobj3D = "";
+if($isObjFile) { $ifobj3D = "<a href=\"obj3D.html\" class=\"btn btn-warning\" style = \"margin: 5px;\">Visionner l'objet 3D</a>"; }
 else { $ifobj3D = "<span>Objet 3D non disponible</span>"; }
 
 $obj2D = "<div id=\"loadingContainer\" class = \"loading-container\">
-                <img id=\"image2d\" src=\"../Ressources/objectBeta/default.png\" class = \"loading-container\" />"
+                <img id=\"image2d\" src=\"../Ressources/objectBeta/default.png\" class = \"loading-container img_file\" />"
           . $ifobj3D . 
         "</div>";
 
-$gallerie = "";
+$isImgFilePicture = true;
+$ifImgFilePicture = "<table><tr>";
+if($isImgFilePicture) {
+    for ($i = 1; $i < 7+1; $i++) {
+        $ifImgFilePicture .= "<td><img src=\"../Ressources/objectBeta/default.png\" class = \"img_file_gallerie\" /></td>";
+        if ($i % 3 == 0) { $ifImgFilePicture .= "</tr><tr>"; }
+    }
+}
+else { $ifImgFilePicture = "<span>Pas de fichier disponible</span>"; }
+$ifImgFilePicture .= "</tr></table>";
+
+$isImgFileDessin = true;
+$ifImgFileDessin = "<table><tr>";
+if($isImgFileDessin) {
+    for ($i = 1; $i < 4+1; $i++) {
+        $ifImgFileDessin .= "<td><img src=\"../Ressources/objectBeta/default.png\" class = \"img_file_gallerie\" /></td>";
+        if ($i % 3 == 0) { $ifImgFileDessin .= "</tr><tr>"; }
+    }
+}
+else { $ifImgFileDessin = "<span>Pas de fichier disponible</span>"; }
+$ifImgFileDessin .= "</tr></table>";
+
+$gallerie = "<h1>Photo</h1></br>$ifImgFilePicture<h1>Dessin technique</h1></br>$ifImgFileDessin";
 
 
 //provisoire
@@ -70,7 +95,7 @@ $content = $content
             . "</div>"
             . "<br />"
             . "<div class = \"row\" id = \"galMap\">"
-                . "<div class = \"col-sm-6\"><h3>Photos & Dessin</h3><div id = \"scrollable\" style = \"height: 300px; border: 2px solid #cccccc\">$chimi</div></div>"
+                . "<div class = \"col-sm-6\"><h3>Photos & Dessin</h3><div id = \"scrollable\" style = \"height: 300px; border: 2px solid #cccccc\">$gallerie</div></div>"
                 
                 . "<div class = \"col-sm-6\"><h3>Localisation</h3><div id = \"googleMap\" style = \"height: 300px; border: 2px solid #cccccc\"></div></div>"
             . "</div>"

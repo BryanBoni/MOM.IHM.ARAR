@@ -180,6 +180,3 @@
         $('.onepix-imgloader').show();
         $('.container').hide();
     }
-    function retour() {
-        location.href = "./details.php";
-    }
