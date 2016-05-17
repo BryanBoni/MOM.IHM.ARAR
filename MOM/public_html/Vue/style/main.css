@@ -121,10 +121,12 @@ a.back-to-top {
 
 .imgNb{
     border: 1px solid black;
-    display: inline-block;
     color: black;
+    font-size: 16px;
     margin: 3px;
     padding: 4px;
+    width: 50px;
+    min-height: 25px;
 }
 
 .imgNb-active{
@@ -218,13 +220,23 @@ a.back-to-top {
 
 #hiddenBtn{
     border: none;
-    margin: 0px;
+    margin: 5px;
     padding: 0px;
+    
     text-decoration: none;
     display: inline-block;
     background: none;
 }
 
+#hiddenBtn:hover div{
+    background-color: #8e3c06;
+    border-color: #8e3c06;
+    color: white;
+}
+
+#hiddenBtn div{
+    width: 100%;
+}
 
 #minDisplay b{
     color: #8e3c06;

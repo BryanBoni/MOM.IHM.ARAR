@@ -27,7 +27,7 @@ Ici se trouve le layout (template) créé pour servire de structure au autres pa
 <body>
     <a href="#" class="back-to-top hidden-xs">Back to Top</a>
     <div id = "header">
-        <a href = "http://www.arar.mom.fr/"><img src = "../Ressources/bandeau.png" style = "width: 300px; height: 100px;"/></a><!-- Need to create  a custom one -->
+        <a href = "http://www.arar.mom.fr/"><img src = "../Ressources/image.gif" style = "width: 400px; height: 60px;"/></a><!-- Need to create  a custom one -->
         <nav class="navbar navbar-inverse" id = "navBar">
             <div class="container-fluid" id = "menuBar">
                 <!-- Brand and toggle get grouped for better mobile display -->
