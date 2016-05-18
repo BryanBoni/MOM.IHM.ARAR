@@ -23,9 +23,9 @@ $(document).ready(function() {
             $(this).css("width", width * ratio);    // Scale width based on ratio
             width = width * ratio;    // Reset width to match scaled image
         }
-<<<<<<< HEAD
-    });*/
 
+    });*/
+    };
    
 
 $(document).ready(function() {
