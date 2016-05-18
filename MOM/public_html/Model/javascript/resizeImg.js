@@ -24,6 +24,9 @@ $(document).ready(function() {
             width = width * ratio;    // Reset width to match scaled image
         }
     });
+});
+
+$(document).ready(function() {
     $('.img_file_gallerie').each(function() {
         var maxWidth = 200; // Max width for the image
         var maxHeight = 200;    // Max height for the image
