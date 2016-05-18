@@ -36,7 +36,7 @@
                         <button  id = "searchBtn" class = "btn btn-danger " name = "searchBtn" type = "submit"><span class = "glyphicon glyphicon-search"/></button>
                     </span>
                 </div>
-                <input type = "hidden" name="display" value="ImageText"/>
+               <input type = "hidden" name="display" value="ImageText"/>
                 <?php
                     $_SESSION['nbPage'] = 15;
                     $_SESSION['display'] = "ImageText";

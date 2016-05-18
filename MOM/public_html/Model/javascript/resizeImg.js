@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
     /*$('.img_file').each(function() {
         var maxWidth = 400; // Max width for the image
@@ -23,10 +22,8 @@ $(document).ready(function() {
             $(this).css("width", width * ratio);    // Scale width based on ratio
             width = width * ratio;    // Reset width to match scaled image
         }
-
     });*/
-    };
-   
+});
 
 $(document).ready(function() {
     $('.img_file_gallerie').each(function() {
