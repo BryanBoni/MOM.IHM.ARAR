@@ -37,6 +37,14 @@ body{
     border: 2px solid #eaeaea;
 }
 
+#li{
+
+}
+
+#loadingContainer{
+    width: 100%;
+}
+
 #this{
    
 }
@@ -88,9 +96,9 @@ html{
 
 a.back-to-top {
 	display: none;
-	width: 80px;
-	height: 80px;
-        margin-bottom: 100px;
+	width: 70px;
+	height: 70px;
+        margin-bottom: 50px;
 	text-indent: -9999px;
 	position: fixed;
 	z-index: 999;

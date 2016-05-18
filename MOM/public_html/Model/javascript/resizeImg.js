@@ -1,6 +1,6 @@
 
 $(document).ready(function() {
-    $('.img_file').each(function() {
+    /*$('.img_file').each(function() {
         var maxWidth = 400; // Max width for the image
         var maxHeight = 400;    // Max height for the image
         var ratio = 0;  // Used for aspect ratio
@@ -23,7 +23,7 @@ $(document).ready(function() {
             $(this).css("width", width * ratio);    // Scale width based on ratio
             width = width * ratio;    // Reset width to match scaled image
         }
-    });
+    });*/
     $('.img_file_gallerie').each(function() {
         var maxWidth = 200; // Max width for the image
         var maxHeight = 200;    // Max height for the image

@@ -11,7 +11,7 @@ $head = "<script src = \"../Model/javascript/filterMenu.js\"></script>"
         . "<script src=\"../Model/javascript/filter.js\"></script>";
 $head1 = "";
 $search = new search();
-$objet = new object("../Ressources/objectBeta/fry.png", "Fry", "he is a dumb but he is funny.", 1001);
+$objet = new object("../Ressources/GraphicalDb/photos_objets/LEV730r.JPG", "Fry", "he is a dumb but he is funny.", 1001);
 $accesDb = new db_connect();
 $mode = "List";
 $content = "";
@@ -43,7 +43,7 @@ $content = $content . ""
         . "</div>"
         . "<br />"
         . "<div class = \"row\" id = \"advSearch\">"
-        . "<div class = \"col-sm-3 \" id = \"cadre\">"
+        . "<div class = \"col-sm-4 col-md-3\" id = \"cadre\">"
         . "<h4 id = \"filter\"><b>Affinez votre recherche</b></h4>"
         . "<div id = \"filterList\">"
         . "<b> Recherche : </b><div id = \"tag\"></div>";
@@ -60,7 +60,7 @@ foreach ($filterList as $value) {
     $text2 = $text[$value];
     foreach ($text2 as $value2) {
         $content = $content
-                . "<li id = \"li\">" . $value2 . " ()</li>";
+                . "<li id = \"li\">" . $value2 . " <span class=\"badge\"> 9 </span></li>";
 
         $content = $content . "<div class = \"list\"></div>";
     }
@@ -75,7 +75,7 @@ $content = $content .
 //here is the result list.
 //here is the display option
 $content = $content . ""
-        . "<div class = \"col-sm-9\" id = \"cadre\" ><div id=\"gg\">"
+        . "<div class = \"col-sm-8 col-md-9\" id = \"cadre\" ><div id=\"gg\">"
         . "<div id = \"short\">"
         . "<div style = \"float: left; display: inline-text;\">"
         . "<form action = \"rechAvc.php\" method = \"get\"><b>Résultats par pages :<b/> "
@@ -129,7 +129,7 @@ $descritption = "";
 $rep->execute();
 while ($data = $rep->fetch()) {
     $descritption = "<b>Description : </b>" . $data['decoration'] . " " . $data['form'] . " " . $data['typology'] . ".<br /><b>Localisation : </b>" . $data['name_site'] . " , " . $data['name_town'] . " , " . $data['name_region'] . " , " . $data['name_country'] . " , ";
-    $objet->setObject("../Ressources/objectBeta/fry.png", $data['free_description'], $descritption, $data['id']);
+    $objet->setObject("../Ressources/GraphicalDb/photos_objets/LEV730r.JPG", $data['free_description'], $descritption, $data['id']);
     $content = $content . $objet->selectDisplay($mode);
     //$content = $content . "<br />";
 }
