@@ -2,6 +2,7 @@
 <!--  -->
 <html>
     <head>
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="Ressources/favicon.ico" type="image/gif">
@@ -20,6 +21,7 @@
     </head>
 
     <body>
+
     <center>
         <h1>Base de données du laboratoire ArAr</h1>
         <br /><br />
@@ -35,6 +37,10 @@
                     </span>
                 </div>
                 <input type = "hidden" name="display" value="ImageText"/>
+                <?php
+                    $_SESSION['nbPage'] = 15;
+                    $_SESSION['display'] = "ImageText";
+                ?>
             </form>
         </div>
     </center>
