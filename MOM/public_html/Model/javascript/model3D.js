@@ -7,6 +7,8 @@
     // Model file OBJ
     var file = '../Ressources/obj3D/MA5.obj';
     var textureFile = '../Ressources/obj3D/MA5_0.jpg';
+    /*var file = '../Ressources/obj3D/LEV730.obj';
+    var textureFile = '../Ressources/obj3D/LEV730.jpg';*/
 
     var controls, intensiteLight;
     var raycaster = new THREE.Raycaster();
@@ -67,12 +69,12 @@
         controls.dynamicDampingFactor = 0.3;
 
         // scene+light
+        scene = new THREE.Scene();
         switch (isTexture) {
             case true :
                 intensiteLight = 7;
                 
                 // lumiere avec texture
-                scene = new THREE.Scene();
                 var ambient = new THREE.AmbientLight( 0x404040 , intensiteLight );
                 scene.add( ambient );
 
@@ -81,7 +83,6 @@
                 intensiteLight = 0.5;
                 
                 // lumiere sans texture
-                scene = new THREE.Scene();
                 var ambient = new THREE.AmbientLight( 0x404040 , intensiteLight );
                 scene.add( ambient );
                 
@@ -106,6 +107,7 @@
         
         // application des textures et du obj FILE
         var texture = new THREE.Texture();
+        THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
         var loader = new THREE.OBJLoader( manager );
         loader.load( file, function ( object ) {
             if (isTexture) {
@@ -120,9 +122,36 @@
                     }
                 });
             }
+            var ratioRadian = 0.0174533;
             object.position.y = 0;
+            object.position.x = 0;
+            object.position.z = -200;
+            object.rotation.x = -20*ratioRadian;
+            object.rotation.y = 50*ratioRadian;
+            object.rotation.z = 100*ratioRadian;
             scene.add( object );
         }, onProgress, onError );
+        
+        
+        /*file = '../Ressources/obj3D/LEV730.obj';
+        var onProgress = function ( xhr ) {
+                        if ( xhr.lengthComputable ) {
+                            var percentComplete = xhr.loaded / xhr.total * 100;
+                            document.getElementById('pourcent').innerHTML = Math.round(percentComplete, 2) + '% downloaded';
+                        }
+                    };
+
+                    var onError = function ( xhr ) {
+                    };
+
+                    THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
+var loader = new THREE.OBJLoader();
+                    loader.load( file , function ( object ) {
+scene.add( object )
+}, onProgress, onError );*/
+
+
+
     }
     function timerTask(){
         $(document).ready(function () {
@@ -148,7 +177,7 @@
         requestAnimationFrame( animate );
         render();
     }
-    function render() {
+    function render() { 
         controls.update();
         renderer.render( scene, camera );
     }

@@ -16,7 +16,7 @@ if($isObjFile) { $ifobj3D = "<a href=\"obj3D.html\" class=\"btn btn-warning\" st
 else { $ifobj3D = "<span>Objet 3D non disponible</span>"; }
 
 $obj2D = "<div id=\"loadingContainer\" class = \"loading-container\">
-                <img id=\"image2d\" src=\"../Ressources/objectBeta/default.png\" class = \"loading-container img_file\" />"
+                <img id=\"image2d\" src=\"../Ressources/objectBeta/default.png\" class = \""./*loading-container */"img_file\" />"
           . $ifobj3D . 
         "</div>";
 
