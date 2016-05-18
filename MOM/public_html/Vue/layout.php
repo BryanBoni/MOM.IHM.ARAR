@@ -38,7 +38,7 @@ Ici se trouve le layout (template) créé pour servire de structure au autres pa
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="../index.html" style="font-size: 24px;">Accueil</a>
+                    <a class="navbar-brand" href="../index.php" style="font-size: 24px;">Accueil</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->

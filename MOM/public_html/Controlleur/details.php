@@ -16,9 +16,8 @@ if($isObjFile) { $ifobj3D = "<a href=\"obj3D.html\" class=\"btn btn-warning\" st
 else { $ifobj3D = "<span>Objet 3D non disponible</span>"; }
 
 $obj2D = "<div id=\"loadingContainer\" class = \"loading-container\">
-                <img id=\"image2d\" src=\"../Ressources/objectBeta/default.png\" class = \""./*loading-container */"img_file\" />"
-          . $ifobj3D . 
-        "</div>";
+            <img id=\"image2d\" src=\"../Ressources/objectBeta/default.png\" class = \"loading-container img_file\" /> 
+        </div>";
 
 // Module pour la gallerie de photos et de dessins techniques
 // PHOTO
@@ -77,7 +76,9 @@ $content = $content . "<div class=\"row\">"
             . "<div class = \"row\" style = \"margin: 10px; \">"
                 . "<div class = \"col-xs-12 col-md-4 \" id = \"obj3d\">"
                     . "$obj2D"
+                    . $ifobj3D
                 . "</div>"
+                
                 . "<div class = \"col-md-8 col-xs-12\" id = \"descGene\">"
                     . "<h3 style = \"text-align: left;\">Description </h3>"    
                     . "<ul class = \"nav nav-tabs\" role = \"tablist\">"

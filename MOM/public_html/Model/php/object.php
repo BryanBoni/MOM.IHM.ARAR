@@ -62,18 +62,18 @@ class object {
         
         $content = $content . ""
                 . "<div id = \"listDisplay\"><div class = \"row\">"
-                .   "<div class = \"col-md-4 col-lg-3 col-sm-5\" id = \"this\">"
+                .   "<div class = \"col-md-5 col-lg-3 col-sm-5\" id = \"this\">"
                 .       "<img src = " . $this -> _image . "></img>"
                 .   "</div>"
-                .   "<div class = \"col-md-8 col-lg-9 col-sm-7\">"
+                .   "<div class = \"col-md-7 col-lg-9 col-sm-7\" style=\"text-align: left;\">"
                 .       "<h4>" . $this -> _title . "</h4>"
                 .       "<p>" . $this -> _description . "</p>"
-                .   "<form action = \"details.php\" method = \"post\"><button type = \"submit\" value = \"$this->_objId\" name = \"objectId\" id=\"objectIdBtn\" style = \"float: right;\" class = \"btn btn-primary\" role = \"button\">Voir détails...</button></form>"
+                .   ""
                 .   "</div>"
                 
                 . "</div>"
                 
-                . "</div><br />"
+                . "</div><form action = \"details.php\" method = \"post\"><button type = \"submit\" value = \"$this->_objId\" name = \"objectId\" id=\"objectIdBtn\" style = \"float: right; margin-right: 10px;\" class = \"btn btn-primary\" role = \"button\">Voir détails...</button></form><br /><br />"
                 ;
         return $content;
     }
