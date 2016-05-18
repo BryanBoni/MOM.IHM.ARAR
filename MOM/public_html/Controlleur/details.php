@@ -9,6 +9,7 @@ $head1 = "<script src = \"http://maps.googleapis.com/maps/api/js\"></script>"
 $head = "";
 $objTitle = "cbr_TN_2016";
 
+// Module pour le 3D et pour l'image default
 $isObjFile = true;
 $ifobj3D = "";
 if($isObjFile) { $ifobj3D = "<a href=\"obj3D.html\" class=\"btn btn-warning\" style = \"margin: 5px;\">Visionner l'objet 3D</a>"; }
@@ -19,7 +20,9 @@ $obj2D = "<div id=\"loadingContainer\" class = \"loading-container\">
           . $ifobj3D . 
         "</div>";
 
-$isImgFilePicture = true;
+// Module pour la gallerie de photos et de dessins techniques
+// PHOTO
+$isImgFilePicture = true; // check is we have some picture in the database
 $ifImgFilePicture = "<table><tr>";
 if($isImgFilePicture) {
     for ($i = 1; $i < 7+1; $i++) {
@@ -30,7 +33,8 @@ if($isImgFilePicture) {
 else { $ifImgFilePicture = "<span>Pas de fichier disponible</span>"; }
 $ifImgFilePicture .= "</tr></table>";
 
-$isImgFileDessin = true;
+// DESSIN
+$isImgFileDessin = true; // check is we have some picture in the database
 $ifImgFileDessin = "<table><tr>";
 if($isImgFileDessin) {
     for ($i = 1; $i < 4+1; $i++) {
@@ -41,6 +45,7 @@ if($isImgFileDessin) {
 else { $ifImgFileDessin = "<span>Pas de fichier disponible</span>"; }
 $ifImgFileDessin .= "</tr></table>";
 
+// Mise en page des documents 2D dans la gallerie
 $gallerie = "<h1>Photo</h1></br>$ifImgFilePicture<h1>Dessin technique</h1></br>$ifImgFileDessin";
 
 
