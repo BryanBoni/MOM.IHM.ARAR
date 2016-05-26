@@ -16,7 +16,7 @@ if($isObjFile) { $ifobj3D = "<a href=\"obj3D.html\" class=\"btn btn-warning\" st
 else { $ifobj3D = "<span>Objet 3D non disponible</span>"; }
 
 $obj2D = "<div id=\"loadingContainer\" class = \"loading-container\">
-            <img id=\"image2d\" src=\"../Ressources/objectBeta/default.png\" class = \"loading-container img_file\" /> 
+            <img id=\"image2d\" src=\"../Ressources/GraphicalDb/photos_objets/LEV730r.JPG\" class = \"loading-container img_default\" /> 
         </div>";
 
 // Module pour la gallerie de photos et de dessins techniques
@@ -24,8 +24,8 @@ $obj2D = "<div id=\"loadingContainer\" class = \"loading-container\">
 $isImgFilePicture = true; // check is we have some picture in the database
 $ifImgFilePicture = "<table><tr>";
 if($isImgFilePicture) {
-    for ($i = 1; $i < 7+1; $i++) {
-        $ifImgFilePicture .= "<td><img src=\"../Ressources/objectBeta/default.png\" class = \"img_file_gallerie\" /></td>";
+    for ($i = 1; $i < 1+1; $i++) {
+        $ifImgFilePicture .= "<td><img src=\"../Ressources/GraphicalDb/photos_objets/LEV730r.JPG\" class = \"img_file_gallerie\" /></td>";
         if ($i % 3 == 0) { $ifImgFilePicture .= "</tr><tr>"; }
     }
 }
@@ -33,10 +33,10 @@ else { $ifImgFilePicture = "<span>Pas de fichier disponible</span>"; }
 $ifImgFilePicture .= "</tr></table>";
 
 // DESSIN
-$isImgFileDessin = true; // check is we have some picture in the database
+$isImgFileDessin = false; // check is we have some picture in the database
 $ifImgFileDessin = "<table><tr>";
 if($isImgFileDessin) {
-    for ($i = 1; $i < 4+1; $i++) {
+    for ($i = 1; $i < 1+1; $i++) {
         $ifImgFileDessin .= "<td><img src=\"../Ressources/objectBeta/default.png\" class = \"img_file_gallerie\" /></td>";
         if ($i % 3 == 0) { $ifImgFileDessin .= "</tr><tr>"; }
     }
@@ -58,7 +58,7 @@ $autre2 = "Morbi ultrices pellentesque turpis, ac rutrum turpis consectetur at. 
 $objGDesc = "<b>Provenance</b><br /><p>Atelier de ..., 10Km au sud d'Hamamet, prospection de S. Aounalla et M. Bonifaik,<br /> Tunisie. </p><br /><b>Datation</b><br /><p>2ème moitié Ve</p>";
 $objGene = "<b>Nom</b><p>cbr_TN_2016</p><b>Nature</b> <p><b>S01</b> Pâte <b>S02</b> Engobe</p><b>Num analyse</b><p>ACD399, Capelli 7125, M215</p>";
 $objBiblio = "<b>Biblio</b><p>BRUN, C., 2007 - Etude Technique des productions de l'atelier de sidi Khalifa (Pheradi Maius, Tunisie) : Céramiques culinaires, sigillées et cazettes, in : BONIFAY, M. et TREGLIA, J.-C, LRCW2, Late Roman Coarse Wares, Cooking Wares and Amphorae in the Mediterranean : Archaeology and Archaeometry (Aix-en-Provence, 13-16 avril 2005), BAR IS1662 (II), pp. 569-579.</p>";
-$other = "Nothing";
+$other = "<a href=\"http://www.levantineceramics.org/wares/beirut-frankish-cooking-ware-be-cw\">http://www.levantineceramics.org/wares/beirut-frankish-cooking-ware-be-cw</a>";
 
 $content = $content . "<div class=\"row\">"
             . "<div class = \"col-sm-7\">"
