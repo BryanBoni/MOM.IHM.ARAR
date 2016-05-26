@@ -1,7 +1,7 @@
 <?php
 
 //variables
-$title = "Details | Laboratoire ArAr";
+$title = "Details | Ceramom BDD";
 $content = "";
 $head1 = "<script src = \"http://maps.googleapis.com/maps/api/js\"></script>"
         . "<script src = \"../Model/javascript/detailObj.js\"></script>"
@@ -16,7 +16,7 @@ if($isObjFile) { $ifobj3D = "<a href=\"obj3D.html\" class=\"btn btn-warning\" st
 else { $ifobj3D = "<span>Objet 3D non disponible</span>"; }
 
 $obj2D = "<div id=\"loadingContainer\" class = \"loading-container\">
-            <img id=\"image2d\" src=\"../Ressources/objectBeta/default.png\" class = \"loading-container img_file\" /> 
+                <img id=\"image2d\" src=\"../Ressources/objectBeta/default.png\" class = \"loading-container img_file\" /> 
         </div>";
 
 // Module pour la gallerie de photos et de dessins techniques

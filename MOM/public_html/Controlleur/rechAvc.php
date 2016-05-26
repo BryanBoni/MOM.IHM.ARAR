@@ -1,43 +1,50 @@
 <?php
+session_start();
 
-//import
+//imports
 include_once (dirname(dirname(__FILE__)) . "/Model/php/search.php");
 include_once (dirname(dirname(__FILE__)) . "/Model/php/object.php");
 include_once (dirname(dirname(__FILE__)) . "/Model/php/db_connect.php");
-
-//Variables
-$title = "Home | Laboratoire ArAr";
+include_once (dirname(dirname(__FILE__)) . "/Model/php/pageMenu.php");
+//Head
+$title = "Home | Ceramom BDD";
 $head = "<script src = \"../Model/javascript/filterMenu.js\"></script>"
         . "<script src=\"../Model/javascript/filter.js\"></script>";
 $head1 = "";
+
+//Objects
 $search = new search();
 $objet = new object("../Ressources/GraphicalDb/photos_objets/LEV730r.JPG", "Fry", "he is a dumb but he is funny.", 1001);
 $accesDb = new db_connect();
+$pageMenu = new pageMenu();
+
+//Variables
 $mode = "List";
+$ResultPerPage = 15;
 $content = "";
-//$sizeList = 100;
-/*if (isset($_GET['search'])) {*/$_SESSION['search'] = htmlspecialchars($_GET["search"]);//}
+$_SESSION['search'] = htmlspecialchars($_GET["search"]);//}
 $searchName = $_SESSION['search'];
 $i = 0;
-
 $countRep = $accesDb-> count($searchName);
-
 $data = $countRep->fetch();
 $sizeList = $data['c'];   
 $countRep->closeCursor();
+$pageNumber = 1;
 
+//Variables session
 if (isset($_GET['display'])) {
     $_SESSION['display'] = htmlspecialchars($_GET["display"]);
+    $mode = $_SESSION['display'];
+}else if(isset ($_SESSION['display'])){
     $mode = $_SESSION['display'];
 }
 
 if (isset($_GET['nbPage'])) {
     $_SESSION['nbPage'] = $_GET['nbPage'];
     $ResultPerPage = $_SESSION['nbPage'];
-}else{
-    $ResultPerPage = 15;
+}else if(isset ($_SESSION['nbPage'])){
+    $ResultPerPage = $_SESSION['nbPage'];
 }
-
 
 
 //here is the filter
@@ -87,7 +94,7 @@ $content = $content .
 $content = $content . ""
         . "<div class = \"col-sm-8 col-md-9\" id = \"cadre\" ><div id=\"gg\">"
         . "<div id = \"short\">"
-        . "<div style = \"float: left; display: inline-text;\">"
+        . "<div style = \"float: left; display: inline-text; margin: 0px;\">"
         . "<form action = \"rechAvc.php\" method = \"get\"><b>Résultats par pages :<b/> ";
 if ($ResultPerPage == 15) {
     $content = $content . "<button type = \"submit\" value = \"15\" name = \"nbPage\" id=\"hiddenBtn\"><div class=\"imgNb imgNb-active\"><b> 15 </b></div></button>";
@@ -110,12 +117,12 @@ if ($ResultPerPage == 45) {
 $content = $content
         . " </form></div>"
         . "<div style = \"float: right; display: inline-text;\">"
-        . "<form action = \"rechAvc.php\" method = \"get\">";
+        . "<form action = \"rechAvc.php\" method = \"get\" style = \"margin: 0px;\">";
 
 if ($mode == "Image") {
-    $content = $content . "<button type = \"submit\" value = \"ImageText\" name = \"display\" id=\"hiddenBtn\"><div class = \"imgNb imgNb-active glyphicon glyphicon-picture\" aria-hidden = \"true\" title = \"Image seulement\"></div></button>";
+    $content = $content . "<button type = \"submit\" value = \"Image\" name = \"display\" id=\"hiddenBtn\"><div class = \"imgNb imgNb-active glyphicon glyphicon-picture\" aria-hidden = \"true\" title = \"Image seulement\"></div></button>";
 } else {
-    $content = $content . "<button type = \"submit\" value = \"ImageText\" name = \"display\" id=\"hiddenBtn\"><div class = \"imgNb glyphicon glyphicon-picture\" aria-hidden = \"true\" title = \"Image seulement\"></div></button>";
+    $content = $content . "<button type = \"submit\" value = \"Image\" name = \"display\" id=\"hiddenBtn\"><div class = \"imgNb glyphicon glyphicon-picture\" aria-hidden = \"true\" title = \"Image seulement\"></div></button>";
 
 }
 
@@ -145,14 +152,9 @@ $content = $content . "</div>"
         . "<a href = \"#\" aria-label = \"Previous\"><span aria-hidden = \"true\">&laquo;</span></a>"
         . "</li>";
 
-while ($i <= ($sizeList / $ResultPerPage)) {
-    if ($i == 0) {
-        $content = $content . "<li role = \"presentation\"  class = \"active\"><a href=\"#\">" . $i . "</a></li>";
-    } else {
-        $content = $content . "<li role = \"presentation\"><a href=\"#\">" . $i . "</a></li>";
-    }
-    $i += 1;
-}
+
+$content = $content . $pageMenu ->displayPagination(($sizeList / $ResultPerPage), 5); // display the page Menu.
+
 
 $content = $content . ""
         . "<li>"
@@ -164,9 +166,11 @@ $content = $content . ""
         . "</nav>"
         . "<div class = \"row\" id = \"ooo\">";
 
-
 $content = $content . "</div><div class = \"row\" style = \"margin-left: 1px; margin-right: 1px;\">";
-$rep = $accesDb->selection($searchName, $limit, $page);
+
+$start = $ResultPerPage*($pageNumber-1);
+$stop = $ResultPerPage*$pageNumber;
+$rep = $accesDb->selection($searchName, $start, $stop);
 
 
 //$rep = $pdodb->query($requete); 
@@ -186,15 +190,8 @@ $content = $content . "</div><div class =\"row col-xs-12\""
         . "<li>"
         . "<a href = \"#\" aria-label = \"Previous\"><span aria-hidden = \"true\">&laquo;</span></a>"
         . "</li>";
-$i -= $i;
-while ($i <= ($sizeList / $ResultPerPage)) {
-    if ($i == 0) {
-        $content = $content . "<li role = \"presentation\" class = \"active\" ><a href=\"#\">" . $i . "</a></li>";
-    } else {
-        $content = $content . "<li role = \"presentation\"><a href=\"#\">" . $i . "</a></li>";
-    }
-    $i += 1;
-}
+
+$content = $content . $pageMenu ->displayPagination(($sizeList / $ResultPerPage), 5); // display the page Menu.
 
 $content = $content . ""
         . "<li>"
