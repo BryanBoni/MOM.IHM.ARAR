@@ -3,7 +3,7 @@
 This class is used for the login page
 */
 
-$title = "Login | Laboratoire ArAr";
+$title = "Login | Ceramom BDD";
 
 $content = 
         "<div class=\"row\">"

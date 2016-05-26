@@ -3,7 +3,7 @@ include_once (dirname(dirname(__FILE__)) . "/Model/php/filer.php");
 $file = new filer();
 //move upl
 
-$title = "Recherche Interne dans la base | Laboratoire ArAr";
+$title = "Recherche Interne dans la base | Ceramom BDD";
 
 $content = "";
 

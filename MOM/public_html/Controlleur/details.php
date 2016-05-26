@@ -1,7 +1,7 @@
 <?php
 
 //variables
-$title = "Details | Laboratoire ArAr";
+$title = "Details | Ceramom BDD";
 $content = "";
 $head1 = "<script src = \"http://maps.googleapis.com/maps/api/js\"></script>"
         . "<script src = \"../Model/javascript/detailObj.js\"></script>"

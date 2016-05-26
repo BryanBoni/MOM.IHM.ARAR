@@ -26,17 +26,36 @@ class object {
         $content = "";
         switch ($mode){
             case "List" :
-                $content = $this ->listDisplay();
+                $content = $this -> listDisplay();
                 break;
             case "ImageText":
                 $content = $this -> minDisplay();
                 break;
             case "Image":
+                $content = $this ->imageDisplay();
                 break; 
         }
         return $content;
     }
 
+    public function imageDisplay() {
+        $content = "";
+        
+        $content = $content . ""
+                
+                .   "<div class = \" col-xs-12 col-sm-6 col-md-4 col-lg-3\" id = \"minDisplay\">"
+                .       ""
+                .       "<div class = \"thumbnail\">"
+                .           "<center><h2 style=\"margin: 0px;\">" . $this -> _title . "</h2></center>"
+                .           "<img src = " . $this -> _image . "></img>"
+                .           "<div class = \"caption\">"
+                .               "<p><form action = \"details.php\" method = \"post\"><button style = \"width: 100%;\" type = \"submit\" value = \"$this->_objId\" name = \"objectId\" id=\"objectIdBtn\" class = \"btn btn-primary\" role = \"button\">Voir détails...</button></form></p>"
+                .           "</div>"
+                .       "</div>"
+                .   "</div>"
+                ;
+        return $content;
+    }
     
     public function minDisplay(){
         $content = "";
@@ -48,7 +67,7 @@ class object {
                 .           "<img src = " . $this -> _image . "></img>"
                 .           "<div class = \"caption\">"
                 .               "<h3>" . $this -> _title . "</h3>"
-                .               "<p>" . $this -> _description ."</p>"
+                .               "<p style=\"text-align: left;\">" . $this -> _description ."</p>"
                 .               "<p><form action = \"details.php\" method = \"post\"><button type = \"submit\" value = \"$this->_objId\" name = \"objectId\" id=\"objectIdBtn\" class = \"btn btn-primary\" role = \"button\">Voir détails...</button></form></p>"
                 .           "</div>"
                 .       "</div>"
@@ -62,7 +81,7 @@ class object {
         
         $content = $content . ""
                 . "<div id = \"listDisplay\"><div class = \"row\">"
-                .   "<div class = \"col-md-5 col-lg-3 col-sm-5\" id = \"this\">"
+                .   "<div class = \"col-xs-5 col-md-5 col-lg-3 col-sm-5\" id = \"this\">"
                 .       "<img src = " . $this -> _image . "></img>"
                 .   "</div>"
                 .   "<div class = \"col-md-7 col-lg-9 col-sm-7\" style=\"text-align: left;\">"
