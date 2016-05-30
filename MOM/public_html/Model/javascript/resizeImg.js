@@ -1,11 +1,11 @@
 $(document).ready(function() {
-    /*$('.img_file').each(function() {
+    $('.img_default').each(function() {
         var maxWidth = 400; // Max width for the image
         var maxHeight = 400;    // Max height for the image
         var ratio = 0;  // Used for aspect ratio
         var width = $(this).width();    // Current image width
         var height = $(this).height();  // Current image height
-
+        
         // Check if the current width is larger than the max
         if(width > maxWidth){
             ratio = maxWidth / width;   // get ratio for scaling image
@@ -22,10 +22,12 @@ $(document).ready(function() {
             $(this).css("width", width * ratio);    // Scale width based on ratio
             width = width * ratio;    // Reset width to match scaled image
         }
-    });*/
-});
-
-$(document).ready(function() {
+        
+        var tabCSS = calculateAspectRatioFit(width, height, maxWidth, maxHeight);
+        $('obj3d').css("width", tabCSS[0]);
+        $('obj3d').css("height", tabCSS[1]);
+    });
+    
     $('.img_file_gallerie').each(function() {
         var maxWidth = 200; // Max width for the image
         var maxHeight = 200;    // Max height for the image
