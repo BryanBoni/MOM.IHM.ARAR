@@ -5,6 +5,7 @@ include_once (dirname(dirname(__FILE__)) . "/php/object.php");
 class db_connect {
 
     private $dbName;
+    private $dbName_bis;
     private $userName;
     private $host; //'localhost';
     //$port = '3316';
@@ -12,6 +13,7 @@ class db_connect {
 
     function __construct() {
         $this->dbName = 'ceramom_3';
+        $this->$dbName_bis = 'ceramom_bis';
         $this->userName = 'root';
         $this->host = 'localhost';
         $this->passwd = 'ceramom%69';
@@ -20,6 +22,17 @@ class db_connect {
     public function connect() {
         try {
             $pdodb = new PDO("mysql:host=$this->host;dbname=$this->dbName", $this->userName, $this->passwd);
+            $pdodb->exec('SET NAMES utf8');
+            return $pdodb;
+        } catch (PDOException $e) {
+            $msg = 'Erreur PDO dans ' . $e->getFile() . $e->getLine() . ' :' . $e->getMessage();
+            return $msg;
+        }
+    }
+    
+    public function connect_bis() {
+        try {
+            $pdodb = new PDO("mysql:host=$this->host;dbname=$this->dbName_bis", $this->userName, $this->passwd);
             $pdodb->exec('SET NAMES utf8');
             return $pdodb;
         } catch (PDOException $e) {
@@ -73,5 +86,17 @@ class db_connect {
     private function countTreatement(){
         
     }
+    
+    public function getIMG($keyword) {
+        /*
+            used to access the database and prepare a query to it, 
+            return this query.
+         */
+        $pdodb = $this->connect_bis();
+        $requete = "SELECT url_doc FROM graphical_document WHERE id = ".$keyword;
+        /*$rep = $pdodb->query($requete);*/
+        $rep = $pdodb->prepare($requete);
+        return $rep;
 
+    }
 }
