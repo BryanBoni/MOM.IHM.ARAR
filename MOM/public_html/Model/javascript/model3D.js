@@ -5,8 +5,8 @@
     var SCREEN_WIDTH = window.innerWidth, SCREEN_HEIGHT = window.innerHeight;
     var windowHalfX = window.innerWidth / 2, windowHalfY = window.innerHeight / 2;
     // Model file OBJ
-    var file = '../Ressources/obj3D/MA5.obj';
-    var textureFile = '../Ressources/obj3D/MA5_0.jpg';
+    var file = '../Ressources/obj3D/AGORA-P15710.obj';
+    var textureFile = '../Ressources/obj3D/AGORA-P15710_0.jpg';
 
     var controls, intensiteLight;
     var raycaster = new THREE.Raycaster();
@@ -17,11 +17,16 @@
     init();
     animate();
     function init() {
-        container = document.getElementById( 'container' );
-        camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 5000 );
+        container = document.getElementById( 'container' ); // this is the <div>
+        camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 5000 ); // this is the camera
         camera.position.z = 600;
 
         //manager
+        
+        
+        // this is the manager who show in the console if all the object are loaded
+        
+        
         var manager = new THREE.LoadingManager();
         manager.onProgress = function (item, loaded, total) {
             console.log(item, loaded, total);
@@ -34,10 +39,10 @@
             console.log('there has been an error');
         };
 
-        //renderer = new THREE.WebGLRenderer();
         if (isFisrtTime) {
             $('.container').hide();
             
+            // all this part is the canvas on what we going to use obj file
             renderer = new THREE.WebGLRenderer( { alpha: true } ); // init like this
             renderer.setClearColor( 0xffffff, 0 ); // second param is opacity, 0 => transparent
             renderer.setPixelRatio( window.devicePixelRatio );
@@ -57,6 +62,9 @@
         }
 
         // controls
+        
+        // this is the control for the mouse
+        
         controls = new THREE.TrackballControls( camera );
         controls.rotateSpeed = 2.0;
         controls.zoomSpeed = 1.2;
@@ -67,6 +75,9 @@
         controls.dynamicDampingFactor = 0.3;
 
         // scene+light
+        
+        // this is where we generate the light and the scene in the canvas
+        
         switch (isTexture) {
             case true :
                 intensiteLight = 7;
@@ -95,6 +106,7 @@
                 break;
         }
 
+        // this calculate the % of the download
         var onProgress = function ( xhr ) {
             if ( xhr.lengthComputable ) {
                 var percentComplete = xhr.loaded / xhr.total * 100;
@@ -124,6 +136,7 @@
             scene.add( object );
         }, onProgress, onError );
     }
+    // this is the spinner for the download
     function timerTask(){
         $(document).ready(function () {
             var cl = new CanvasLoader('loading');
