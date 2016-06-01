@@ -12,7 +12,7 @@ $objTitle = "cbr_TN_2016";
 // Module pour le 3D et pour l'image default
 $isObjFile = true;
 $ifobj3D = "";
-if($isObjFile) { $ifobj3D = "<a href=\"obj3D.html\" class=\"btn btn-warning\" style = \"margin: 5px;\">Visionner l'objet 3D</a>"; }
+if($isObjFile) { $ifobj3D = "<a href=\"obj3D.php\" class=\"btn btn-warning\" style = \"margin: 5px;\">Visionner l'objet 3D</a>"; }
 else { $ifobj3D = "<span>Objet 3D non disponible</span>"; }
 
 $obj2D = "<div id=\"loadingContainer\" class = \"loading-container\">
