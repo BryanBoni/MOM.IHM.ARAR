@@ -91,6 +91,8 @@ html{
     text-align: left;
     overflow: auto;    
     height: 300px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 a.back-to-top {
@@ -172,9 +174,29 @@ a.back-to-top {
     border-bottom: 1px solid #eaeaea; 
 }
 
+#nature{
+    border: 1px solid #cccccc;
+    text-align: left; 
+    height: 300px;
+    max-width: 100%;
+    padding: 10px;
+    
+}
+
+#nature b{
+    color: #8e3c06;
+    margin-left: 10px;
+}
+
+#nature p{
+    
+    margin-left: 100px;
+}
+
 #obj3d{
     border: 1px solid #cccccc;
     height: 300px;
+   
     width: 400px;
     margin-bottom: 45px;
 }

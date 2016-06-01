@@ -73,13 +73,16 @@ $content = $content . "<div class=\"row\">"
         
         . "<div class = \"row\" id = \"detailSearch\">"//same display as the previous one.
             . "<h1><font color=\"#8e3c06\">OBJET</font> $objTitle</h1>"
-            . "<div class = \"row\" style = \"margin: 10px; \">"
-                . "<div class = \"col-xs-12 col-md-4 \" id = \"obj3d\">"
+            . "<center><div class = \"row\" style = \"margin: 10px; \">"
+                . "<div class = \"col-xs-12 col-sm-8\" id = \"obj3d\">"
                     . "$obj2D"
                     . $ifobj3D
                 . "</div>"
-                
-                . "<div class = \"col-md-8 col-xs-12\" id = \"descGene\">"
+                . "<div id =\"nature\">"
+                    . "<p><b>Nature :</b> Vase</p><b>Identifiant par défault :</b><p></p>"
+                . "</div>"
+                . "</div></center>"
+                . "<div class = \"row\" id = \"descGene\"><div class =\"col-xs-12\">"
                     . "<h3 style = \"text-align: left;\">Description </h3>"    
                     . "<ul class = \"nav nav-tabs\" role = \"tablist\">"
                         . "<li role = \"presentation\" class = \"active\"><a href = \"#DP\" aria-controls = \"DP\" role = \"tab\" data-toggle = \"tab\">Provenance & Datation</a></li>"
@@ -93,8 +96,8 @@ $content = $content . "<div class=\"row\">"
                         . "<div role = \"tabpanel\" class = \"tab-pane fade\" id = \"generale\">$objGene</div>"
                         . "<div role = \"tabpanel\" class = \"tab-pane fade\" id = \"biblio\">$objBiblio</div>"
                         . "<div role = \"tabpanel\" class = \"tab-pane fade\" id = \"other\">$other</div>"
-                    . "</div>"
-                . "</div>";
+                    . "</div></div>"
+                ;
 
 $content = $content 
                 
