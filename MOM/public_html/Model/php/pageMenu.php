@@ -22,7 +22,7 @@ class pageMenu {
                     $first = FALSE;
                 } else if ($i > 3 && $i < ($nbPages - 3) && $i != $current) {
                     if (!$first) {
-                        $content = $content . "<li role = \"presentation\"><a href=\"#\"> ... </a></li>";
+                        $content = $content . "<li role = \"presentation\"><a href=\"#\" id=\"MABITE\"> ... </a></li>";
                         $first = TRUE;
                     }
                 } else {

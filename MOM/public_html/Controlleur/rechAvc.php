@@ -9,7 +9,8 @@ include_once (dirname(dirname(__FILE__)) . "/Model/php/pageMenu.php");
 //Head
 $title = "Home | Ceramom BDD";
 $head = "<script src = \"../Model/javascript/filterMenu.js\"></script>"
-        . "<script src=\"../Model/javascript/filter.js\"></script>";
+        . "<script src=\"../Model/javascript/filter.js\"></script>"
+        . "<script src=\"../Model/javascript/onPageMenu.js\"></script>";
 $head1 = "";
 
 //Objects
@@ -178,7 +179,7 @@ $descritption = "";
 $rep->execute();
 while ($data = $rep->fetch()) {
     $descritption = "<b>Description : </b>" . $data['decoration'] . " " . $data['form'] . " " . $data['typology'] . ".<br /><b>Localisation : </b>" . $data['name_site'] . " , " . $data['name_town'] . " , " . $data['name_region'] . " , " . $data['name_country'] . " , ";
-    $objet->setObject($data['url_doc'], $data['nom'], $descritption, $data['id']);
+    $objet->setObject($data['url_doc'], $data['nom'], $descritption, $data['id_graphical_doc']);
     $content = $content . $objet->selectDisplay($mode);
 }
 $rep->closeCursor();

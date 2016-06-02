@@ -1,5 +1,5 @@
 <?php
-
+//Import
 include_once (dirname(dirname(__FILE__)) . "/php/object.php");
 
 class db_connect {
@@ -34,7 +34,7 @@ class db_connect {
             return this query.
          */
         $pdodb = $this->connect();
-        $requete = "SELECT s.id, s.free_description, s.nom, si.name_site, t.name_town, r.name_region, c.name_country, d.decoration, d.form, d.typology,  gd.url_doc
+        $requete = "SELECT s.id, s.free_description, s.nom, si.name_site, t.name_town, r.name_region, c.name_country, d.decoration, d.form, d.typology,  gd.url_doc, lgd.id_graphical_doc
                 FROM sample_new s 
                 LEFT JOIN description d ON s.id_description=d.id
                 LEFT JOIN provenance p ON s.id_provenance=p.id 
@@ -75,17 +75,18 @@ class db_connect {
     private function countTreatement(){
         
     }
-    /*
+    
     public function getIMG($keyword) {
         /*
             used to access the database and prepare a query to it, 
             return this query.
          */
-       /* $pdodb = $this->connect_bis();
+        $pdodb = $this->connect();
         $requete = "SELECT url_doc FROM graphical_document WHERE id = ".$keyword;
         
         $rep = $pdodb->prepare($requete);
+        $rep ->execute();
         return $rep;
 
-    }*/
+    }
 }
