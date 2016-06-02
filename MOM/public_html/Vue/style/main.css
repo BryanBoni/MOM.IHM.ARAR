@@ -2,6 +2,7 @@ body{
     color: #af4805;
     background-color: #f3f3f2;
     font-family: HelveticaNeueLTCom-ThCn;
+    min-width: 475px;
 
 }
 #gg{
@@ -268,8 +269,30 @@ a.back-to-top {
     width: 100%;
 }
 
+#imageDisplay .thumbnail{
+    height: 220px;
+    
+}
+
+#imageDisplay .thumbnail img{
+    height: 60%;
+}
+
+#imageDisplay b{
+    color: #8e3c06;
+}
+
 #minDisplay b{
     color: #8e3c06;
+}
+
+#minDisplay .thumbnail{
+    height: 400px;
+    overflow: auto;
+}
+
+#minBtn{
+
 }
 
 #filterList ul{

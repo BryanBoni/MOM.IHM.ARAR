@@ -178,9 +178,8 @@ $descritption = "";
 $rep->execute();
 while ($data = $rep->fetch()) {
     $descritption = "<b>Description : </b>" . $data['decoration'] . " " . $data['form'] . " " . $data['typology'] . ".<br /><b>Localisation : </b>" . $data['name_site'] . " , " . $data['name_town'] . " , " . $data['name_region'] . " , " . $data['name_country'] . " , ";
-    $objet->setObject("../Ressources/GraphicalDb/photos_objets/LEV730r.JPG", $data['free_description'], $descritption, $data['id']);
+    $objet->setObject($data['url_doc'], $data['nom'], $descritption, $data['id']);
     $content = $content . $objet->selectDisplay($mode);
-    //$content = $content . "<br />";
 }
 $rep->closeCursor();
 
