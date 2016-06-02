@@ -7,7 +7,7 @@ Ici le projet de stage, site web d'affichage d'une BD en interne (au labo) et en
 
 ##A faire:
 
-- **Pages interne** : recherches avancées, détails.
-- **Pages externe** : index (bar de recherche), recherches simples/avancées (via filtres) & liste en tps réel, détails.    
-- **Après que le prototype soit prêt** : commencer a trad en anglais.
-- **Banderole** : Besoin dans créer une custom.
+- **Pages interne** : recherches avancÃ©es, dÃ©tails.
+- **Pages externe** : index (bar de recherche), recherches simples/avancÃ©es (via filtres) & liste en tps rÃ©el, dÃ©tails.    
+- **AprÃ¨s que le prototype soit prÃªt** : commencer a trad en anglais.
+- **Banderole** : Besoin dans crÃ©er une custom. FAIT
