@@ -196,9 +196,8 @@ a.back-to-top {
 
 #obj3d{
     border: 1px solid #cccccc;
-    height: 300px;
-   
-    width: 400px;
+    //height: 300px;
+    //width: 400px;
     margin-bottom: 45px;
 }
 #filter{

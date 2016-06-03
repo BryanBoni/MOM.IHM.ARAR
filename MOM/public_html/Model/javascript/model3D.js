@@ -113,8 +113,11 @@
                 console.log( Math.round(percentComplete, 2) + '% downloaded' );
                 document.getElementById('pourcent').innerHTML = Math.round(percentComplete, 2) + '% downloaded';
             }
+            console.log(xhr.lengthComputable + " / " + xhr)
         };
-        var onError = function ( xhr ) {};
+        var onError = function ( xhr ) {
+            alert(xhr.toString());
+        };
         
         // application des textures et du obj FILE
         var texture = new THREE.Texture();

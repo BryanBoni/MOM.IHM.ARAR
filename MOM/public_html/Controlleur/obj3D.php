@@ -21,6 +21,9 @@
         </style>
     </head>
     <body>
+        <?php
+            ini_set("max_execution_time",150);
+        ?>
         <input id="texture" type="button" value="texture" onclick="setTexture()" />
         <input id="uniforme" type="button" value="uniforme" onclick="setUniforme()" />
         <input id="retour" type="button" value="Retour" onclick="history.go(-1);" />
@@ -33,38 +36,6 @@
                 </div>
             </center>
             <div id="container" class="container" ></div>
-            <?php
-                $gmworker= new GearmanWorker();
-
-                # Ajoute un serveur par défaut (localhost).
-                $gmworker->addServer();
-
-                # Enregistre une fonction "reverse" avec le serveur.
-                $gmworker->addFunction("reverse", "reverse_fn");
-
-                # Définit le délai d'attente à 60 secondes
-                $gmworker->setTimeout(60000);
-
-                while(@$gmworker->work() || $gmworker->returnCode() == GEARMAN_TIMEOUT)
-                {
-                  if ($gmworker->returnCode() == GEARMAN_TIMEOUT)
-                  {
-                    # Normalement, vous devriez faire quelques lignes utiles ici...
-                    continue;
-                  }
-
-                  if ($gmworker->returnCode() != GEARMAN_SUCCESS)
-                  {
-                    echo "return_code: " . $gmworker->returnCode() . "\n";
-                    break;
-                  }
-                }
-
-                function reverse_fn($job)
-                {
-                  return strrev($job->workload());
-                }
-            ?>
         </div>
         <script src="../Model/javascript/three.min.js"></script>
         <script src="../Model/javascript/Detector.js"></script>
