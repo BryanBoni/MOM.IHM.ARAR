@@ -23,7 +23,7 @@
     <body>
 
     <center>
-        <h1>Base de données de Ceramom</h1>
+        <h1>Base de données Ceramom</h1>
         <br /><br />
         <img src = "Ressources/poterie.png" style = "width: 150px;"/>
         <br /><br />

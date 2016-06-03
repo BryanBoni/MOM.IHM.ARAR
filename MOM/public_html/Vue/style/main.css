@@ -2,6 +2,7 @@ body{
     color: #af4805;
     background-color: #f3f3f2;
     font-family: HelveticaNeueLTCom-ThCn;
+    min-width: 475px;
 
 }
 #gg{
@@ -91,6 +92,8 @@ html{
     text-align: left;
     overflow: auto;    
     height: 300px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 a.back-to-top {
@@ -172,6 +175,25 @@ a.back-to-top {
     border-bottom: 1px solid #eaeaea; 
 }
 
+#nature{
+    border: 1px solid #cccccc;
+    text-align: left; 
+    height: 300px;
+    max-width: 100%;
+    padding: 10px;
+    
+}
+
+#nature b{
+    color: #8e3c06;
+    margin-left: 10px;
+}
+
+#nature p{
+    
+    margin-left: 100px;
+}
+
 #obj3d{
     border: 1px solid #cccccc;
     //height: 300px;
@@ -246,8 +268,30 @@ a.back-to-top {
     width: 100%;
 }
 
+#imageDisplay .thumbnail{
+    height: 220px;
+    
+}
+
+#imageDisplay .thumbnail img{
+    height: 60%;
+}
+
+#imageDisplay b{
+    color: #8e3c06;
+}
+
 #minDisplay b{
     color: #8e3c06;
+}
+
+#minDisplay .thumbnail{
+    height: 400px;
+    overflow: auto;
+}
+
+#minBtn{
+
 }
 
 #filterList ul{
