@@ -23,16 +23,23 @@ $pageMenu = new pageMenu();
 $mode = "List";
 $ResultPerPage = 15;
 $content = "";
-$_SESSION['search'] = htmlspecialchars($_GET["search"]);//}
-$searchName = $_SESSION['search'];
+/*$_SESSION['search'] = htmlspecialchars($_GET["search"]);//}
+$searchName = $_SESSION['search'];*/
 $i = 0;
 $countRep = $accesDb-> count($searchName);
 $data = $countRep->fetch();
 $sizeList = $data['c'];   
-$countRep->closeCursor();
+$countRep -> closeCursor();
 $pageNumber = 1;
 
 //Variables session
+if (isset($_GET['search'])) {
+    $_SESSION['search'] = htmlspecialchars($_GET["search"]);
+    $searchName = $_SESSION['search'];
+}else if(isset ($_SESSION['search'])){
+    $searchName = $_SESSION['search'];
+}
+
 if (isset($_GET['display'])) {
     $_SESSION['display'] = htmlspecialchars($_GET["display"]);
     $mode = $_SESSION['display'];
@@ -178,8 +185,13 @@ $rep = $accesDb->selection($searchName, $start, $stop);
 $descritption = "";
 $rep->execute();
 while ($data = $rep->fetch()) {
+    
     $descritption = "<b>Description : </b>" . $data['decoration'] . " " . $data['form'] . " " . $data['typology'] . ".<br /><b>Localisation : </b>" . $data['name_site'] . " , " . $data['name_town'] . " , " . $data['name_region'] . " , " . $data['name_country'] . " , ";
-    $objet->setObject($data['url_doc'], $data['nom'], $descritption, $data['id_graphical_doc']);
+    if($data['url_doc'] == NULL){
+        $objet->setObject("../Ressources/no-img.png", $data['nom'], $descritption, $data['id_graphical_doc']);
+    }else{
+        $objet->setObject($data['url_doc'], $data['nom'], $descritption, $data['id_graphical_doc']);
+    }
     $content = $content . $objet->selectDisplay($mode);
 }
 $rep->closeCursor();
