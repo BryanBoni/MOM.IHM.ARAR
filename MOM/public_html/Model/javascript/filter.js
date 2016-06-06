@@ -15,7 +15,7 @@ function add(li2, subMenu) {
     li2.addEventListener("click", function () {
         if (!isClicked) {
             //this.innerHTML = "- MENU";
-            subMenu.innerHTML += "<ul><li>lol</li> <li>mdr</li> <li>bid</li> </ul>";
+            subMenu.innerHTML += "<ul><li><input type = \"checkbox\"/>lol</li> <li><input type = \"checkbox\"/>mdr</li> <li><input type = \"checkbox\"/>bid</li> </ul>";
 
         } else {
             //this.innerHTML = "+ MENU";
