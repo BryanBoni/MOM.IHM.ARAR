@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    /*$('.img_default').each(function() {
+    $('.img_default').each(function() {
         var maxWidth = 400; // Max width for the image
         var maxHeight = 400;    // Max height for the image
         var ratio = 0;  // Used for aspect ratio
@@ -26,7 +26,7 @@ $(document).ready(function() {
         var tabCSS = calculateAspectRatioFit(width, height, maxWidth, maxHeight);
         $('obj3d').css("width", tabCSS[0]);
         $('obj3d').css("height", tabCSS[1]);
-    });*/
+    });
     
     $('.img_file_gallerie').each(function() {
         var maxWidth = 200; // Max width for the image

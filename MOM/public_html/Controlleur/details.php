@@ -7,7 +7,8 @@ $title = "Details | Ceramom BDD";
 $content = "";
 $head1 = "<script src = \"http://maps.googleapis.com/maps/api/js\"></script>"
         . "<script src = \"../Model/javascript/detailObj.js\"></script>"
-        . "<script src = \"../Model/javascript/resizeImg.js\"></script>";
+        . "<script src = \"../Model/javascript/resizeImg.js\"></script>"
+        . "<script src = \"../Model/javascript/zoomGallerie.js\"></script>";
 $head = "";
 $objTitle = "cbr_TN_2016";
 $objId = "";
@@ -32,10 +33,17 @@ $obj2D = "<div id=\"loadingContainer\" class = \"loading-container\">
 // Module for the gallery and the technical drawings
 // PHOTO
 $isImgFilePicture = true; // check is we have some picture in the database
-$ifImgFilePicture = "<table><tr>";
+$ifImgFilePicture = "<table class = \"zoom-gallery\"><tr>";
 if($isImgFilePicture) {
-    for ($i = 1; $i < 1+1; $i++) {
-        $ifImgFilePicture .= "<td><img src=\"../Ressources/GraphicalDb/photos_objets/LEV730r.JPG\" class = \"img_file_gallerie\" /></td>";
+    for ($i = 1; $i < 10+1; $i++) {
+        //$ifImgFilePicture .= "<td><img src=\"../Ressources/GraphicalDb/photos_objets/LEV730r.JPG\" class = \"img_file_gallerie\" /></td>";
+        $ifImgFilePicture .= "<td><!--
+	Width/height ratio of thumbnail and the main image must match to avoid glitches.
+	If ratios are different, you may add CSS3 opacity transition to the main image to make the change less noticable.
+	 -->
+	<a "./*href=\"../Ressources/GraphicalDb/photos_objets/LEV730r.JPG\"*/""." data-source=\"../Ressources/GraphicalDb/photos_objets\" title=\"LEV730\" style=\"width:193px;height:125px;\">
+		<img src=\"../Ressources/GraphicalDb/photos_objets/LEV730r.JPG\" class = \"img_file_gallerie\" />
+	</a></td>";
         if ($i % 3 == 0) { $ifImgFilePicture .= "</tr><tr>"; }
     }
 }
@@ -43,11 +51,18 @@ else { $ifImgFilePicture = "<span>Pas de fichier disponible</span>"; }
 $ifImgFilePicture .= "</tr></table>";
 
 // DESSIN
-$isImgFileDessin = false; // check is we have some picture in the database
-$ifImgFileDessin = "<table><tr>";
+$isImgFileDessin = true; // check is we have some picture in the database
+$ifImgFileDessin = "<table class = \"zoom-gallery\"><tr>";
 if($isImgFileDessin) {
     for ($i = 1; $i < 1+1; $i++) {
-        $ifImgFileDessin .= "<td><img src=\"../Ressources/objectBeta/default.png\" class = \"img_file_gallerie\" /></td>";
+        //$ifImgFileDessin .= "<td><img src=\"../Ressources/objectBeta/default.png\" class = \"img_file_gallerie\" /></td>";
+        $ifImgFileDessin .= "<td><!--
+	Width/height ratio of thumbnail and the main image must match to avoid glitches.
+	If ratios are different, you may add CSS3 opacity transition to the main image to make the change less noticable.
+	 -->
+	<a href=\"../Ressources/objectBeta/default.png\" data-source=\"../Ressources/objectBeta/default.png\" title=\"RIEN\" style=\"width:193px;height:125px;\">
+		<img src=\"../Ressources/objectBeta/default.png\" class = \"img_file_gallerie\" />
+	</a></td>";
         if ($i % 3 == 0) { $ifImgFileDessin .= "</tr><tr>"; }
     }
 }
