@@ -99,7 +99,7 @@ $autre2 = "Morbi ultrices pellentesque turpis, ac rutrum turpis consectetur at. 
 
 $objPD = "<b>Provenance</b><br /><p>Atelier de ..., 10Km au sud d'Hamamet, prospection de S. Aounalla et M. Bonifaik,<br /> Tunisie. </p><br /><b>Datation</b><br /><p>2ème moitié Ve</p>";
 $objGDesc = "TS, Service 1.";
-$objGene = "<b>Nom</b><p>cbr_TN_2016</p><b>Nature</b> <p><b>S01</b> Pâte <b>S02</b> Engobe</p><b>Num analyse</b><p>ACD399, Capelli 7125, M215</p>";
+$objGene = "<b>Nom</b><p>cbr_TN_2016</p><b>Nature & Num analyse</b> <p><b>S01</b> Pâte  | ACD399, Capelli 7125, M215 </p><p><b>S02</b> Engobe | Eng399</p><p>ACD399, Capelli 7125, M215</p>";
 $objBiblio = "<b>Biblio</b><p>BRUN, C., 2007 - Etude Technique des productions de l'atelier de sidi Khalifa (Pheradi Maius, Tunisie) : Céramiques culinaires, sigillées et cazettes, in : BONIFAY, M. et TREGLIA, J.-C, LRCW2, Late Roman Coarse Wares, Cooking Wares and Amphorae in the Mediterranean : Archaeology and Archaeometry (Aix-en-Provence, 13-16 avril 2005), BAR IS1662 (II), pp. 569-579.</p>";
 $other = "<a href=\"http://www.levantineceramics.org/wares/beirut-frankish-cooking-ware-be-cw\">http://www.levantineceramics.org/wares/beirut-frankish-cooking-ware-be-cw</a>";
 
