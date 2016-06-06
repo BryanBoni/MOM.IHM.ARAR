@@ -23,6 +23,7 @@ Ici se trouve le layout (template) créé pour servire de structure au autres pa
     </head>
     <link rel="stylesheet" type="text/css" href="../Vue/style/main.css">
     <link rel="stylesheet" type="text/css" href="../Vue/style/css3D.css">
+    <link rel="stylesheet" type="text/css" href="../Vue/style/zoomGallerie.css">
 </head>
 <body>
     <a href="#" class="back-to-top hidden-xs">Back to Top</a>

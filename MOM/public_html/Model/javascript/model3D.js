@@ -5,8 +5,8 @@
     var SCREEN_WIDTH = window.innerWidth, SCREEN_HEIGHT = window.innerHeight;
     var windowHalfX = window.innerWidth / 2, windowHalfY = window.innerHeight / 2;
     // Model file OBJ
-    var file = '../Ressources/obj3D/AGORA-P15710.obj';
-    var textureFile = '../Ressources/obj3D/AGORA-P15710_0.jpg';
+    var file = '../Ressources/obj3D/MA5.obj';
+    var textureFile = '../Ressources/obj3D/MA5_0.jpg';
 
     var controls, intensiteLight;
     var raycaster = new THREE.Raycaster();
