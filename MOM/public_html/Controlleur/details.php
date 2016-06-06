@@ -20,6 +20,10 @@ $rep = $accesDb ->getIMG($objGraphId);
 $data = $rep -> fetch();
 $primaryImg = $data['url_doc'];
 
+
+
+
+
 // Module for the 3D and for the default picture.
 $isObjFile = true;
 $ifobj3D = "";
@@ -30,25 +34,34 @@ $obj2D = "<div id=\"loadingContainer\" class = \"loading-container\">
             <img id=\"image2d\" src=\"$primaryImg\" class = \"loading-container img_default\" /> 
         </div>";
 
+
+
+
+
+
 // Module for the gallery and the technical drawings
 // PHOTO
 $isImgFilePicture = true; // check is we have some picture in the database
 $ifImgFilePicture = "<table class = \"zoom-gallery\"><tr>";
 if($isImgFilePicture) {
     for ($i = 1; $i < 10+1; $i++) {
-        //$ifImgFilePicture .= "<td><img src=\"../Ressources/GraphicalDb/photos_objets/LEV730r.JPG\" class = \"img_file_gallerie\" /></td>";
+        //$ifImgFilePicture .= "<td><img src=\"$primaryImg\" class = \"img_file_gallerie\" /></td>";
         $ifImgFilePicture .= "<td><!--
 	Width/height ratio of thumbnail and the main image must match to avoid glitches.
 	If ratios are different, you may add CSS3 opacity transition to the main image to make the change less noticable.
 	 -->
-	<a "./*href=\"../Ressources/GraphicalDb/photos_objets/LEV730r.JPG\"*/""." data-source=\"../Ressources/GraphicalDb/photos_objets\" title=\"LEV730\" style=\"width:193px;height:125px;\">
-		<img src=\"../Ressources/GraphicalDb/photos_objets/LEV730r.JPG\" class = \"img_file_gallerie\" />
+	<a href=\"$primaryImg\" data-source=\"$primaryImg\" title=\"LEV730\" style=\"width:193px;height:125px;\">
+            <img src=\"$primaryImg\" class = \"img_file_gallerie\" />
 	</a></td>";
         if ($i % 3 == 0) { $ifImgFilePicture .= "</tr><tr>"; }
     }
 }
 else { $ifImgFilePicture = "<span>Pas de fichier disponible</span>"; }
 $ifImgFilePicture .= "</tr></table>";
+
+
+
+
 
 // DESSIN
 $isImgFileDessin = true; // check is we have some picture in the database
@@ -61,7 +74,7 @@ if($isImgFileDessin) {
 	If ratios are different, you may add CSS3 opacity transition to the main image to make the change less noticable.
 	 -->
 	<a href=\"../Ressources/objectBeta/default.png\" data-source=\"../Ressources/objectBeta/default.png\" title=\"RIEN\" style=\"width:193px;height:125px;\">
-		<img src=\"../Ressources/objectBeta/default.png\" class = \"img_file_gallerie\" />
+            <img src=\"../Ressources/objectBeta/default.png\" class = \"img_file_gallerie\" />
 	</a></td>";
         if ($i % 3 == 0) { $ifImgFileDessin .= "</tr><tr>"; }
     }
@@ -73,6 +86,11 @@ $ifImgFileDessin .= "</tr></table>";
 $gallerie = "<h1>Photo</h1></br>$ifImgFilePicture<h1>Dessin technique</h1></br>$ifImgFileDessin";
 
 
+
+
+
+
+//
 //provisoire
 $chimi = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ornare non arcu eu gravida. Curabitur eleifend mollis orci ac lacinia. Curabitur velit leo, vehicula non sem vel, porttitor congue sem. In venenatis urna nibh, id ultricies turpis fringilla eu. Vestibulum vitae vestibulum enim. Morbi eget ligula hendrerit, lacinia odio non, ornare tellus. Sed vitae augue eget nunc dignissim cursus. Proin at risus ut libero aliquet convallis vitae sit amet ante. Donec placerat malesuada volutpat. In risus nunc, mollis in urna vitae, ullamcorper vulputate dui. Suspendisse nibh nisi, pellentesque ut orci vel, tincidunt vehicula velit. Etiam massa nibh, feugiat id massa ac, dapibus convallis ipsum. Maecenas dolor velit, molestie non ullamcorper ut, bibendum id lorem. Praesent lacinia elit dapibus fringilla accumsan. Ut sed commodo quam. Nulla convallis, nisl ultricies ullamcorper tincidunt, augue lacus sagittis velit, eu vulputate massa dui convallis quam. ";
 $petro = "Morbi dolor nibh, accumsan eu eros at, ultrices volutpat lectus. Nulla diam sapien, varius ac tempor non, ullamcorper eu lorem. In rutrum dictum felis, in laoreet arcu iaculis sed. Donec molestie dui lectus, nec luctus magna pretium at. Integer sit amet tincidunt risus, nec euismod turpis. Donec turpis ligula, eleifend nec ultricies sit amet, semper vitae elit. Ut quis mauris luctus, ultrices magna sit amet, sollicitudin eros. ";
