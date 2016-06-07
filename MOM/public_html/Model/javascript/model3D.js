@@ -4,9 +4,9 @@
     var mouseX = 0, mouseY = 0;
     var SCREEN_WIDTH = window.innerWidth, SCREEN_HEIGHT = window.innerHeight;
     var windowHalfX = window.innerWidth / 2, windowHalfY = window.innerHeight / 2;
-    // Model file OBJ
-    var file = '../Ressources/obj3D/MA5.obj';
-    var textureFile = '../Ressources/obj3D/MA5_0.jpg';
+    // Model file OBJ *********    150 mo max for obj file or an average of 1 250 000 tri    *************
+    var file = '../Ressources/obj3D/AGORA-P15710_test_030616_B.obj';
+    var textureFile = '../Ressources/obj3D/AGORA-P15710_test_030616_B_0.jpg';
 
     var controls, intensiteLight;
     var raycaster = new THREE.Raycaster();

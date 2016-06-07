@@ -8,17 +8,24 @@ $content = "";
 $head1 = "<script src = \"http://maps.googleapis.com/maps/api/js\"></script>"
         . "<script src = \"../Model/javascript/detailObj.js\"></script>"
         . "<script src = \"../Model/javascript/resizeImg.js\"></script>"
-        . "<script src = \"../Model/javascript/zoomGallerie.js\"></script>";
+        . "<script src = \"../Model/javascript/zoomGallerie.js\"></script>"
+        . "<script src = \"../Model/javascript/jquery-1.12.3.min.js\"></script>"
+        . "<script src = \"../Model/javascript/magnific_popup.js\"></script>";
 $head = "";
 $objTitle = "cbr_TN_2016";
 $objId = "";
 $accesDb = new db_connect();
 $objGraphId = $_POST['objectId'];
+$noImgFile = "../Ressources/objectBeta/default.png";
 
 //Get obj Info:
 $rep = $accesDb ->getIMG($objGraphId);
 $data = $rep -> fetch();
 $primaryImg = $data['url_doc'];
+
+
+
+
 
 // Module for the 3D and for the default picture.
 $isObjFile = true;
@@ -30,47 +37,63 @@ $obj2D = "<div id=\"loadingContainer\" class = \"loading-container\">
             <img id=\"image2d\" src=\"$primaryImg\" class = \"loading-container img_default\" /> 
         </div>";
 
+
+
+
+
+
 // Module for the gallery and the technical drawings
 // PHOTO
 $isImgFilePicture = true; // check is we have some picture in the database
-$ifImgFilePicture = "<table class = \"zoom-gallery\"><tr>";
+$ifImgFilePicture = "<div class = \"zoom-gallery\">";
 if($isImgFilePicture) {
-    for ($i = 1; $i < 10+1; $i++) {
-        //$ifImgFilePicture .= "<td><img src=\"../Ressources/GraphicalDb/photos_objets/LEV730r.JPG\" class = \"img_file_gallerie\" /></td>";
-        $ifImgFilePicture .= "<td><!--
+    for ($i = 1; $i < 3+1; $i++) {
+        //$ifImgFilePicture .= "<td><img src=\"$primaryImg\" class = \"img_file_gallerie\" /></td>";
+        $ifImgFilePicture .= "<!--
 	Width/height ratio of thumbnail and the main image must match to avoid glitches.
 	If ratios are different, you may add CSS3 opacity transition to the main image to make the change less noticable.
 	 -->
-	<a "./*href=\"../Ressources/GraphicalDb/photos_objets/LEV730r.JPG\"*/""." data-source=\"../Ressources/GraphicalDb/photos_objets\" title=\"LEV730\" style=\"width:193px;height:125px;\">
-		<img src=\"../Ressources/GraphicalDb/photos_objets/LEV730r.JPG\" class = \"img_file_gallerie\" />
-	</a></td>";
-        if ($i % 3 == 0) { $ifImgFilePicture .= "</tr><tr>"; }
+	<a href=\"$primaryImg\" data-source=\"$primaryImg\" title=\"LEV730\" style=\"width:193px;height:125px;\">
+            <img src=\"$primaryImg\" class = \"img_file_gallerie\" />
+	</a><br />";
     }
 }
 else { $ifImgFilePicture = "<span>Pas de fichier disponible</span>"; }
-$ifImgFilePicture .= "</tr></table>";
+$ifImgFilePicture .= "</div>";
+
+
+
+
 
 // DESSIN
 $isImgFileDessin = true; // check is we have some picture in the database
-$ifImgFileDessin = "<table class = \"zoom-gallery\"><tr>";
+$ifImgFileDessin = "<div class = \"zoom-gallery\">";
 if($isImgFileDessin) {
     for ($i = 1; $i < 1+1; $i++) {
         //$ifImgFileDessin .= "<td><img src=\"../Ressources/objectBeta/default.png\" class = \"img_file_gallerie\" /></td>";
-        $ifImgFileDessin .= "<td><!--
+        $ifImgFileDessin .= "<!--
 	Width/height ratio of thumbnail and the main image must match to avoid glitches.
 	If ratios are different, you may add CSS3 opacity transition to the main image to make the change less noticable.
 	 -->
-	<a href=\"../Ressources/objectBeta/default.png\" data-source=\"../Ressources/objectBeta/default.png\" title=\"RIEN\" style=\"width:193px;height:125px;\">
-		<img src=\"../Ressources/objectBeta/default.png\" class = \"img_file_gallerie\" />
-	</a></td>";
-        if ($i % 3 == 0) { $ifImgFileDessin .= "</tr><tr>"; }
+	<a href=\"$noImgFile\" data-source=\"../Ressources/objectBeta/\" title=\"RIEN\" style=\"width:193px;height:125px;\">
+            <img src=\"$noImgFile\" class = \"img_file_gallerie\" />
+	</a><br />";
     }
 }
 else { $ifImgFileDessin = "<span>Pas de fichier disponible</span>"; }
-$ifImgFileDessin .= "</tr></table>";
+$ifImgFileDessin .= "</div>";
+
+
+
+
 
 // Display of the 2D documents in the gallery
-$gallerie = "<h1>Photo</h1></br>$ifImgFilePicture<h1>Dessin technique</h1></br>$ifImgFileDessin";
+$gallerie = "<div class=\"col-xs-6\"><h3>Photo</h3></br>$ifImgFilePicture</div>"
+        . "<div class=\"col-xs-6\"><h3>Dessin technique</h3></br>$ifImgFileDessin</div>";
+
+
+
+
 
 
 //provisoire
@@ -131,7 +154,7 @@ $content = $content
             . "</div>"
             . "<br />"
             . "<div class = \"row\" id = \"galMap\">"
-                . "<div class = \"col-sm-6\"><h3>Photos & Dessin</h3><div id = \"scrollable\" style = \"height: 300px; border: 2px solid #cccccc\">$gallerie</div></div>"
+                . "<div class = \"col-sm-6\"><h3>Photos & Dessin</h3><div id = \"scrollable\" class=\"row\" style = \"height: 300px; border: 2px solid #cccccc\">$gallerie</div></div>"
                 
                 . "<div class = \"col-sm-6\"><h3>Localisation</h3><div id = \"googleMap\" style = \"height: 300px; border: 2px solid #cccccc\"></div></div>"
             . "</div>"
