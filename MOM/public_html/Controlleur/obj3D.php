@@ -24,24 +24,26 @@
         <?php
             ini_set("max_execution_time",150);
         ?>
-        <input id="texture" type="button" value="texture" onclick="setTexture()" />
-        <input id="uniforme" type="button" value="uniforme" onclick="setUniforme()" />
+        <input id="texture" type="button" value="Géométrique et texture" onclick="setTexture()" />
+        <input id="uniforme" type="button" value="Géométrique" onclick="setUniforme()" />
         <input id="retour" type="button" value="Retour" onclick="history.go(-1);" />
         </br>
         <div id="loadingContainer" class = "loading-container">
             <center class="onepix-imgloader">
-                <div id="loading" class="onepix-imgloader" style="padding: 25%;"> 
+                <div id="loading" class="onepix-imgloader" style="padding: 25%;">
                     <span>Chargement</span></br>
                     <span id="pourcent"></span>
                 </div>
             </center>
             <div id="container" class="container" ></div>
         </div>
+        <div id="legende_obj3D">
+            <p>LÉGENDE : afficher le contenu avec du php</p>
+        </div>
         <script src="../Model/javascript/three.min.js"></script>
         <script src="../Model/javascript/Detector.js"></script>
         <script src="../Model/javascript/raf.js"></script>
         <script src="../Model/javascript/DDSLoader.js"></script>
-        <script src="../Model/javascript/MTLLoader.js"></script>
         <script src="../Model/javascript/OBJLoader.js"></script>
         <script src="../Model/javascript/TrackballControls.js"></script>
         <script src="../Model/javascript/heartcode-canvasloader-min.js"></script>
