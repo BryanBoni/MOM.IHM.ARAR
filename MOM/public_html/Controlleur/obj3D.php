@@ -41,7 +41,6 @@
         <script src="../Model/javascript/Detector.js"></script>
         <script src="../Model/javascript/raf.js"></script>
         <script src="../Model/javascript/DDSLoader.js"></script>
-        <script src="../Model/javascript/MTLLoader.js"></script>
         <script src="../Model/javascript/OBJLoader.js"></script>
         <script src="../Model/javascript/TrackballControls.js"></script>
         <script src="../Model/javascript/heartcode-canvasloader-min.js"></script>
