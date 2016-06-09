@@ -6,6 +6,7 @@ include_once (dirname(dirname(__FILE__)) . "/Model/php/search.php");
 include_once (dirname(dirname(__FILE__)) . "/Model/php/object.php");
 include_once (dirname(dirname(__FILE__)) . "/Model/php/db_connect.php");
 include_once (dirname(dirname(__FILE__)) . "/Model/php/pageMenu.php");
+include_once (dirname(dirname(__FILE__)) . "/Model/php/db_traitement.php");
 //Head
 $title = "Home | Ceramom BDD";
 $head = "<script src = \"../Model/javascript/filterMenu.js\"></script>"
@@ -180,8 +181,6 @@ $start = $ResultPerPage*($pageNumber-1);
 $stop = $ResultPerPage*$pageNumber;
 $rep = $accesDb->selection($searchName, $start, $stop);
 
-
-//$rep = $pdodb->query($requete); 
 $descritption = "";
 $rep->execute();
 while ($data = $rep->fetch()) {
