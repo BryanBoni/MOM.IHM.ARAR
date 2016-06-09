@@ -1,11 +1,21 @@
 
+/*
+ * 
+ * Pour plus d'information sur le fonctionnement de ce script
+ * Consulter le mode d'emploi fourni
+ * 
+ * Pour plus d'information sur la librairie Three.js
+ * Consulter la documentation en ligne
+ * 
+ * 
+ */
     if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
     var container, camera, camLight, scene, renderer;
     var mouseX = 0, mouseY = 0;
     var SCREEN_WIDTH = window.innerWidth, SCREEN_HEIGHT = window.innerHeight;
     // Model file OBJ *********    150 mo max for obj file or an average of 1 500 000 tri    *************
-    var file = '../Ressources/obj3D/AGORA-P15710_test_060616.obj';
-    var textureFile = '../Ressources/obj3D/AGORA-P15710_test_060616_0.jpg';
+    var file = '../Ressources/obj3D/MA5.obj';
+    var textureFile = '../Ressources/obj3D/MA5_0.jpg';
 
     var controls, intensiteLight;
     var raycaster = new THREE.Raycaster();
