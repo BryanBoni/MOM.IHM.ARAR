@@ -47,7 +47,7 @@ $obj2D = "<div id=\"loadingContainer\" class = \"loading-container\">
 $isImgFilePicture = true; // check is we have some picture in the database
 $ifImgFilePicture = "<div class = \"zoom-gallery\">";
 if($isImgFilePicture) {
-    for ($i = 1; $i < 3+1; $i++) {
+    for ($i = 1; $i < 1+1; $i++) {
         //$ifImgFilePicture .= "<td><img src=\"$primaryImg\" class = \"img_file_gallerie\" /></td>";
         $ifImgFilePicture .= "<!--
 	Width/height ratio of thumbnail and the main image must match to avoid glitches.
