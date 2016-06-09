@@ -19,13 +19,12 @@ $search = new search();
 $objet = new object("../Ressources/GraphicalDb/photos_objets/LEV730r.JPG", "Fry", "he is a dumb but he is funny.", 1001);
 $accesDb = new db_connect();
 $pageMenu = new pageMenu();
+$db_traitement = new db_traitement();
 
 //Variables
 $mode = "List";
 $ResultPerPage = 15;
 $content = "";
-/*$_SESSION['search'] = htmlspecialchars($_GET["search"]);//}
-$searchName = $_SESSION['search'];*/
 $i = 0;
 $countRep = $accesDb-> count($searchName);
 $data = $countRep->fetch();
@@ -181,19 +180,7 @@ $start = $ResultPerPage*($pageNumber-1);
 $stop = $ResultPerPage*$pageNumber;
 $rep = $accesDb->selection($searchName, $start, $stop);
 
-$descritption = "";
-$rep->execute();
-while ($data = $rep->fetch()) {
-    
-    $descritption = "<b>Description : </b>" . $data['decoration'] . " " . $data['form'] . " " . $data['typology'] . ".<br /><b>Localisation : </b>" . $data['name_site'] . " , " . $data['name_town'] . " , " . $data['name_region'] . " , " . $data['name_country'] . " , ";
-    if($data['url_doc'] == NULL){
-        $objet->setObject("../Ressources/no-img.png", $data['nom'], $descritption, $data['id_graphical_doc']);
-    }else{
-        $objet->setObject($data['url_doc'], $data['nom'], $descritption, $data['id_graphical_doc']);
-    }
-    $content = $content . $objet->selectDisplay($mode);
-}
-$rep->closeCursor();
+$content = $content . $db_traitement->dataBase($rep, $objet, $mode);//process the data
 
 $content = $content . "</div><div class =\"row col-xs-12\""
         . "<nav style =\"text-align: center;\" >"
