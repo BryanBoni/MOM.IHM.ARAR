@@ -42,7 +42,7 @@ function fileSelect() {
 
 
 
-        for (var object of files){
+        for (var object of files){ 
             imgType = object.name.split('.');
             imgType = imgType[imgType.length - 1].toLowerCase();
 
