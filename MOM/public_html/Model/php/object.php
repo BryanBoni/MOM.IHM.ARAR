@@ -70,7 +70,7 @@ class object {
                 .           "<div class = \"caption\">"
                 .               "<center><h3>" . $this -> _title . "</h3></center>"
                 .               "<p style=\"text-align: left;\">" . $this -> _description ."</p>"
-                .               "<p id=\"minBtn\"><form action = \"details.php\" method = \"post\"><button type = \"submit\" value = \"$this->_objId\" name = \"objectId\" id=\"objectIdBtn\" class = \"btn btn-primary\" role = \"button\">Voir détails...</button></form></p>"
+                .               "<form action = \"details.php\" method = \"post\"><button style = \"width: 100%;\" type = \"submit\" value = \"$this->_objId\" name = \"objectId\" id=\"objectIdBtn\" class = \"btn btn-primary\" role = \"button\">Voir détails...</button></form>"
                 .           "</div>"
                 .       "</div>"
                 .   "</div>"

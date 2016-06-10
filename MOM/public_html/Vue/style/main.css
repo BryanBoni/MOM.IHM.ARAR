@@ -291,13 +291,11 @@ a.back-to-top {
 }
 
 #minDisplay .thumbnail{
-    height: 400px;
+    height: 350px;
     overflow: auto;
 }
 
-#minBtn{
 
-}
 
 #filterList ul{
     list-style-type: none;

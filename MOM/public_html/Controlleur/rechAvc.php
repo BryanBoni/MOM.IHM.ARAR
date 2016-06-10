@@ -32,7 +32,6 @@ $sizeList = $data['c'];
 $countRep -> closeCursor();
 $pageNumber = 1;
 $selectedPage  = 1;
-
 //Variables session
 if (isset($_GET['search'])) {
     $_SESSION['search'] = htmlspecialchars($_GET["search"]);
@@ -55,6 +54,12 @@ if (isset($_GET['nbPage'])) {
     $ResultPerPage = $_SESSION['nbPage'];
 }
 
+if (isset($_GET['selectedPage'])) {
+    $_SESSION['selectedPage'] = htmlspecialchars($_GET["selectedPage"]);
+    $selectedPage = $_SESSION['selectedPage'];
+}else if(isset ($_SESSION['selectedPage'])){
+    $selectedPage = $_SESSION['selectedPage'];
+}
 
 //here is the filter
 $content = $content . ""
@@ -162,7 +167,7 @@ $content = $content . "</div>"
         . "</li>";
 
 
-$content = $content . $pageMenu ->displayPagination(($sizeList / $ResultPerPage), 5); // display the page Menu.
+$content = $content . $pageMenu ->displayPagination(($sizeList / $ResultPerPage), $selectedPage); // display the page Menu.
 
 
 $content = $content . ""
@@ -190,7 +195,7 @@ $content = $content . "</div><div class =\"row col-xs-12\""
         . "<a href = \"#\" aria-label = \"Previous\"><span aria-hidden = \"true\">&laquo;</span></a>"
         . "</li>";
 
-$content = $content . $pageMenu ->displayPagination(($sizeList / $ResultPerPage), 5); // display the page Menu.
+$content = $content . $pageMenu ->displayPagination(($sizeList / $ResultPerPage), $selectedPage); // display the page Menu.
 
 $content = $content . ""
         . "<li>"
