@@ -23,10 +23,6 @@ $rep = $accesDb ->getIMG($objGraphId);
 $data = $rep -> fetch();
 $primaryImg = $data['url_doc'];
 
-
-
-
-
 // Module for the 3D and for the default picture.
 $isObjFile = true;
 $ifobj3D = "";
@@ -36,11 +32,6 @@ else { $ifobj3D = "<span>Objet 3D non disponible</span>"; }
 $obj2D = "<div id=\"loadingContainer\" class = \"loading-container\">
             <img id=\"image2d\" src=\"$primaryImg\" class = \"loading-container img_default\" /> 
         </div>";
-
-
-
-
-
 
 // Module for the gallery and the technical drawings
 // PHOTO
@@ -88,8 +79,8 @@ $ifImgFileDessin .= "</div>";
 
 
 // Display of the 2D documents in the gallery
-$gallerie = "<div class=\"col-xs-6\"><h3>Photo</h3></br>$ifImgFilePicture</div>"
-        . "<div class=\"col-xs-6\"><h3>Dessin technique</h3></br>$ifImgFileDessin</div>";
+$gallerie = "<div class=\"col-xs-5 \"><h3>Photo</h3>$ifImgFilePicture</div>"
+        . "<div class=\"col-xs-5  col-xs-offset-1\"><h3>Dessin technique</h3>$ifImgFileDessin</div>";
 
 
 
@@ -154,7 +145,7 @@ $content = $content
             . "</div>"
             . "<br />"
             . "<div class = \"row\" id = \"galMap\">"
-                . "<div class = \"col-sm-6\"><h3>Photos & Dessin</h3><div id = \"scrollable\" class=\"row\" style = \"height: 300px; border: 2px solid #cccccc\">$gallerie</div></div>"
+                . "<div class = \"col-sm-6\"><h3>Photos & Dessin</h3><div id = \"scrollable\" class=\"row\" style = \"height: 300px; border: 2px solid #cccccc\"><div style = \"min-width: 500px; \">$gallerie</div></div></div>"
                 
                 . "<div class = \"col-sm-6\"><h3>Localisation</h3><div id = \"googleMap\" style = \"height: 300px; border: 2px solid #cccccc\"></div></div>"
             . "</div>"

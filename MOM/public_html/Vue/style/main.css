@@ -225,8 +225,13 @@ a.back-to-top {
 }
 
 #scrollable{
+    width: auto;
     overflow: auto;
+    /*overflow-x: scroll;*/
+    
 }
+
+
 
 #filterList b{
     color: #8e3c06;

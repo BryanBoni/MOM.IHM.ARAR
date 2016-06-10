@@ -46,7 +46,7 @@ class db_connect {
                 LEFT JOIN country c ON l.id_country=c.id 
                 LEFT JOIN link_graphical_doc_to_sample lgd ON s.id=lgd.id_sample
                 LEFT JOIN graphical_document gd ON  lgd.id_graphical_doc=gd.id
-                WHERE t.name_town like '%$keyword%' or r.name_region like '%$keyword%' or c.name_country like '%$keyword%' or si.name_site like '%$keyword%' or p.workshop  like '%$keyword%' or p.museum  like '%$keyword%' or p.private_collection like '%$keyword%' or p.atelier like '%$keyword%' or p.excavation like '%$keyword%' or p.geolocation like '%$keyword%' or p.contact like '%$keyword%' or p.free_description like '%$keyword%' GROUP BY nom ORDER BY CAST(nom AS UNSIGNED)
+                WHERE t.name_town like '%$keyword%' or r.name_region like '%$keyword%' or c.name_country like '%$keyword%' or si.name_site like '%$keyword%' or p.workshop  like '%$keyword%' or p.museum  like '%$keyword%' or p.private_collection like '%$keyword%' or p.atelier like '%$keyword%' or p.excavation like '%$keyword%' or p.geolocation like '%$keyword%' or p.contact like '%$keyword%' or p.free_description like '%$keyword%' GROUP BY nom
                 LIMIT $start , $stop";
         /*$rep = $pdodb->query($requete);*/
         $rep = $pdodb->prepare($requete);

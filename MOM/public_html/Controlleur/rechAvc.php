@@ -31,6 +31,7 @@ $data = $countRep->fetch();
 $sizeList = $data['c'];   
 $countRep -> closeCursor();
 $pageNumber = 1;
+$selectedPage  = 1;
 
 //Variables session
 if (isset($_GET['search'])) {
@@ -180,7 +181,7 @@ $start = $ResultPerPage*($pageNumber-1);
 $stop = $ResultPerPage*$pageNumber;
 $rep = $accesDb->selection($searchName, $start, $stop);
 
-$content = $content . $db_traitement->dataBase($rep, $objet, $mode);//process the data
+$content = $content . $db_traitement->dataBase($rep, $objet, $mode, $ResultPerPage);//process the data
 
 $content = $content . "</div><div class =\"row col-xs-12\""
         . "<nav style =\"text-align: center;\" >"

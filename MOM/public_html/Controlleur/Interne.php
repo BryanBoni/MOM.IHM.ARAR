@@ -54,9 +54,7 @@ $content = $content //input groupe
                         </select>
                     </td>
                     <td>
-                        <select class=\"c-select\">
-                            <option selected>Choisissez un onglet... </option>
-                        </select>
+                        <input type = \"text\" name = \"requ\" id = \"requ\"/>
                     </td>
                   </tr>
                   <tr>
@@ -78,9 +76,7 @@ $content = $content //input groupe
                     </td>
                     
                     <td>
-                        <select class=\"c-select\">
-                            <option selected>Choisissez un onglet... </option>
-                        </select>
+                        <input type = \"text\" name = \"requ\" id = \"requ\"/>
                     </td>
                   </tr>
                   <tr>
@@ -102,9 +98,7 @@ $content = $content //input groupe
                     </td>
                     
                     <td>
-                        <select class=\"c-select\">
-                            <option selected>Choisissez un onglet... </option>
-                        </select>
+                        <input type = \"text\" name = \"requ\" id = \"requ\"/>
                     </td>
                   </tr>
                 </tbody>
