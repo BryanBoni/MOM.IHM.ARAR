@@ -12,7 +12,7 @@
     if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
     var container, camera, camLight, scene, renderer;
     var mouseX = 0, mouseY = 0;
-    var SCREEN_WIDTH = window.innerWidth, SCREEN_HEIGHT = window.innerHeight;
+    var SCREEN_WIDTH = window.innerWidth, SCREEN_HEIGHT = window.innerHeight - 100;
     // Model file OBJ *********    150 mo max for obj file or an average of 1 500 000 tri    *************
     var file = '../Ressources/obj3D/MA5.obj';
     var textureFile = '../Ressources/obj3D/MA5_0.jpg';
@@ -164,7 +164,7 @@
     function onWindowResize() {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
-        renderer.setSize( window.innerWidth, window.innerHeight );
+        renderer.setSize( window.innerWidth, window.innerHeight - 100 );
     }
     function animate() {
         requestAnimationFrame( animate );

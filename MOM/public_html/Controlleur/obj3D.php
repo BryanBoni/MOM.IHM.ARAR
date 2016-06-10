@@ -24,8 +24,8 @@
         <?php
             ini_set("max_execution_time",150);
         ?>
-        <input id="texture" type="button" value="Géométrique et texture" onclick="setTexture()" />
-        <input id="uniforme" type="button" value="Géométrique" onclick="setUniforme()" />
+        <input id="texture" type="button" value="Géométrie et texture" onclick="setTexture()" />
+        <input id="uniforme" type="button" value="Géométrie" onclick="setUniforme()" />
         <input id="retour" type="button" value="Retour" onclick="history.go(-1);" />
         </br>
         <div id="loadingContainer" class = "loading-container">
