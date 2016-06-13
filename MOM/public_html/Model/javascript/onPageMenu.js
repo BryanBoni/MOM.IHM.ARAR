@@ -4,7 +4,7 @@
 
 initMP();
 function initMP() {
-    document.getElementById("MABITE").addEventListener("click", function (i) {
+    document.getElementById("MABAR").addEventListener("click", function (i) {
         var nbPage = prompt("Veulliez entrer un numéro de page valide", "");
         if (nbPage != null) {
             /*document.getElementById("demo").innerHTML =

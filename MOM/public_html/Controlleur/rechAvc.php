@@ -159,7 +159,7 @@ $content = $content . "</form>"
 $content = $content . "</div>"
         . "<p style=\"float: left;\"><b>votre recherche : </b><font color = \"red\">" . $searchName . "</font></p><p style=\"float: right;\"> $sizeList résultats</p>"
         . "<br />"
-        . ""
+        . "<form action = \"rechAvc.php\" method = \"get\">"
         . "<nav style =\"text-align: center; color: red; border-top: 1px solid #8e3c06;border-bottom: 1px solid #8e3c06; margin: 0px;\" >"
         . "<ul class = \"pagination\" style=\" margin: 0px; margin-top: 8px;\">"
         . "<li>"
@@ -177,7 +177,7 @@ $content = $content . ""
         . "</a>"
         . "</li>"
         . "</ul>"
-        . "</nav>"
+        . "</nav></form>"
         . "<div class = \"row\" id = \"ooo\">";
 
 $content = $content . "</div><div class = \"row\" style = \"margin-left: 1px; margin-right: 1px;\">";

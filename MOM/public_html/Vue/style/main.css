@@ -290,6 +290,17 @@ a.back-to-top {
     color: #8e3c06;
 }
 
+#selectedPageBtn{
+    border: none;
+    text-decoration: none;
+    background: none;
+    padding: 6px 12px;
+}
+
+#selectedPageA{
+    margin: 0px;
+    padding: 0px;
+}
 #minDisplay .thumbnail{
     height: 350px;
     overflow: auto;
