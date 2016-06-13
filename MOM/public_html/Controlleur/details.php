@@ -30,8 +30,8 @@ if($isObjFile) { $ifobj3D = "<a href=\"obj3D.php\" class=\"btn btn-warning\" sty
 else { $ifobj3D = "<span>Objet 3D non disponible</span>"; }
 
 $obj2D = "<div id=\"loadingContainer\" class = \"loading-container\">
-            <img id=\"image2d\" src=\"$primaryImg\" class = \"loading-container img_default\" /> 
-        </div>";
+            <img  src=\"$primaryImg\" class = \"loading-container img_default\" /> 
+        </div>";/*id=\"image2d\"*/
 
 // Module for the gallery and the technical drawings
 // PHOTO
@@ -97,7 +97,8 @@ $objPD = "<b>Provenance</b><br /><p>Atelier de ..., 10Km au sud d'Hamamet, prosp
 $objGDesc = "TS, Service 1.";
 $objGene = "<b>Nom</b><p>cbr_TN_2016</p><b>Nature & Num analyse</b> <p><b>S01</b> Pâte  | ACD399, Capelli 7125, M215 </p><p><b>S02</b> Engobe | Eng399</p><p>ACD399, Capelli 7125, M215</p>";
 $objBiblio = "<b>Biblio</b><p>BRUN, C., 2007 - Etude Technique des productions de l'atelier de sidi Khalifa (Pheradi Maius, Tunisie) : Céramiques culinaires, sigillées et cazettes, in : BONIFAY, M. et TREGLIA, J.-C, LRCW2, Late Roman Coarse Wares, Cooking Wares and Amphorae in the Mediterranean : Archaeology and Archaeometry (Aix-en-Provence, 13-16 avril 2005), BAR IS1662 (II), pp. 569-579.</p>";
-$other = "<a href=\"http://www.levantineceramics.org/wares/beirut-frankish-cooking-ware-be-cw\">http://www.levantineceramics.org/wares/beirut-frankish-cooking-ware-be-cw</a>";
+$other = "<a href=\"http://www.levantineceramics.org/wares/beirut-frankish-cooking-ware-be-cw\">http://www.levantineceramics.org/wares/beirut-frankish-cooking-ware-be-cw</a>"
+        . "$ifobj3D";
 
 $content = $content . "<div class=\"row\">"
             . "<div class = \"col-sm-7\">"
@@ -112,16 +113,18 @@ $content = $content . "<div class=\"row\">"
         
         . "<div class = \"row\" id = \"detailSearch\">"//same display as the previous one.
             . "<h1><font color=\"#8e3c06\">OBJET</font> $objTitle</h1>"
-            . "<center><div class = \"row\" style = \"margin: 10px; \">"
-                . "<div class = \"col-xs-12 col-sm-8\" id = \"obj3d\">"
+            . "<div class = \"row\" style = \"margin: 10px; \">"
+                . "<div class = \"col-sm-12\" id = \"obj3d\">"
                     . "$obj2D"
-                    . $ifobj3D
+                    
                 . "</div>"
-                . "<div id =\"nature\">"
+                
+               /* . "<div id =\"nature\">"
                     . "<p><b>Nature :</b> Vase</p><b>Identifiant par défault :</b><p></p>"
-                . "</div>"
-                . "</div></center>"
-                . "<div class = \"row\" id = \"descGene\"><div class =\"col-xs-12\">"
+                . "</div>"*/
+                
+                . "<div id = \"descGene\" class =\"col-sm-12\">"
+                    
                     . "<h3 style = \"text-align: left;\">Informations générales </h3>"    
                     . "<ul class = \"nav nav-tabs\" role = \"tablist\">"
                         . "<li role = \"presentation\" class = \"active\"><a href = \"#DP\" aria-controls = \"DP\" role = \"tab\" data-toggle = \"tab\">Provenance & Datation</a></li>"
@@ -137,7 +140,8 @@ $content = $content . "<div class=\"row\">"
                         . "<div role = \"tabpanel\" class = \"tab-pane fade\" id = \"generale\">$objGene</div>"
                         . "<div role = \"tabpanel\" class = \"tab-pane fade\" id = \"biblio\">$objBiblio</div>"
                         . "<div role = \"tabpanel\" class = \"tab-pane fade\" id = \"other\">$other</div>"
-                    . "</div></div>"
+                    . "</div>"
+               . "</div>"
                 ;
 
 $content = $content 
