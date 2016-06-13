@@ -3,7 +3,15 @@ $(document).ready(function() {
 });
 
 $(document).resize(function() {
-    x();
+    $('.img_default').each(function() {
+        var width = $(this).width();    // Current image width
+        var height = $(this).height();  // Current image height
+        var widthPage = $(document).width();//26%
+        var heightPage = $(document).height();//22%
+        
+        $(this).css("height", 22 * heightPage / 100 );
+        $(this).css("width", 26 * widthPage / 100 );
+    });
 });
 
 function x() {
