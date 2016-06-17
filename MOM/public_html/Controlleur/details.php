@@ -30,7 +30,7 @@ if($isObjFile) { $ifobj3D = "<a href=\"obj3D.php\" class=\"btn btn-warning\" sty
 else { $ifobj3D = "<span>Objet 3D non disponible</span>"; }
 
 $obj2D = "<div id=\"loadingContainer\" class = \"loading-container\">
-            <img  src=\"$primaryImg\" class = \"loading-container img_default\" /> 
+            <img style=\"width: 100%;\" src=\"$primaryImg\" class = \"loading-container img_default\" /> 
         </div>";/*id=\"image2d\"*/
 
 // Module for the gallery and the technical drawings
@@ -114,16 +114,15 @@ $content = $content . "<div class=\"row\">"
         . "<div class = \"row\" id = \"detailSearch\">"//same display as the previous one.
             . "<h1><font color=\"#8e3c06\">OBJET</font> $objTitle</h1>"
             . "<div class = \"row\" style = \"margin: 10px; \">"
-                . "<div class = \"col-sm-12\" id = \"obj3d\">"
+                . "<div class = \"col-sm-4\" id = \"obj3d\">"
                     . "$obj2D"
-                    
                 . "</div>"
                 
                /* . "<div id =\"nature\">"
                     . "<p><b>Nature :</b> Vase</p><b>Identifiant par défault :</b><p></p>"
                 . "</div>"*/
                 
-                . "<div id = \"descGene\" class =\"col-sm-12\">"
+                . "<div class =\"col-sm-8\" id = \"descGene\">"
                     
                     . "<h3 style = \"text-align: left;\">Informations générales </h3>"    
                     . "<ul class = \"nav nav-tabs\" role = \"tablist\">"

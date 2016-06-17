@@ -88,9 +88,8 @@ html{
     border: 1px solid #cccccc;
     text-align: left;
     overflow: auto;    
-    height: 300px;
-    margin-left: 10px;
-    margin-right: 10px;
+    height: 400px;
+
 }
 
 a.back-to-top {
@@ -193,8 +192,8 @@ a.back-to-top {
 
 #obj3d{
     border: 1px solid #cccccc;
-    
-    margin-bottom: 45px;
+    height: 400px;
+    /*margin-bottom: 45px;*/
 }
 #filter{
     margin-top: 0px;
