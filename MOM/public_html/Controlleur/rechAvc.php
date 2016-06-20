@@ -23,7 +23,7 @@ $db_traitement = new db_traitement();
 
 //Variables
 $mode = "List";
-$ResultPerPage = 15;
+$ResultPerPage = 20;
 $content = "";
 $i = 0;
 $countRep = $accesDb-> count($searchName);
@@ -110,22 +110,22 @@ $content = $content . ""
         . "<div id = \"short\">"
         . "<div style = \"float: left; display: inline-text; margin: 0px;\">"
         . "<form action = \"rechAvc.php\" method = \"get\"><b>Résultats par pages :<b/> ";
-if ($ResultPerPage == 15) {
-    $content = $content . "<button type = \"submit\" value = \"15\" name = \"nbPage\" id=\"hiddenBtn\"><div class=\"imgNb imgNb-active\"><b> 15 </b></div></button>";
+if ($ResultPerPage == 20) {
+    $content = $content . "<button type = \"submit\" value = \"20\" name = \"nbPage\" id=\"hiddenBtn\"><div class=\"imgNb imgNb-active\"><b> 20 </b></div></button>";
 }else{
-    $content = $content . "<button type = \"submit\" value = \"15\" name = \"nbPage\" id=\"hiddenBtn\"><div class=\"imgNb\"><b> 15 </b></div></button>";
+    $content = $content . "<button type = \"submit\" value = \"20\" name = \"nbPage\" id=\"hiddenBtn\"><div class=\"imgNb\"><b> 20 </b></div></button>";
 }
 
-if ($ResultPerPage == 30) {
-    $content = $content . "<button type = \"submit\" value = \"30\" name = \"nbPage\" id=\"hiddenBtn\"><div class=\"imgNb imgNb-active\"><b> 30 </b></div></button>";
+if ($ResultPerPage == 40) {
+    $content = $content . "<button type = \"submit\" value = \"40\" name = \"nbPage\" id=\"hiddenBtn\"><div class=\"imgNb imgNb-active\"><b> 40 </b></div></button>";
 }else{
-    $content = $content . "<button type = \"submit\" value = \"30\" name = \"nbPage\" id=\"hiddenBtn\"><div class=\"imgNb\"><b> 30 </b></div></button>";
+    $content = $content . "<button type = \"submit\" value = \"40\" name = \"nbPage\" id=\"hiddenBtn\"><div class=\"imgNb\"><b> 40 </b></div></button>";
 }
 
-if ($ResultPerPage == 45) {
-    $content = $content . "<button type = \"submit\" value = \"45\" name = \"nbPage\" id=\"hiddenBtn\"><div class=\"imgNb imgNb-active\"><b> 45 </b></div></button>";
+if ($ResultPerPage == 100) {
+    $content = $content . "<button type = \"submit\" value = \"100\" name = \"nbPage\" id=\"hiddenBtn\"><div class=\"imgNb imgNb-active\"><b> 100 </b></div></button>";
 }else{
-    $content = $content . "<button type = \"submit\" value = \"45\" name = \"nbPage\" id=\"hiddenBtn\"><div class=\"imgNb\"><b> 45 </b></div></button>";
+    $content = $content . "<button type = \"submit\" value = \"100\" name = \"nbPage\" id=\"hiddenBtn\"><div class=\"imgNb\"><b> 100 </b></div></button>";
 }
 
 $content = $content
@@ -182,13 +182,14 @@ $content = $content . ""
 
 $content = $content . "</div><div class = \"row\" style = \"margin-left: 1px; margin-right: 1px;\">";
 
-$start = $ResultPerPage*($pageNumber-1);
-$stop = $ResultPerPage*$pageNumber;
-$rep = $accesDb->selection($searchName, $start, $stop);
+$start = $ResultPerPage * ($selectedPage - 1);
+$stop = $ResultPerPage * $selectedPage;
+$rep = $accesDb->selection($searchName, $start , $stop);
 
 $content = $content . $db_traitement->dataBase($rep, $objet, $mode, $ResultPerPage);//process the data
 
 $content = $content . "</div><div class =\"row col-xs-12\""
+        . "<form action = \"rechAvc.php\" method = \"get\">"
         . "<nav style =\"text-align: center;\" >"
         . "<ul class = \"pagination\" style=\" margin: 0px; margin-top: 8px;\">"
         . "<li>"
@@ -204,7 +205,7 @@ $content = $content . ""
         . "</a>"
         . "</li>"
         . "</ul>"
-        . "</nav></div>"
+        . "</nav></form></div>"
         . "</div></div>"
         . "</div>"
         . "</div>";

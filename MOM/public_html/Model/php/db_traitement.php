@@ -72,11 +72,11 @@ class db_traitement {
                     $data['id_graphical_doc'] = " ";
                 }
 
-                $descritption = "<b>Description : </b>" . $data['decoration'] . " " . $data['form'] . " " . $data['typology'] . "<br /><b>Localisation : </b>" . $data['name_site'] . "" . $data['name_town'] . "" . $data['name_region'] . "" . $data['name_country'] . "";
+                $descritption = "<b>N° Chimie :</b> ". $data['num_chemistry'] ."<br /><b>Description : </b>" . $data['decoration'] . " " . $data['form'] . " " . $data['typology'] . "<br /><b>Localisation : </b>" . $data['name_site'] . "" . $data['name_town'] . "" . $data['name_region'] . "" . $data['name_country'] . "";
                 if ($data['url_doc'] == NULL) {
-                    $objet->setObject("../Ressources/no-img.png", $data['nom'], $descritption, $data['id_graphical_doc']);
+                    $objet->setObject("../Ressources/no-img.png",/*$data['num_chemistry']*/ $data['nom'], $descritption, $data['id_graphical_doc']);
                 } else {
-                    $objet->setObject($data['url_doc'], $data['nom'], $descritption, $data['id_graphical_doc']);
+                    $objet->setObject($data['url_doc'],/*$data['num_chemistry']*/ $data['nom'], $descritption, $data['id_graphical_doc']);
                 }
                 $content = $content . $objet->selectDisplay($mode);
                 $i = $i + 1;

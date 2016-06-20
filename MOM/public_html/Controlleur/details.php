@@ -17,7 +17,7 @@ $objId = "";
 $accesDb = new db_connect();
 $objGraphId = $_POST['objectId'];
 $noImgFile = "../Ressources/objectBeta/default.png";
-
+$idChimie = "BYZ814";
 //Get obj Info:
 $rep = $accesDb ->getIMG($objGraphId);
 $data = $rep -> fetch();
@@ -93,12 +93,12 @@ $petro = "Morbi dolor nibh, accumsan eu eros at, ultrices volutpat lectus. Nulla
 $autre1 = "Nunc mattis posuere porta. Quisque suscipit eget dolor ut porta. In molestie hendrerit sem, a ultricies arcu aliquam et. In molestie nisl vitae dui lacinia interdum. Nam dapibus vitae ex eget mollis. Ut in diam posuere, consequat ante id, hendrerit erat. Vivamus non pharetra lectus. Curabitur tempus condimentum suscipit. Fusce dapibus malesuada eleifend. Vestibulum ut lectus et lectus pharetra scelerisque. Praesent porta leo quam, et semper libero tempus ut. ";
 $autre2 = "Morbi ultrices pellentesque turpis, ac rutrum turpis consectetur at. Vivamus scelerisque ac neque sed hendrerit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris ut sagittis urna. Quisque ex augue, posuere ut nisi nec, lobortis ultricies massa. Vivamus vitae nunc nisl. Donec vestibulum nibh eget nulla tincidunt, sit amet aliquet enim rutrum. Etiam pellentesque suscipit orci et elementum. Ut a dolor in tortor rhoncus bibendum. Vestibulum sed urna eget eros lacinia bibendum sed sit amet nulla. Cras gravida ut libero nec ultrices. Aliquam erat volutpat. Duis varius justo massa, ut egestas neque ultricies ut. Suspendisse ut dapibus lacus. ";
 
-$objPD = "<b>Provenance</b><br /><p>Atelier de ..., 10Km au sud d'Hamamet, prospection de S. Aounalla et M. Bonifaik,<br /> Tunisie. </p><br /><b>Datation</b><br /><p>2ème moitié Ve</p>";
-$objGDesc = "TS, Service 1.";
+$objPD = "<b>Provenance</b><br /><p>Atelier de ..., 10Km au sud d'Hamamet, prospection de S. Aounalla et M. Bonifaik,<br /> Tunisie. </p> <br /><b>Origine supposée</b><p></p> <br /><b>Provenance</b> <p></p>";
+$objGDesc = "<b>Description </b><p>TS, Service 1. </p><br /><b>Datation</b><br /><p>2ème moitié Ve</p>";
 $objGene = "<b>Nom</b><p>cbr_TN_2016</p><b>Nature & Num analyse</b> <p><b>S01</b> Pâte  | ACD399, Capelli 7125, M215 </p><p><b>S02</b> Engobe | Eng399</p><p>ACD399, Capelli 7125, M215</p>";
 $objBiblio = "<b>Biblio</b><p>BRUN, C., 2007 - Etude Technique des productions de l'atelier de sidi Khalifa (Pheradi Maius, Tunisie) : Céramiques culinaires, sigillées et cazettes, in : BONIFAY, M. et TREGLIA, J.-C, LRCW2, Late Roman Coarse Wares, Cooking Wares and Amphorae in the Mediterranean : Archaeology and Archaeometry (Aix-en-Provence, 13-16 avril 2005), BAR IS1662 (II), pp. 569-579.</p>";
 $other = "<a href=\"http://www.levantineceramics.org/wares/beirut-frankish-cooking-ware-be-cw\">http://www.levantineceramics.org/wares/beirut-frankish-cooking-ware-be-cw</a>"
-        . "$ifobj3D";
+        ;
 
 $content = $content . "<div class=\"row\">"
             . "<div class = \"col-sm-7\">"
@@ -112,11 +112,14 @@ $content = $content . "<div class=\"row\">"
         . "<br />"
         
         . "<div class = \"row\" id = \"detailSearch\">"//same display as the previous one.
-            . "<h1><font color=\"#8e3c06\">OBJET</font> $objTitle</h1>"
+            . " <h1><font color=\"#8e3c06\">OBJET</font> $objTitle</h1>  "
             . "<div class = \"row\" style = \"margin: 10px; \">"
                 . "<div class = \"col-sm-4\" id = \"obj3d\">"
+                    . "<div style = \"margin: 15px;\"><b><font color=\"#8e3c06\"> ID Chimique </font> $idChimie</div></b>"
                     . "$obj2D"
+                    . "$ifobj3D"
                 . "</div>"
+        
                 
                /* . "<div id =\"nature\">"
                     . "<p><b>Nature :</b> Vase</p><b>Identifiant par défault :</b><p></p>"
@@ -126,27 +129,32 @@ $content = $content . "<div class=\"row\">"
                     
                     . "<h3 style = \"text-align: left;\">Informations générales </h3>"    
                     . "<ul class = \"nav nav-tabs\" role = \"tablist\">"
-                        . "<li role = \"presentation\" class = \"active\"><a href = \"#DP\" aria-controls = \"DP\" role = \"tab\" data-toggle = \"tab\">Provenance & Datation</a></li>"
-                        . "<li role = \"presentation\"><a href = \"#desc\" aria-controls = \"desc\" role = \"tab\" data-toggle = \"tab\">Description</a></li>"
+                        . "<li role = \"presentation\" class = \"active\"><a href = \"#desc\" aria-controls = \"desc\" role = \"tab\" data-toggle = \"tab\">Description & Datation</a></li>"
+                        . "<li role = \"presentation\"><a href = \"#DP\" aria-controls = \"DP\" role = \"tab\" data-toggle = \"tab\">Localisation </a></li>"
+                        
                         . "<li role = \"presentation\"><a href = \"#generale\" aria-controls = \"generale\" role = \"tab\" data-toggle = \"tab\">Identifiants</a></li>"
                         . "<li role = \"presentation\"><a href = \"#biblio\" aria-controls = \"biblio\" role = \"tab\" data-toggle = \"tab\">Bibliographie</a></li>"
                         . "<li role = \"presentation\"><a href = \"#other\" aria-controls = \"other\" role = \"tab\" data-toggle = \"tab\">Liens</a></li>"
                     . "</ul>"
 
                     . "<div class = \"tab-content\" style = \"border: 1px solid #e6e6e6; border-top: none; text-align: justify; padding: 15px;\">"//content
-                        . "<div role = \"tabpanel\" class = \"tab-pane fade in active\" id = \"DP\">$objPD</div>"
+                        . "<div role = \"tabpanel\" class = \"tab-pane fade \" id = \"DP\">$objPD</div>"
                         . "<div role = \"tabpanel\" class = \"tab-pane fade in active\" id = \"desc\">$objGDesc</div>"
                         . "<div role = \"tabpanel\" class = \"tab-pane fade\" id = \"generale\">$objGene</div>"
                         . "<div role = \"tabpanel\" class = \"tab-pane fade\" id = \"biblio\">$objBiblio</div>"
                         . "<div role = \"tabpanel\" class = \"tab-pane fade\" id = \"other\">$other</div>"
                     . "</div>"
                . "</div>"
+        . ""
                 ;
 
 $content = $content 
                 
             . "</div>"
             . "<br />"
+            . "<div class = \"row\" style = \"border: 1px solid #cccccc; margin: 15px 0px\">"
+                    . "<p><b>Nature :</b> Vase</p><b>Identifiant par défault :</b><p></p>"
+            . "</div>"
             . "<div class = \"row\" id = \"galMap\">"
                 . "<div class = \"col-sm-6\"><h3>Photos & Dessin</h3><div id = \"scrollable\" class=\"row\" style = \"height: 300px; border: 2px solid #cccccc\"><div style = \"min-width: 500px; \">$gallerie</div></div></div>"
                 

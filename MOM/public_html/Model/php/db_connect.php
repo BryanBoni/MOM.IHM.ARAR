@@ -35,8 +35,10 @@ class db_connect {
          */
         $pdodb = $this->connect();
         $stop = $stop + 50;
-        $requete = "SELECT s.id, s.free_description, s.nom, si.name_site, t.name_town, r.name_region, c.name_country, d.decoration, d.form, d.typology,  gd.url_doc, lgd.id_graphical_doc
+        $requete = "SELECT DISTINCT che.num_chemistry, s.id, s.free_description, s.nom, si.name_site, t.name_town, r.name_region, c.name_country, d.decoration, d.form, d.typology,  gd.url_doc, lgd.id_graphical_doc
                 FROM sample_new s 
+                LEFT JOIN subsample sub ON s.id=sub.id_sample
+                LEFT JOIN chemistry che ON sub.id=che.id_subsample
                 LEFT JOIN description d ON s.id_description=d.id
                 LEFT JOIN provenance p ON s.id_provenance=p.id 
                 LEFT JOIN location l ON p.id_location=l.id 
@@ -46,7 +48,7 @@ class db_connect {
                 LEFT JOIN country c ON l.id_country=c.id 
                 LEFT JOIN link_graphical_doc_to_sample lgd ON s.id=lgd.id_sample
                 LEFT JOIN graphical_document gd ON  lgd.id_graphical_doc=gd.id
-                WHERE t.name_town like '%$keyword%' or r.name_region like '%$keyword%' or c.name_country like '%$keyword%' or si.name_site like '%$keyword%' or p.workshop  like '%$keyword%' or p.museum  like '%$keyword%' or p.private_collection like '%$keyword%' or p.atelier like '%$keyword%' or p.excavation like '%$keyword%' or p.geolocation like '%$keyword%' or p.contact like '%$keyword%' or p.free_description like '%$keyword%' GROUP BY nom ORDER BY CAST(nom AS UNSIGNED)
+                WHERE s.nom like '%$keyword%' or t.name_town like '%$keyword%' or r.name_region like '%$keyword%' or c.name_country like '%$keyword%' or si.name_site like '%$keyword%' or p.workshop  like '%$keyword%' or p.museum  like '%$keyword%' or p.private_collection like '%$keyword%' or p.atelier like '%$keyword%' or p.excavation like '%$keyword%' or p.geolocation like '%$keyword%' or p.contact like '%$keyword%' or p.free_description like '%$keyword%' GROUP BY nom ORDER BY CAST(nom AS UNSIGNED)
                 LIMIT $start , $stop";
         /*$rep = $pdodb->query($requete);*/
         $rep = $pdodb->prepare($requete);
