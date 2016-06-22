@@ -26,6 +26,8 @@ body{
     margin-left: 10px; 
     margin-right: 10px;
     padding: 10px;
+    
+    overflow: auto;
 }
 
 #listDisplay b{
@@ -35,7 +37,7 @@ body{
 
 #listDisplay #this img{
     width: 100%;
-    border: 2px solid #eaeaea;
+    /*border: 2px solid #eaeaea;*/
 }
 
 #li{
@@ -172,22 +174,21 @@ a.back-to-top {
 }
 
 #nature{
-    border: 1px solid #cccccc;
     text-align: left; 
-    height: 300px;
-    max-width: 100%;
-    padding: 10px;
-
 }
 
 #nature b{
     color: #8e3c06;
-    margin-left: 10px;
 }
 
 #nature p{
 
-    margin-left: 100px;
+}
+
+#ddd{
+    width: 100%;
+    overflow: auto;
+    font-size: 11px;
 }
 
 #obj3d{
