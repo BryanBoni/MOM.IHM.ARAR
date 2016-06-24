@@ -26,9 +26,12 @@ $mode = "List";
 $ResultPerPage = 20;
 $content = "";
 $i = 0;
+$sizeList = 200;
 $countRep = $accesDb-> count($searchName);
 $data = $countRep->fetch();
-$sizeList = $data['c'];   
+if($data['c'] == NULL){
+    $sizeList = $data['c'];
+}   
 $countRep -> closeCursor();
 $pageNumber = 1;
 $selectedPage  = 1;

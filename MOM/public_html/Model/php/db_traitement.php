@@ -19,11 +19,81 @@ class db_traitement {
         $rep->execute();
         
         $data = $rep->fetch();
-        
+        //id
         $detailTable['Nom'] = $data['nom'];
         $detailTable['numChimie'] = $data['num_chemistry'];
+        //date
         $detailTable['dateGene'] = $data['dating_general'];
         $detailTable['datePrecise'] = $data['dating_precise'];
+        
+        //Description
+        if($data['cat'] == NULL || $data['cat'] == "NULL"){
+            $detailTable['category'] = "";
+        }else{
+            $detailTable['category'] = $data['cat'];
+        }
+        
+        if($data['form'] == NULL || $data['form'] == "NULL"){
+            $detailTable['form'] = "";
+        }else{
+            $detailTable['form'] = ", "  . $data['form'];
+        }
+        
+        if($data['typology'] == NULL || $data['typology'] == "NULL"){
+            $detailTable['typology'] = "";
+        }else{
+            $detailTable['typo'] = ", "  . $data['typology'];
+        }
+        
+        if($data['decoration'] == NULL || $data['decoration'] == "NULL"){
+            $detailTable['decoration'] = "";
+        }else{
+            $detailTable['deco'] = ", "  . $data['decoration'];
+        }
+        
+        if($data['coating'] == NULL || $data['coating'] == "NULL"){
+            $detailTable['coating'] = "";
+        }else{
+            $detailTable['coating'] = ", "  . $data['coating'];
+        }
+        
+        if($data['stamps'] == NULL || $data['stamps'] == "NULL"){
+            $detailTable['stamps'] = "";     
+        }else{
+            $detailTable['stamps'] = ", "  . $data['stamps'];
+        }
+        
+        if($data['paste'] == NULL || $data['paste'] == "NULL"){
+            $detailTable['paste'] = "";      
+        }else{
+            $detailTable['paste'] = ", "  . $data['paste'];
+        }
+        
+        if($data['fm'] == NULL || $data['fm'] == "NULL"){
+            $detailTable['fm'] = "";    
+        }else{
+            $detailTable['firing_mode'] = ", "  . $data['fm'];
+        }
+        
+        if($data['pObj'] == NULL || $data['pObj'] == "NULL"){
+            $detailTable['pObj'] = "";           
+        }else{
+            $detailTable['pObj'] = ", "  . $data['pObj'];
+        }
+        
+        if($data['descFree'] == NULL || $data['descFree'] == "NULL"){
+            $detailTable['descFree'] = ".";          
+        }else{
+            $detailTable['desc_free'] = ", " . $data['descFree'] . ".";
+        }
+        
+        //storage
+        if($data['stoNom'] == NULL || $data['stoNom'] == "NULL"){
+            $detailTable['stoNom'] = "";           
+        }else{
+            $detailTable['stoNom'] = $data['stoNom'];
+        }
+        
         
         $rep->closeCursor();
         return $detailTable;
@@ -35,7 +105,7 @@ class db_traitement {
         $data = $rep ->fetch();
         $nomObj = $data['nom'];
         $natureObj = "Pot";
-        $natureSObj = "Pâte";
+        $natureSObj = $data['options'];
         $numAna = "ADDAC";
         
         
@@ -79,7 +149,9 @@ class db_traitement {
         
        while($data = $rep->fetch()){
         if($data['free_description'] == "NULL" || $data['free_description'] == NULL ){
-            $data['free_description'] = "Aucune information supplémentaire disponible";
+            $data['free_description'] = ".";
+        }else{
+            $data['free_description'] = ", " . $data['free_description'] . ".";
         }
         
         if($data['num_elements_analysis'] == "NULL" || $data['num_elements_analysis'] == NULL ){
@@ -158,7 +230,7 @@ class db_traitement {
                         </tbody>
                     </table></div>
                     " .
-                    "<b>Information supplémentaire : </b>" . $data['num_elements_analysis'] . ", " . $data['date_analysis'] . ", " . $data['free_description'] . ".</div>";
+                    "<b>Information supplémentaire : </b>" . $data['num_elements_analysis'] . ", " . $data['date_analysis'] . "" . $data['free_description'] . "</div>";
        
         $i++;
         }

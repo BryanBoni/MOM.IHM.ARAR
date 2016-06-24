@@ -125,12 +125,18 @@ class db_connect {
     public function getDetail($id) {
         //Get general information from a sample
         $pdodb = $this->connect();
-        $requete = "SELECT s.nom, che.num_chemistry, date.dating_general, date.dating_precise
+        $requete = "SELECT sto.nom as stoNom, po.options as pObj, fm.options as fm, cat.options as cat, s.nom, che.num_chemistry, date.dating_general, date.dating_precise, d.form, d.typology, d.paste, d.decoration, d.coating, d.stamps, d.free_description as descFree
                     FROM sample_new s
                     LEFT JOIN subsample sub ON s.id=sub.id_sample
                     LEFT JOIN dating date ON s.id_dating=date.id
                     LEFT JOIN chemistry che ON sub.id=che.id_subsample
+                    LEFT JOIN description d ON s.id_description=d.id
+                    LEFT JOIN firing_mode fm ON d.id_firing_mode=fm.id
+                    LEFT JOIN category cat ON s.id_category=cat.id
+                    LEFT JOIN link_descr_to_part_object ldp ON d.id=ldp.id_description
+                    LEFT JOIN part_object po ON ldp.id_part_object=po.id
                     LEFT JOIN supposed_origin sup1 ON s.id_orsupp1=sup1.id
+                    LEFT JOIN storage_outside_laboratory sto ON s.id_storage_outside_lab=sto.id
                     WHERE s.id = " . $id;
 
         $rep = $pdodb->prepare($requete);
@@ -154,13 +160,27 @@ class db_connect {
 
     public function getNature($id) {
         $pdodb = $this->connect();
-        $requete = "SELECT s.id, s.nom
+        $requete = "SELECT s.id, s.nom, nat.options
                     FROM sample_new s
                     LEFT JOIN subsample sub ON s.id=sub.id_sample
                     LEFT JOIN dating date ON s.id_dating=date.id
                     LEFT JOIN chemistry che ON sub.id=che.id_subsample
+                    LEFT JOIN nature nat ON sub.id_nature=nat.id
                     WHERE s.id = " . $id;
 
+        $rep = $pdodb->prepare($requete);
+        return $rep;
+    }
+    
+    public function getDescription($id){
+        $pdodb = $this->connect();
+        $stop = $stop + 50;
+        $requete = "SELECT s.id, d.form, d.typology, d.paste
+                FROM sample_new s 
+                LEFT JOIN subsample sub ON s.id=sub.id_sample
+                LEFT JOIN description d ON s.id_description=d.id
+                WHERE s.id=$id";
+        /* $rep = $pdodb->query($requete); */
         $rep = $pdodb->prepare($requete);
         return $rep;
     }
