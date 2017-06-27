@@ -18,8 +18,8 @@ Ici se trouve le layout (template) créé pour servire de structure au autres pa
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
         <!-- Latest compiled and minified JavaScript -->
         <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <?php echo $head1?>
-        
+        <?php echo $head1 ?>
+
     </head>
     <link rel="stylesheet" type="text/css" href="../Vue/style/main.css">
     <link rel="stylesheet" type="text/css" href="../Vue/style/css3D.css">
@@ -43,29 +43,33 @@ Ici se trouve le layout (template) créé pour servire de structure au autres pa
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="text-align: left;">
                     <ul class="nav navbar-nav">
-                        <li style="text-align: center;"><a href="rechAvc.php">Recherche Avancée</a></li>
-                        <li style="text-align: center;"><a href="../Controlleur/Interne.php">Interne </a></li>
-                    </ul>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-
-                        <li>
-                            <form class="navbar-form navbar-left" role="search">
-                                <div class="form-group" >
-                                    <input type="text" class="form-control" placeholder="Ajouter à la recherche" name ="search"/>
-                                </div>                    
-                                <button type="submit" class="btn btn-default " ><b class = "glyphicon glyphicon-search"></b></button>
-                            </form>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recherche <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="rechAvc.php">Recherche Avancée</a></li>
+                                <li><a href="rechGroupeChi.php">Recherche par groupes chimique</a></li>
+                            </ul>
                         </li>
-
-                        <li style="text-align: center;"><a href="../Controlleur/connexion.php"><p class="glyphicon glyphicon-user" style="margin: 0px;"> </p><p class ="hidden-sm hidden-md hidden-lg">Utilisateur</p></a></li>
+                        
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestion de la base <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../Controlleur/Interne.php">Groupe chimique</a></li>
+                                <li><a href="#">Ajout d'un élement</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <hr class="hidden-sm hidden-lg hidden-md" />
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="../Controlleur/connexion.php"><p class="glyphicon glyphicon-user" style="margin: 0px;"></p> Se connecter</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
+            </div><!-- /.container-fluid -->
         </nav>
     </div>
+
     <div class = "container-fluid">
         <div id = "corps" class = "col-sm-10 col-sm-offset-1">
             <?php echo $content ?>
@@ -73,11 +77,11 @@ Ici se trouve le layout (template) créé pour servire de structure au autres pa
     </div>
     <br /><br /><br /><br />
 
-    
-    <div id = "footer">
-        2016 <b>Laboratoire ArAr. Archéologie et Archéométrie</b> - Tout droit réservé. Créé par <b>Bryan Boni</b> & <b>Gabriel Coutu</b>
+
+    <div id = "footer" class="hidden-xs">
+        2016 - 2017 <b> Laboratoire ArAr. Archéologie et Archéométrie</b> - Tout droit réservé. Créé par <b><a href="https://panclette-studio.itch.io/" style="color: white;">Bryan Boni</a></b> & <b>Gabriel Coutu</b>
     </div>
-    
+
     <!-- IMPORTANT BUT NOT USED
     <script src = "../Model/javascript/file.js"></script>-->
     <?php echo $head ?>
