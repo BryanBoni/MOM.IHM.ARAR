@@ -29,8 +29,8 @@ $i = 0;
 $sizeList = 200;
 $countRep = $accesDb-> count($searchName);
 $data = $countRep->fetch();
-if($data['c'] == NULL){
-    $sizeList = $data['c'];
+if($data['count'] == NULL){
+    $sizeList = $data['count'];
 }   
 $countRep -> closeCursor();
 $pageNumber = 1;
@@ -72,10 +72,24 @@ $content = $content . ""
         . "<h3><b>Base de données</b></h3>"
         . "</div>"
         . "<div class = \"col-sm-5 hidden-xs\">"
-        . "<img src = \"../Ressources/Oiseau_Quadri.gif\" style=\"width: 150px;\"/>"
+            . "<a href=\"http://www.arar.mom.fr/\"><img src = \"../Ressources/Oiseau_Quadri.png\" style=\"width: 200px;\"/></a>"
         . "</div>"
         . "</div>"
         . "<br />"
+        . "<form action =\"#\" method=\"get\" id=\"advSearchBar\">"
+            . "<div class=\"input-group col-xs-12\">"
+                . "<input type = \"text\" name = \"search\" aria-describedby = \"basic-addon1\" class = \"form-control\" id = \"searchTxt\" placeholder = \"Recherche simple...\"/>"
+                . "<span class=\"input-group-btn\">"
+                    . "<button  id = \"searchBtn\" class = \"btn btn-warning\" name = \"searchBtn\" type = \"submit\">Rechercher <span class = \"glyphicon glyphicon-search\"/></button>"
+                . "</span>"
+            . "</div>"
+            . "<input type=\"hidden\" name=\"display\" value=\"ImageText\" />"
+        /* . "<input type = "hidden" name="display" value="ImageText"/>
+          <?php
+          $_SESSION['nbPage'] = 15;
+          $_SESSION['display'] = "ImageText";
+          ?>" */
+        . "</form>"
         . "<div class = \"row\" id = \"advSearch\">"
         . "<div class = \"col-sm-4 col-md-3\" id = \"cadre\">"
         . "<h4 id = \"filter\"><b>Affinez votre recherche</b></h4>"

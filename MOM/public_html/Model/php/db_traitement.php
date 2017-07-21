@@ -23,8 +23,8 @@ class db_traitement {
         $detailTable['Nom'] = $data['nom'];
         $detailTable['numChimie'] = $data['num_chemistry'];
         //date
-        $detailTable['dateGene'] = $data['dating_general'];
-        $detailTable['datePrecise'] = $data['dating_precise'];
+        $detailTable['dateGene'] = $data['sampleDatingGeneral'];
+        $detailTable['datePrecise'] = $data['sampleDP'];
         
         //Description
         if($data['cat'] == NULL || $data['cat'] == "NULL"){
@@ -51,10 +51,10 @@ class db_traitement {
             $detailTable['deco'] = ", "  . $data['decoration'];
         }
         
-        if($data['coating'] == NULL || $data['coating'] == "NULL"){
-            $detailTable['coating'] = "";
+        if($data['sampleCoating'] == NULL || $data['sampleCoating'] == "NULL"){
+            $detailTable['sampleCoating'] = "";
         }else{
-            $detailTable['coating'] = ", "  . $data['coating'];
+            $detailTable['sampleCoating'] = ", "  . $data['sampleCoating'];
         }
         
         if($data['stamps'] == NULL || $data['stamps'] == "NULL"){
@@ -254,49 +254,44 @@ class db_traitement {
         $i = 0;
         $rep->execute();
         while ($data = $rep->fetch()) {
-            if ($data['nom'] != $name) {
-                $name = $data['nom'];
+            if ($data['nameSample'] != $name) {
+                $name = $data['nameSample'];
                 
-                if ($data['atelier'] == "NULL" || $data['atelier'] == NULL) {
-                    $data['atelier'] = "";
+                
+                if ($data['workshopPorv'] == "NULL" || $data['workshopPorv'] == NULL) {
+                    $data['workshopPorv'] = "";
                 } else {
-                    $data['atelier'] = $data['atelier'] . ", ";
+                    $data['workshopPorv'] = $data['workshopPorv'] . ", ";
                 }
                 
-                if ($data['museum'] == "NULL" || $data['museum'] == NULL) {
-                    $data['museum'] = "";
+                if ($data['museumProv'] == "NULL" || $data['museumProv'] == NULL) {
+                    $data['museumProv'] = "";
                 } else {
-                    $data['museum'] = $data['museum'] . " ";
+                    $data['museumProv'] = $data['museumProv'] . " ";
                 }
                 
-                if ($data['excavation'] == "NULL" || $data['excavation'] == NULL) {
-                    $data['excavation'] = "";
+                if ($data['excavationProv'] == "NULL" || $data['excavationProv'] == NULL) {
+                    $data['excavationProv'] = "";
                 } else {
-                    $data['excavation'] = $data['excavation'] . ", ";
+                    $data['excavationProv'] = $data['excavationProv'] . ", ";
                 }
                 
-                if ($data['dating_general'] == "NULL" || $data['dating_general'] == NULL) {
-                    $data['dating_general'] = "";
+                if ($data['sampleDatingGeneral'] == "NULL" || $data['sampleDatingGeneral'] == NULL) {
+                    $data['sampleDatingGeneral'] = "";
                 } else {
-                    $data['dating_general'] = $data['dating_general'] . ", ";
+                    $data['sampleDatingGeneral'] = $data['sampleDatingGeneral'] . ", ";
                 }
                 
-                if ($data['dating_precise'] == "NULL" || $data['dating_precise'] == NULL) {
-                    $data['dating_precise'] = "";
+                if ($data['sampleDP'] == "NULL" || $data['sampleDP'] == NULL) {
+                    $data['sampleDP'] = "";
                 } else {
-                    $data['dating_precise'] = $data['dating_precise'] . "";
+                    $data['sampleDP'] = $data['sampleDP'] . "";
                 }
                 
-                if ($data['coating'] == "NULL" || $data['coating'] == NULL) {
-                    $data['coating'] = "";
+                if ($data['sampleCoating'] == "NULL" || $data['sampleCoating'] == NULL) {
+                    $data['sampleCoating'] = "";
                 } else {
-                    $data['coating'] = $data['coating'] . ", ";
-                }
-                
-                if ($data['catopt'] == "NULL" || $data['catopt'] == NULL) {
-                    $data['catopt'] = "";
-                } else {
-                    $data['catopt'] = $data['catopt'] . ", ";
+                    $data['sampleCoating'] = $data['sampleCoating'] . ", ";
                 }
                 
                 if ($data['decoration'] == "NULL" || $data['decoration'] == NULL) {
@@ -314,26 +309,26 @@ class db_traitement {
                 } else {
                     $data['typology'] = $data['typology'] . ", ";
                 }
-                if ($data['name_site'] == "NULL" || $data['name_site'] == NULL) {
-                    $data['name_site'] = "";
+                if ($data['prov_site'] == "NULL" || $data['prov_site'] == NULL) {
+                    $data['prov_site'] = "";
                 } else {
-                    $data['name_site'] = $data['name_site'] . ", ";
+                    $data['prov_site'] = $data['prov_site'] . ", ";
                 }
-                if ($data['name_town'] == "NULL" || $data['name_town'] == NULL) {
-                    $data['name_town'] = "";
+                if ($data['prov_town'] == "NULL" || $data['prov_town'] == NULL) {
+                    $data['prov_town'] = "";
                 } else {
-                    $data['name_town'] = $data['name_town'] . ", ";
+                    $data['prov_town'] = $data['prov_town'] . ", ";
                 }
-                if ($data['name_region'] == "NULL" || $data['name_region'] == NULL) {
-                    $data['name_region'] = "";
+                if ($data['prov_region'] == "NULL" || $data['prov_region'] == NULL) {
+                    $data['prov_region'] = "";
                 } else {
-                    $data['name_region'] = $data['name_region'] . ", ";
+                    $data['prov_region'] = $data['prov_region'] . ", ";
                 }
-                if ($data['name_country'] == "NULL" || $data['name_country'] == NULL) {
-                    $data['name_country'] = "";
+                if ($data['prov_country'] == "NULL" || $data['prov_country'] == NULL) {
+                    $data['prov_country'] = "";
                 }
-                if ($data['nom'] == "NULL" || $data['nom'] == NULL) {
-                    $data['nom'] = "Aucun Nom Dispo";
+                if ($data['nameSample'] == "NULL" || $data['nameSample'] == NULL) {
+                    $data['nameSample'] = "Aucun Nom Dispo";
                 }
                 if ($data['id_graphical_doc'] == "NULL" || $data['id_graphical_doc'] == NULL) {
                     $data['id_graphical_doc'] = "";
@@ -342,18 +337,18 @@ class db_traitement {
                 $descritption = "<b>Description : </b>". $data['catopt'] . " " . $data['form'] . " " . $data['typology'];
                 
                 if($mode == "List"){
-                    $descritption = $descritption  . " " . $data['decoration'] . " " . $data['coating'];
+                    $descritption = $descritption  . " " . $data['decoration'] . " " . $data['sampleCoating'];
                 }
                 
                 
                 
-                $descritption = $descritption . "<br /><b>Localisation : </b>" . $data['name_site'] . " " . $data['name_town'] . " " . $data['name_region'] . " " . $data['name_country'] . " ";
+                $descritption = $descritption . "<br /><b>Localisation : </b>" . $data['prov_site'] . " " . $data['prov_town'] . " " . $data['prov_region'] . " " . $data['prov_country'] . " ";
                 
                 if($mode == "List"){
                     $descritption = $descritption . ""
-                            . ", " . $data['atelier'] . "" . $data['excavation'] . "" . $data['museum']
+                            . ", " . $data['atelier'] . "" . $data['excavationProv'] . "" . $data['museumProv']
                             . "<br/>"
-                            . "<b>Datation : </b>" . $data['dating_general'] . " " . $data['dating_precise'] ."<br/>"
+                            . "<b>Datation : </b>" . $data['sampleDatingGeneral'] . " " . $data['sampleDP'] ."<br/>"
                             . "<b>n° Analyses :</b> ff";
                     if($data['was'] == "yes" || $data['was'] == "possibly"){
                         if($data['was'] == "yes"){
@@ -364,10 +359,10 @@ class db_traitement {
                     }
                 }
                 
-                if ($data['url_doc'] == NULL) {
-                    $objet->setObject("../Ressources/no-img.png",/*$data['num_chemistry']*/ $data['nom'] . " | " . $data['num_chemistry'], $descritption, $data['objectId']);
+                if ($data['url_document'] == NULL) {
+                    $objet->setObject("../Ressources/no-img.png",/*$data['num_chemistry']*/ $data['nameSample'] . " | " . $data['num_chemistry'], $descritption, $data['objectId']);
                 } else {
-                    $objet->setObject($data['url_doc'],/*$data['num_chemistry']*/ $data['nom'] . " | " . $data['num_chemistry'], $descritption, $data['objectId']);
+                    $objet->setObject($data['url_document'],/*$data['num_chemistry']*/ $data['nameSample'] . " | " . $data['num_chemistry'], $descritption, $data['objectId']);
                 }
                 $content = $content . $objet->selectDisplay($mode);
                 $i = $i + 1;
